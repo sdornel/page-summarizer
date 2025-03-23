@@ -4,7 +4,8 @@ use core::crawler::run_crawler;
 
 #[tokio::main]
 async fn main() {
-    let warc_path = "./example.warc.gz"; // placeholder
+    // let warc_path = "./example.warc.gz"; // placeholder
+    let warc_path = "/home/kai/Downloads/CC-MAIN-20240318101932-20240318131932-00000.warc.gz";
 
     match run_crawler(warc_path).await {
         Ok(_) => println!("✅ Crawling completed."),
