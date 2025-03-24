@@ -1,11 +1,7 @@
 services:
   research:
-    # image: deep-research
     build: .
     volumes:
-      - .:/app  # Live code syncing
-    working_dir: /app
-    ports:
-      - "7860:7860"
-    command: streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --logger.level=debug
-
+      - .:/app
+      - ./agents:/agents
+    command: cargo run

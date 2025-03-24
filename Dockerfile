@@ -1,17 +1,29 @@
-# Use official Python + Playwright image
-FROM mcr.microsoft.com/playwright/python:v1.51.0-jammy
+FROM rust:1.84-bullseye
 
-# Set working directory
+# Install Python + venv tools
+RUN apt-get update && \
+    apt-get install -y python3 python3-venv python3-pip && \
+    apt-get clean
+
+# Set working dir
 WORKDIR /app
 
-# Copy files
+# Copy project files
 COPY . .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Python + venv tools
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip python3-venv python3-distutils && \
+    python3 -m venv /opt/venv && \
+    /opt/venv/bin/pip install --upgrade pip && \
+    /opt/venv/bin/pip install -r /app/requirements.txt && \
+    apt-get clean
 
-# Install Playwright browser binaries
-RUN playwright install
+# Tell Rust code to use the virtualenv Python
+ENV PATH="/app/venv/bin:$PATH"
 
-# Run Streamlit app and log full server info
-CMD ["streamlit", "run", "app.py", "--server.port=7860", "--server.address=0.0.0.0", "--logger.level=debug"]
+# Build Rust project
+RUN cargo build
+
+# Default command
+CMD ["cargo", "run"]
