@@ -1,9 +1,12 @@
 [package]
-name = "hello-rust"
+name = "main"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
+serde_json = "1.0"
 tokio = { version = "1", features = ["full"] }
 warc = "0.3"
 html2text = "0.4"
+flate2 = "1.0"
+unicode-truncate = "0.2"

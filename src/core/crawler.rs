@@ -1,5 +1,5 @@
 use std::fs::File;
-use std::io::{BufReader, Read};
+use std::io::{BufReader, Read, Write};
 use std::process::{Command, Stdio};
 use std::error::Error;
 use std::borrow::Cow;
@@ -7,12 +7,47 @@ use std::borrow::Cow;
 use warc::{WarcReader, WarcHeader};
 use flate2::read::MultiGzDecoder;
 use unicode_truncate::UnicodeTruncateStr;
+use serde_json::json;
+
+fn summarize_with_python(content: &[u8]) -> Result<String, Box<dyn Error>> {
+    let mut child = Command::new("/opt/venv/bin/python")
+        .arg("agents/summarize.py")
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .spawn()?;
+
+    if let Some(stdin) = child.stdin.as_mut() {
+        stdin.write_all(content)?;
+    }
+
+    let output = child.wait_with_output()?;
+    Ok(String::from_utf8_lossy(&output.stdout).to_string())
+}
+
+fn is_relevant_with_python(topic: &str, content: &str) -> Result<bool, Box<dyn Error>> {
+    let input = json!({ "topic": topic, "content": content }).to_string();
+
+    let mut child = Command::new("/opt/venv/bin/python")
+        .arg("agents/relevance.py")
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .spawn()?;
+
+    if let Some(stdin) = child.stdin.as_mut() {
+        stdin.write_all(input.as_bytes())?;
+    }
+
+    let output = child.wait_with_output()?;
+    let result = String::from_utf8_lossy(&output.stdout);
+    Ok(result.trim() == "RELEVANT")
+}
 
 pub async fn run_crawler(warc_path: &str) -> Result<(), Box<dyn Error>> {
     let file = File::open(warc_path)?;
     let decoder = MultiGzDecoder::new(file);
     let reader = BufReader::new(decoder);
     let warc_reader = WarcReader::new(reader);
+    let topic = "Ethics and AI";
 
     let mut count = 0;
     // let max_pages = 1000;
@@ -40,14 +75,31 @@ pub async fn run_crawler(warc_path: &str) -> Result<(), Box<dyn Error>> {
                     .header(WarcHeader::Date)
                     .unwrap_or(Cow::Borrowed("unknown"));
 
-                let mut body = String::new();
-                if let Err(e) = record.body().read_to_string(&mut body) {
-                    eprintln!("⚠️ Skipping non-UTF8 record: {}", e);
+                let mut raw_body = Vec::new();
+                if let Err(e) = record.body().read_to_end(&mut raw_body) {
+                    eprintln!("⚠️ Failed to read record body: {}", e);
                     continue;
                 }
-                
-                
-                let html = body
+
+                let is_relevant = is_relevant_with_python(topic, &String::from_utf8_lossy(&raw_body))?;
+                if !is_relevant {
+                    continue;
+                }
+
+                let body_str = match String::from_utf8(raw_body.clone()) {
+                    Ok(s) => s,
+                    Err(_) => {
+                        let summary = summarize_with_python(&raw_body)?;
+                        println!(
+                            "\n📄 URL: {}\n🕒 Timestamp: {}\n✍️ Summary:\n{}",
+                            url, timestamp, summary
+                        );
+                        count += 1;
+                        continue;
+                    }
+                };
+
+                let html = body_str
                     .splitn(2, "\r\n\r\n")
                     .nth(1)
                     .unwrap_or("")
@@ -58,38 +110,21 @@ pub async fn run_crawler(warc_path: &str) -> Result<(), Box<dyn Error>> {
                 }
 
                 let readable = html2text::from_read(html.as_bytes(), 80);
-
                 let lower = readable.to_lowercase();
                 if lower.contains("accept cookies") || lower.contains("404 not found") {
                     continue;
                 }
 
-                // println!(
-                //     "\n🔗 URL: {}\n🕒 Timestamp: {}\n🧾 Raw Text (preview):\n{}",
-                //     url,
-                //     timestamp,
-                //     readable.unicode_truncate(1000).0
-                // );
-
-                let mut child = Command::new("/opt/venv/bin/python")
-                    .arg("agents/summarize.py")
-                    .stdin(Stdio::piped())
-                    .stdout(Stdio::piped())
-                    .spawn()
-                    .map_err(|e| format!("❌ Failed to run summarize.py: {}", e))?;
-
-                if let Some(stdin) = child.stdin.as_mut() {
-                    use std::io::Write;
-                    write!(stdin, "{}", readable)?;
+                if !is_relevant_with_python(topic, &readable)? {
+                    continue;
                 }
 
-                let output = child.wait_with_output()?;
-                let summary = String::from_utf8_lossy(&output.stdout);
+                let summary = summarize_with_python(html.as_bytes())?;
 
-                // println!(
-                //     "\n📄 URL: {}\n🕒 Timestamp: {}\n✍️ Summary:\n{}",
-                //     url, timestamp, summary
-                // );
+                println!(
+                    "\n📄 URL: {}\n🕒 Timestamp: {}\n✍️ Summary:\n{}",
+                    url, timestamp, summary
+                );
 
                 count += 1;
             }
