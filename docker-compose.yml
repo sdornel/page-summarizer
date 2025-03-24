@@ -1,7 +1,0 @@
-services:
-  research:
-    build: .
-    volumes:
-      - .:/app
-      - ./agents:/agents
-    command: cargo run

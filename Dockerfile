@@ -1,29 +1,39 @@
+# Use official Rust image as base
 FROM rust:1.84-bullseye
 
-# Install Python + venv tools
+# Install only required system deps
 RUN apt-get update && \
-    apt-get install -y python3 python3-venv python3-pip && \
-    apt-get clean
+    apt-get install -y \
+        chromium \
+        python3 \
+        python3-venv \
+        python3-pip \
+        && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Set working dir
+# Set working directory
 WORKDIR /app
 
-# Copy project files
+# Copy all source code into the container
 COPY . .
 
-# Install Python + venv tools
-RUN apt-get update && \
-    apt-get install -y python3 python3-pip python3-venv python3-distutils && \
-    python3 -m venv /opt/venv && \
+# Install Node.js dependencies
+WORKDIR /app/puppeteer
+RUN npm install
+
+# Install Python dependencies via virtualenv
+WORKDIR /app
+RUN python3 -m venv /opt/venv && \
     /opt/venv/bin/pip install --upgrade pip && \
-    /opt/venv/bin/pip install -r /app/requirements.txt && \
-    apt-get clean
+    if [ -f requirements.txt ]; then /opt/venv/bin/pip install -r requirements.txt; fi
 
-# Tell Rust code to use the virtualenv Python
-ENV PATH="/app/venv/bin:$PATH"
+ENV PATH="/opt/venv/bin:$PATH"
 
-# Build Rust project
-RUN cargo build
+# Build the Rust scraper
+WORKDIR /app/rust_scraper
+RUN cargo build --release
 
-# Default command
-CMD ["cargo", "run"]
+# Default back to root for the Python script
+WORKDIR /app
+
+# Run the orchestrator (query can be overridden in docker-compose)
+ENTRYPOINT ["python3", "run.py"]

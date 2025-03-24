@@ -2,3 +2,5 @@
 /DS_Store
 /.vscode
 /target
+/google-scraper/node_modules
+/old
