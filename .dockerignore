@@ -1,0 +1,30 @@
+# Node
+node_modules
+**/node_modules
+
+# Rust
+target
+**/target
+
+# Python
+__pycache__/
+*.pyc
+.venv
+opt/
+env/
+.venv/
+**/__pycache__/
+
+# Common build/IDE/config files
+*.log
+*.db
+*.DS_Store
+.env
+.env.*
+.vscode/
+.git/
+urls.json
+dist/
+build/
+.cache/
+coverage/
