@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 PUPPETEER_DIR = ROOT / "search-engine-scraper"
-RUST_DIR = ROOT / "rust_scraper"
+RUST_DIR = ROOT / "rust-scraper"
 
 def run_subprocess(cmd, cwd):
     print(f"▶️ Running: {' '.join(cmd)}")
@@ -17,17 +17,9 @@ def main():
         print("❌ Please provide a search query.")
         sys.exit(1)
 
-    query = " ".join(sys.argv[1:])
-
     try:
-        # run puppeteer (dual scraper — handles merging)
-        run_subprocess(
-            ["node", "scraper.js", query],
-            cwd=PUPPETEER_DIR
-        )
-
         # run rust scraper
-        # run_subprocess(["cargo", "run", "--release"], cwd=RUST_DIR)
+        run_subprocess(["cargo", "run", "--release"], cwd=RUST_DIR)
 
         print("🎉 Scraping pipeline complete.")
     except Exception as e:

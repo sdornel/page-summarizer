@@ -23,8 +23,8 @@ node search-engine-scraper/scraper.js "$QUERY"
 
 echo "▶️ Running deep analysis in Podman..."
 
-podman run --rm \
-  -v "$OUTPUT_DIR":/app/output:Z \
+podman run --rm -it \
+  -v "$(pwd)/$OUTPUT_DIR":/app/output:Z \
   -w /app \
   deep-research \
   python3 run.py "$QUERY"
