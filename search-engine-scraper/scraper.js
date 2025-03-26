@@ -35,11 +35,11 @@ const outputFile = "output/urls.json";
 
     await page.waitForNavigation({ waitUntil: "networkidle2" });
 
-    // try {
-    //   await page.waitForSelector("#links", { timeout: 10000 });
-    // } catch (e) {
-    //   console.log("❌ Could not find #links, maybe a different layout is used.");
-    // }
+    try {
+      await page.waitForSelector("#links", { timeout: 10000 });
+    } catch (e) {
+      console.log("❌ Could not find #links, maybe a different layout is used.");
+    }
 
     const allResults = [];
 
@@ -67,7 +67,7 @@ const outputFile = "output/urls.json";
       console.log("Clicking 'More Results' button...");
       await moreButton.click();
 
-      // await new Promise(resolve => setTimeout(resolve, 2000)); // this might be redundant?
+      await new Promise(resolve => setTimeout(resolve, 2000)); // this might be redundant?
 
       const foundMore = await page.waitForSelector("#more-results", { timeout: 10000 })
         .catch(() => {
