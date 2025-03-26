@@ -1,18 +1,18 @@
 FROM python:3.12
 
-# Install essential system packages (as root)
+# Install system packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl build-essential pkg-config libssl-dev ca-certificates \
  && rm -rf /var/lib/apt/lists/*
 
-# Set a non-root user (best security practice)
+# Create non-root user
 RUN useradd -m -u 1000 appuser
 USER appuser
 
-# Set working directory (home directory of the appuser)
+# Set working directory
 WORKDIR /home/appuser/app
 
-# Install Rust as the non-root user
+# Install Rust
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH="/home/appuser/.cargo/bin:$PATH"
 
@@ -20,18 +20,23 @@ ENV PATH="/home/appuser/.cargo/bin:$PATH"
 RUN python3 -m venv /home/appuser/venv
 ENV PATH="/home/appuser/venv/bin:$PATH"
 
-# Install Python dependencies
+# Copy and install Python deps
 COPY --chown=appuser:appuser requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy and build your Rust project
+# Copy and build Rust project
 COPY --chown=appuser:appuser rust-scraper ./rust-scraper
 WORKDIR /home/appuser/app/rust-scraper
 RUN cargo build --release
 
-# Copy your Python scripts and the rest of your project
+# Go back to app dir
 WORKDIR /home/appuser/app
-COPY --chown=appuser:appuser . .
 
-# Default command to run Python script
+# Ensure run.py is explicitly copied
+COPY --chown=appuser:appuser run.py .
+
+# (Optional) Copy any other needed files or folders
+# COPY --chown=appuser:appuser . .
+
+# Run your Python script
 CMD ["python3", "run.py"]
