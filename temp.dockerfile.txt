@@ -1,0 +1,44 @@
+# Start from official Node.js base image
+FROM node:22
+
+# Prevent Puppeteer from downloading Chromium
+ENV PUPPETEER_SKIP_DOWNLOAD=true
+
+# Install Chrome and required dependencies
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+    wget \
+    gnupg \
+    ca-certificates \
+    fonts-ipafont-gothic \
+    fonts-wqy-zenhei \
+    fonts-thai-tlwg \
+    fonts-kacst \
+    fonts-freefont-ttf \
+    libxss1 \
+    apt-transport-https \
+ && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+ && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" \
+    | tee /etc/apt/sources.list.d/google-chrome.list \
+ && apt-get update \
+ && apt-get install -y --no-install-recommends \
+    google-chrome-stable \
+ && rm -rf /var/lib/apt/lists/*
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Copy your project files into the container
+COPY . .
+
+# Create non-root user and fix permissions
+RUN useradd -m -r -s /bin/bash pptruser \
+ && mkdir -p /usr/src/app/output \
+ && chown -R pptruser:pptruser /usr/src/app
+
+# Switch to non-root user
+USER pptruser
+
+# Init npm and install puppeteer (without bundled Chromium)
+RUN npm init -y \
+ && npm install puppeteer
