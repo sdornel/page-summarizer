@@ -9,16 +9,16 @@ if (!query) {
 }
 
 const pages = 10;
-const outFile = "urls.json";
+const outputFile = "output/urls.json";
 
 (async function main() {
   console.log("✅ Starting DuckDuckGo scraper in a single process...");
-  console.log(`   Query="${query}", pages=${pages}, outFile="${outFile}"\n`);
+  console.log(`   Query="${query}", pages=${pages}, outputFile="${outputFile}"\n`);
 
   const browser = await puppeteer.launch({
-    headless: false,
-    slowMo: 50,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    executablePath: '/opt/google/chrome/google-chrome',
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
   try {
@@ -51,7 +51,7 @@ const outFile = "urls.json";
           document.querySelectorAll('a[data-handled-by-react="true"]')
         ).map(a => a.href);
       });
-      console.log(`   Found ${pageLinks.length} links on page ${i + 1}`);
+      console.log(`   Found ${pageLinks.length} links in total`);
       allResults.push(...pageLinks);
 
       let moreButton = await page.$("#more-results");
@@ -79,8 +79,10 @@ const outFile = "urls.json";
     const uniqueLinks = [...new Set(allResults)];
     console.log(`\n✅ Collected ${uniqueLinks.length} unique links total.`);
 
-    fs.writeFileSync(outFile, JSON.stringify(uniqueLinks, null, 2));
-    console.log(`   Results saved to ${outFile}.`);
+    fs.mkdirSync("output", { recursive: true }); // create directory if not exists
+
+    fs.writeFileSync(outputFile, JSON.stringify(uniqueLinks, null, 2));
+    console.log(`   Results saved to ${outputFile}.`);
 
     await browser.close();
     console.log("\n✅ Done. Exiting normally.");
