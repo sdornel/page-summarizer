@@ -19,11 +19,11 @@ mkdir -p "$OUTPUT_DIR"
 # I got fed up and just created this bash script instead of only using Docker
 
 # Run Puppeteer (assumes node_modules are installed already)
-node search-engine-scraper/scraper.js "$QUERY"
+# node search-engine-scraper/scraper.js "$QUERY" # required unless you already have url array inside urls.json
 
 echo "▶️ Running deep analysis in Podman..."
 
-podman build --progress=plain -t deep-research .
+podman build --progress=plain -t deep-research . # if you need to build again (takes a while)
 
 podman run --rm -it \
   -v "$(pwd)/$OUTPUT_DIR":/app/output:Z \

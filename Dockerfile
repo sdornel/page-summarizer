@@ -24,6 +24,9 @@ ENV PATH="/home/appuser/venv/bin:$PATH"
 COPY --chown=appuser:appuser requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
+# Make output folder available
+COPY output/ ./output/
+
 # Copy and build Rust project
 COPY --chown=appuser:appuser rust-scraper ./rust-scraper
 WORKDIR /home/appuser/app/rust-scraper
