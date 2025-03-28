@@ -9,9 +9,14 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     println!("Raw JSON data:\n{}", json_data);
 
-    // for url in &urls {
-    //     println!("{}", url);
-    // }
+    for (i, url) in urls.iter().enumerate() {
+        println!("{} => {}", i, url);
+        // match fetch_url(url).await {}
+    }
 
     Ok(())
 }
+
+// async fn fetch_url(url: &str) -> Result<String, Box<dyn Error>> {
+
+// }
