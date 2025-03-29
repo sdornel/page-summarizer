@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 PUPPETEER_DIR = ROOT / "scrapers-js"
-RUST_DIR = ROOT / "rust-scraper"
+RUST_DIR = ROOT
 
 def run_subprocess(cmd, cwd):
     print(f"▶️ Running: {' '.join(cmd)}")

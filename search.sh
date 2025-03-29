@@ -26,7 +26,6 @@ echo "▶️ Running deep analysis in Podman..."
 podman build --progress=plain -t deep-research . # if you need to build again (takes a while)
 
 podman run --rm -it \
-  -v "$(pwd)/$OUTPUT_DIR":/app/output:Z \
-  -w /home/appuser/app \
+  -v "$(pwd)/$OUTPUT_DIR":/home/appuser/app/output:Z \
   deep-research \
-  python3 run.py "$QUERY"
+  python3 src/run.py "$QUERY"

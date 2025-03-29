@@ -1,45 +1,41 @@
 FROM python:3.12
 
-# Install system packages
+# Step 1: Install system packages (as root)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    curl build-essential pkg-config libssl-dev ca-certificates \
- && rm -rf /var/lib/apt/lists/*
+    curl build-essential pkg-config libssl-dev ca-certificates gnupg \
+  && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+  && apt-get install -y nodejs \
+  && rm -rf /var/lib/apt/lists/*
 
-# Create non-root user
-RUN useradd -m -u 1000 appuser
+# Create non-root user and give full ownership
+RUN useradd -m -u 1000 appuser \
+ && mkdir -p /home/appuser/app \
+ && chown -R appuser:appuser /home/appuser/app
+
+RUN mkdir -p /home/appuser/app/target && chown -R appuser:appuser /home/appuser/app/target
+
+# Switch to non-root user
 USER appuser
-
-# Set working directory
 WORKDIR /home/appuser/app
 
-# Install Rust
+# Step 3: Install Rust as appuser
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH="/home/appuser/.cargo/bin:$PATH"
 
-# Set up Python virtualenv
+# Step 4: Set up Python virtualenv
 RUN python3 -m venv /home/appuser/venv
 ENV PATH="/home/appuser/venv/bin:$PATH"
 
-# Copy and install Python deps
-COPY --chown=appuser:appuser requirements.txt .
+# Copy your code
+COPY --chown=appuser:appuser . .
+
+# Install Node and Python dependencies
+RUN cd /home/appuser/app && npm install
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Make output folder available
-COPY output/ ./output/
-
-# Copy and build Rust project
-COPY --chown=appuser:appuser rust-scraper ./rust-scraper
-WORKDIR /home/appuser/app/rust-scraper
+# Step 6: Build Rust project
 RUN cargo build --release
 
-# Go back to app dir
+# Step 7: Set working directory and run script
 WORKDIR /home/appuser/app
-
-# Ensure run.py is explicitly copied
-COPY --chown=appuser:appuser run.py .
-
-# (Optional) Copy any other needed files or folders
-# COPY --chown=appuser:appuser . .
-
-# Run your Python script
-CMD ["python3", "run.py"]
+ENTRYPOINT ["python3", "src/run.py"]

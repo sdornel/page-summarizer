@@ -961,7 +961,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rust-scraper"
+name = "scraper"
 version = "0.1.0"
 dependencies = [
  "reqwest",

@@ -1,9 +1,11 @@
 
-use std::fs; // file parsing
-use std::error::Error; // allows us to use Result for error handling
 use ua_generator::ua::spoof_ua; // fake user agent
 use reqwest::header::{HeaderMap, HeaderValue, USER_AGENT, ACCEPT, ACCEPT_LANGUAGE, REFERER}; // allows to set headers
-use std::process::Command;
+// use std::env;
+use std::path::Path;
+// use std::process::Command;
+use std::fs; // file parsing
+use std::error::Error; // allows us to use Result for error handling
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
@@ -22,15 +24,22 @@ async fn main() -> Result<(), Box<dyn Error>> {
         }
 
         println!("{} => {}", i, url);
-        match fetch_url(url).await {
-            Ok(body) => println!("✅ Success: {} bytes\n", body.len()),
+        let result = fetch_url(url).await.or_else(|_| fallback_to_puppeteer(url));
+
+        match result {
+            Ok(body) => println!("✅ Final Success: {} bytes\n", body.len()),
             Err(error) => {
                 println!("❌ Failed to fetch: {}\n", error);
                 rust_failed_count += 1;
-
-
-            },
+            },        
         }
+        // match fetch_url(url).await {
+        //     Ok(body) => println!("✅ Success: {} bytes\n", body.len()),
+        //     Err(error) => {
+        //         println!("❌ Failed to fetch: {}\n", error);
+        //         rust_failed_count += 1;
+        //     },
+        // }
     }
     println!("rust_failed_count: {}", rust_failed_count); // measure how effective my fetch_url function is
     Ok(())
@@ -81,9 +90,11 @@ async fn fetch_url(url: &str) -> Result<String, Box<dyn Error>> {
     Ok(body)
 }
 
-fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn Error>> {
-    let output = Command::new("node")
-        .arg("backup_page_opener.js")
+fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn std::error::Error>> {
+    let script_path = Path::new("scrapers-js/backup-page-opener.js");
+
+    let output = std::process::Command::new("node")
+        .arg(script_path)
         .arg(url)
         .output()?;
 
@@ -91,6 +102,6 @@ fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn Error>> {
         return Err(format!("Puppeteer fallback failed: {:?}", output).into());
     }
 
-    let text += String::from_utf8(output.stdout)?;
-    Ok(text);
+    let text = String::from_utf8(output.stdout)?;
+    Ok(text)
 }
