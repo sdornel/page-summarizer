@@ -1,3 +1,5 @@
+# this must all be hardened before it goes to prod!
+
 FROM python:3.12
 
 # Step 1: Install system packages (as root)
