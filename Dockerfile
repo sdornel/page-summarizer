@@ -3,22 +3,23 @@ FROM python:3.12
 # Step 1: Install system packages (as root)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl build-essential pkg-config libssl-dev ca-certificates gnupg \
-  && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
-  && apt-get install -y nodejs \
-  && rm -rf /var/lib/apt/lists/*
+    wget unzip fonts-liberation libnss3 libatk1.0-0 libatk-bridge2.0-0 \
+    libcups2 libdrm2 libxcomposite1 libxdamage1 libxrandr2 libgbm1 \
+    libasound2 libpangocairo-1.0-0 libpangoft2-1.0-0 libxss1 libxshmfence1 \
+    libgtk-3-0 libx11-xcb1 libxext6 libxfixes3 xvfb \
+ && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+ && apt-get install -y nodejs \
+ && rm -rf /var/lib/apt/lists/*
 
-# Create non-root user and give full ownership
-RUN useradd -m -u 1000 appuser \
- && mkdir -p /home/appuser/app \
- && chown -R appuser:appuser /home/appuser/app
+# Step 2: Create non-root user
+RUN useradd -m -u 1000 appuser
 
-RUN mkdir -p /home/appuser/app/target && chown -R appuser:appuser /home/appuser/app/target
+RUN mkdir -p /home/appuser/app/node_modules && chown -R appuser:appuser /home/appuser/app
 
-# Switch to non-root user
 USER appuser
 WORKDIR /home/appuser/app
 
-# Step 3: Install Rust as appuser
+# Step 3: Install Rust
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH="/home/appuser/.cargo/bin:$PATH"
 
@@ -26,16 +27,16 @@ ENV PATH="/home/appuser/.cargo/bin:$PATH"
 RUN python3 -m venv /home/appuser/venv
 ENV PATH="/home/appuser/venv/bin:$PATH"
 
-# Copy your code
+# Step 5: Copy entire project (everything lives at root level)
 COPY --chown=appuser:appuser . .
 
-# Install Node and Python dependencies
-RUN cd /home/appuser/app && npm install
+# Step 6: Install Python and Node dependencies
 RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN npm install
 
-# Step 6: Build Rust project
+# Step 7: Build Rust
 RUN cargo build --release
 
-# Step 7: Set working directory and run script
+# Step 8: Define final working directory and run script
 WORKDIR /home/appuser/app
 ENTRYPOINT ["python3", "src/run.py"]

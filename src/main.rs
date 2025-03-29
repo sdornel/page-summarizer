@@ -33,13 +33,6 @@ async fn main() -> Result<(), Box<dyn Error>> {
                 rust_failed_count += 1;
             },        
         }
-        // match fetch_url(url).await {
-        //     Ok(body) => println!("✅ Success: {} bytes\n", body.len()),
-        //     Err(error) => {
-        //         println!("❌ Failed to fetch: {}\n", error);
-        //         rust_failed_count += 1;
-        //     },
-        // }
     }
     println!("rust_failed_count: {}", rust_failed_count); // measure how effective my fetch_url function is
     Ok(())
