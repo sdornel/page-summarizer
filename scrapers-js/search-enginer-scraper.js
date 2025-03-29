@@ -76,7 +76,9 @@ const outputFile = "output/urls.json";
       if (!foundMore) break;
     }
 
-    const uniqueLinks = [...new Set(allResults)];
+    const uniqueLinks = [...new Set(allResults)].filter(link => {
+      return !link.includes("duckduckgo.com/?q=");
+    });
     console.log(`\n✅ Collected ${uniqueLinks.length} unique links total.`);
 
     fs.mkdirSync("output", { recursive: true }); // create directory if not exists

@@ -19,7 +19,7 @@ mkdir -p "$OUTPUT_DIR"
 # I got fed up and just created this bash script instead of only using Docker
 
 # Run Puppeteer (assumes node_modules are installed already)
-# node search-engine-scraper/scraper.js "$QUERY" # required unless you already have url array inside urls.json
+# node scrapers-js/search-engine-scraper.js "$QUERY" # required unless you already have url array inside urls.json
 
 echo "▶️ Running deep analysis in Podman..."
 

@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-PUPPETEER_DIR = ROOT / "search-engine-scraper"
+PUPPETEER_DIR = ROOT / "scrapers-js"
 RUST_DIR = ROOT / "rust-scraper"
 
 def run_subprocess(cmd, cwd):
