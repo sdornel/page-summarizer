@@ -3,6 +3,7 @@ use std::fs; // file parsing
 use std::error::Error; // allows us to use Result for error handling
 use ua_generator::ua::spoof_ua; // fake user agent
 use reqwest::header::{HeaderMap, HeaderValue, USER_AGENT, ACCEPT, ACCEPT_LANGUAGE, REFERER}; // allows to set headers
+use std::process::Command;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
@@ -11,8 +12,10 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let urls: Vec<String> = serde_json::from_str(&json_data)?;
 
     println!("Raw JSON data:\n{}", json_data);
-
+    let mut rust_failed_count: i32 = 0;
     for (i, url) in urls.iter().enumerate() {
+
+        // probably redundant. see search-engine-scraper.js
         if url.contains("duckduckgo.com/?q=") {
             println!("{} => ⏩ Skipped DuckDuckGo redirect: {}", i, url);
             continue;
@@ -21,10 +24,15 @@ async fn main() -> Result<(), Box<dyn Error>> {
         println!("{} => {}", i, url);
         match fetch_url(url).await {
             Ok(body) => println!("✅ Success: {} bytes\n", body.len()),
-            Err(error) => println!("❌ Failed to fetch: {}\n", error),
+            Err(error) => {
+                println!("❌ Failed to fetch: {}\n", error);
+                rust_failed_count += 1;
+
+
+            },
         }
     }
-
+    println!("rust_failed_count: {}", rust_failed_count); // measure how effective my fetch_url function is
     Ok(())
 }
 
@@ -46,14 +54,16 @@ async fn fetch_url(url: &str) -> Result<String, Box<dyn Error>> {
     let domain = url.split('/').take(3).collect::<Vec<_>>().join("/");
     headers.insert(REFERER, HeaderValue::from_str(&domain)?);
 
-    headers.insert(REFERER, HeaderValue::from_static("https://www.duckduckgo.com"));
     headers.insert("Sec-Fetch-Site", HeaderValue::from_static("none"));
     headers.insert("Sec-Fetch-Mode", HeaderValue::from_static("navigate"));
     headers.insert("Sec-Fetch-Dest", HeaderValue::from_static("document"));
     headers.insert("Upgrade-Insecure-Requests", HeaderValue::from_static("1"));
     headers.insert("Cache-Control", HeaderValue::from_static("max-age=0"));
 
-    let client = reqwest::Client::new();
+    // let client = reqwest::Client::new();
+    let client = reqwest::Client::builder()
+        .user_agent(spoof_ua()) // backup user-agent
+        .build()?;
     
     // let response = reqwest::get(url).await?;
     let response = client
@@ -69,4 +79,18 @@ async fn fetch_url(url: &str) -> Result<String, Box<dyn Error>> {
 
     let body = response.text().await?;
     Ok(body)
+}
+
+fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn Error>> {
+    let output = Command::new("node")
+        .arg("backup_page_opener.js")
+        .arg(url)
+        .output()?;
+
+    if !output.status.success() {
+        return Err(format!("Puppeteer fallback failed: {:?}", output).into());
+    }
+
+    let text += String::from_utf8(output.stdout)?;
+    Ok(text);
 }
