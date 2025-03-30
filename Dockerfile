@@ -38,13 +38,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libssl3 \
     chromium \
     libnss3 libxss1 libasound2 libxtst6 libgtk-3-0 libgbm1 \
+    nodejs \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy artifacts
 COPY --from=builder /scraper-bin /app/scraper
-COPY src/run.py /app/src/
+# COPY src/run.py /app/src/
 
-COPY src/scrapers-js/ /app/src/scrapers-js/
+# Copy the entire src folder
+COPY src/ /app/src/
+
+# COPY src/scrapers-js/ /app/src/scrapers-js/
 
 COPY requirements.txt /app/
 
@@ -70,7 +74,7 @@ RUN find /app -type d -exec chmod 755 {} + \
 # Apply executable permission for the binary
 RUN chmod 755 /app/scraper
 # Apply executable permission for the backup page opener
-RUN chmod 755 /app/src/scrapers-js/backup-page-opener.js
+RUN chmod 755 /app/src/scrapers-js/backup-page-opener.mjs
 
 # Switch to non-root user and set working directory
 USER appuser
