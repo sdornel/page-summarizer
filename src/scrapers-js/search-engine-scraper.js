@@ -16,9 +16,19 @@ const outputFile = "output/urls.json";
   console.log(`   Query="${query}", pages=${pages}, outputFile="${outputFile}"\n`);
 
   const browser = await puppeteer.launch({
-    // executablePath: '/opt/google/chrome/google-chrome',
+    // // executablePath: '/opt/google/chrome/google-chrome',
+    // headless: true,
+    // args: ['--no-sandbox', '--disable-setuid-sandbox'],
+
     headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--single-process',
+      '--no-zygote',
+      '--disable-gpu'
+    ]
   });
 
   try {
