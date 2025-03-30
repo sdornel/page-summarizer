@@ -1,30 +1,56 @@
-# Node
-node_modules
+# Unified patterns using extended glob syntax
+**/[._]*
+**/*~
+
+# Development artifacts
+/target
 **/node_modules
+**/__pycache__
+**/*.py[cod]
+**/*.egg-info
+**/*.so
+**/*.dll
+**/*.exe
 
-# Rust
-target
-**/target
-
-# Python
-__pycache__/
-*.pyc
-.venv
-opt/
-env/
-.venv/
-**/__pycache__/
-
-# Common build/IDE/config files
-*.log
-*.db
-*.DS_Store
+# Environment/config
 .env
 .env.*
-.vscode/
-.git/
-urls.json
-dist/
-build/
-.cache/
-coverage/
+*.secret
+*.token
+*.key
+docker-compose*.yml
+
+# Build/test outputs
+/dist
+/build
+/coverage
+*.log
+*.tmp
+
+# IDE/editor
+.vscode
+.idea
+.project
+*.swp
+*.swo
+
+# Documentation
+/docs
+/examples
+/tests
+/benchmarks
+
+# Version control
+.git
+.gitignore
+.gitmodules
+
+# Platform-specific
+.DS_Store
+Thumbs.db
+
+# Unnecessary files
+*.md
+LICENSE
+NOTICE
+CHANGELOG
