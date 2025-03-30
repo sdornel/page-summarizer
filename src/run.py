@@ -16,6 +16,8 @@ def main():
     if len(sys.argv) < 2:
         print("❌ Please provide a search query.")
         sys.exit(1)
+    query = sys.argv[1]
+    print(f"🔍 Running search for: {query}")
 
     try:
         # run rust scraper

@@ -1,36 +1,28 @@
 #!/usr/bin/env bash
-
 set -e
 
-QUERY="$*"
-OUTPUT_DIR="./output"
-
-if [ -z "$QUERY" ]; then
+if [ "$#" -eq 0 ]; then
   echo "❌ Please provide a search query."
-  echo "Usage: ./scrape.sh \"your search query here\""
+  echo "Usage: ./search.sh \"your search query here\""
   exit 1
 fi
 
-# Make sure output directory exists
+OUTPUT_DIR="./output"
+TARGET_DIR="./target"
+
+# Ensure output and target directories exist on the host
 mkdir -p "$OUTPUT_DIR"
+mkdir -p "$TARGET_DIR"
 
-# Puppeteer is irritating to get running properly inside Docker. I did it before but
-# then ran into issues with the file creation (wouldn't create on local machine)
-# I got fed up and just created this bash script instead of only using Docker
+echo "▶️ Building Docker image..."
+podman build --progress=plain -t deep-research .
 
-# Run Puppeteer (assumes node_modules are installed already)
-# node scrapers-js/search-engine-scraper.js "$QUERY" # required unless you already have url array inside urls.json
-
-echo "▶️ Running deep analysis in Podman..."
-
-podman build --progress=plain -t deep-research . # if you need to build again (takes a while)
-
-# podman run --rm -it \
-#   -v "$(pwd)/$OUTPUT_DIR":/home/appuser/app/output:Z \
-#   deep-research \
-#   python3 src/run.py "$QUERY"
-
+echo "▶️ Running container with hardened security options..."
 podman run --rm -it \
-  -v "$(pwd)/$OUTPUT_DIR":/home/appuser/app/output:Z \
-  deep-research \
-  "$QUERY"
+  --read-only \
+  --cap-drop=ALL \
+  --security-opt no-new-privileges \
+  --tmpfs /tmp:rw,exec,nosuid,size=100m \
+  -v "$(pwd)/output":/home/appuser/app/output:Z \
+  -v "$(pwd)/target":/home/appuser/app/target:rw,Z \
+  deep-research "$1"
