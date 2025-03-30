@@ -44,7 +44,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY --from=builder /scraper-bin /app/scraper
 COPY src/run.py /app/src/
 
-COPY src/scrapers-js/ /app/scrapers-js/
+COPY src/scrapers-js/ /app/src/scrapers-js/
 
 COPY requirements.txt /app/
 
@@ -70,7 +70,7 @@ RUN find /app -type d -exec chmod 755 {} + \
 # Apply executable permission for the binary
 RUN chmod 755 /app/scraper
 # Apply executable permission for the backup page opener
-RUN chmod 755 /app/scrapers-js/backup-page-opener.js
+RUN chmod 755 /app/src/scrapers-js/backup-page-opener.js
 
 # Switch to non-root user and set working directory
 USER appuser

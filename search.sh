@@ -2,7 +2,7 @@
 set -eo pipefail
 
 # Run Puppeteer (assumes node_modules are installed already)
-# node scrapers-js/search-engine-scraper.js "$QUERY" # required unless you already have url array inside urls.json
+# node src/scrapers-js/search-engine-scraper.js "$QUERY" # required unless you already have url array inside urls.json
 
 # Build with security flags
 podman build --no-cache --pull -t deep-research .
@@ -19,3 +19,4 @@ podman run -it --rm \
   --shm-size=256m \
   -v "$(pwd)/output:/app/output:Z" \
   deep-research "$@"
+  # deep-research "$QUERY"
