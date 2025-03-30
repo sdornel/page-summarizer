@@ -5,51 +5,84 @@
 # also consider pinning version
 
 # ──────────────────────────────────────────────────────────
-# 1. Builder Stage
+# 1. Builder Stage (Rust + Node.js)
 # ──────────────────────────────────────────────────────────
-FROM python:3.12-slim as builder
+FROM docker.io/rust:1.85-bookworm AS builder
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential pkg-config libssl-dev curl ca-certificates \
+# Install essential build tools
+RUN apt-get update && apt-get install -y \
+    curl \
+    gnupg \
+    && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g puppeteer@24.4.0 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
-ENV PATH="/root/.cargo/bin:${PATH}"
-
+# Configure Rust cache
 WORKDIR /build
-COPY Cargo.toml Cargo.lock ./
-COPY src/ src/
-
-RUN PACKAGE_NAME=$(grep '^name =' Cargo.toml | cut -d '"' -f2) && \
-    cargo build --release --locked && \
-    mv target/release/${PACKAGE_NAME} /usr/local/bin/ && \
-    strip /usr/local/bin/${PACKAGE_NAME}
+COPY . .
+RUN cargo build --release && \
+    mv target/release/scraper /scraper-bin
 
 # ──────────────────────────────────────────────────────────
-# 2. Runtime Stage
+# 2. Runtime Stage (Security-Hardened)
 # ──────────────────────────────────────────────────────────
-FROM python:3.12-slim
+FROM docker.io/debian:bookworm-slim
 
+# Install minimal runtime dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libssl3 ca-certificates \
+    ca-certificates \
+    python3 \
+    python3-pip \
+    python3-venv \
+    libssl3 \
+    chromium \
+    libnss3 libxss1 libasound2 libxtst6 libgtk-3-0 libgbm1 \
     && rm -rf /var/lib/apt/lists/*
 
+# Copy artifacts
+COPY --from=builder /scraper-bin /app/scraper
+COPY src/run.py /app/src/
+
+COPY src/scrapers-js/ /app/scrapers-js/
+
+COPY requirements.txt /app/
+
+# # Set executable permission on the binary
+# RUN chmod 755 /app/scraper
+
+# Create secure user and directories
 RUN groupadd -r appgroup && \
     useradd -r -g appgroup -d /app -s /bin/false appuser && \
     mkdir -p /app/output && \
-    chmod 700 /app/output && \
     chown -R appuser:appgroup /app
 
-COPY --from=builder /usr/local/bin/* /usr/local/bin/
-COPY --chown=appuser:appgroup src/run.py requirements.txt /app/
-COPY --chown=appuser:appgroup src/ /app/src/
+# Copy entire project (filtered by .dockerignore)
+# COPY --from=builder --chown=appuser:appgroup /build /app
 
+# Security hardening and permissions
+RUN find /app -type d -exec chmod 755 {} + \
+    && find /app -type f -exec chmod 644 {} + \
+    && chmod 755 /app/src/run.py \
+    && chmod 750 /app/output \
+    && rm -rf /app/node_modules /app/target
+
+# Apply executable permission for the binary
+RUN chmod 755 /app/scraper
+# Apply executable permission for the backup page opener
+RUN chmod 755 /app/scrapers-js/backup-page-opener.js
+
+# Switch to non-root user and set working directory
 USER appuser
 WORKDIR /app
 
-RUN python -m venv /app/venv
+# Create and activate a virtual environment, then install Python dependencies
+RUN python3 -m venv venv \
+    && . venv/bin/activate \
+    && pip install --no-cache-dir -r requirements.txt
+
+# Update PATH to use the virtual environment's Python
 ENV PATH="/app/venv/bin:$PATH"
-RUN pip install --no-cache-dir -r requirements.txt
 
 VOLUME ["/app/output"]
-ENTRYPOINT ["python3", "src/run.py"]
+ENTRYPOINT ["python3", "/app/src/run.py"]
