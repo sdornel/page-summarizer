@@ -45,9 +45,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
     python3-venv \
-    libssl3 \
     chromium \
-    libnss3 libxss1 libasound2 libxtst6 libgtk-3-0 libgbm1 \
     nodejs \
     && rm -rf /var/lib/apt/lists/*
 
