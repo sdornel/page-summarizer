@@ -103,9 +103,6 @@ RUN find /app -type d -exec chmod 755 {} + \
 # Apply executable permission for the binary
 RUN chmod 755 /app/scraper
 
-# Apply exec permission for chrome
-RUN chmod -R 755 /app/puppeteer-cache/chrome
-
 # Apply executable permission for the backup page opener
 RUN chmod 755 /app/src/scrapers-js/backup-page-opener.js
 
