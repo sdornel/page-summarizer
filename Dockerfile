@@ -15,12 +15,22 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && apt-get install -y nodejs \
-    && npm install -g puppeteer@24.4.0 \
+    # && npm install -g puppeteer@24.4.0 \
     && rm -rf /var/lib/apt/lists/*
 
-# Configure Rust cache
+# Set working directory
 WORKDIR /build
+
+# Copy Node.js files and install Puppeteer locally
+COPY package.json package-lock.json* ./
+ENV PUPPETEER_CACHE_DIR=/build/.puppeteer-cache
+RUN npm install --omit=dev \
+    && npx puppeteer browsers install chrome
+
+# Copy the rest of the project (after installing Node deps)
 COPY . .
+
+# Build Rust project
 RUN cargo build --release && \
     mv target/release/scraper /scraper-bin
 
@@ -41,7 +51,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy artifacts
+
+# Set environment variables to point Puppeteer to system Chromium and ensure Chrome has a writable profile/crashpad directory
+ENV PUPPETEER_SKIP_DOWNLOAD=1
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+ENV XDG_CONFIG_HOME=/tmp/.chromium
+ENV XDG_CACHE_HOME=/tmp/.chromium
+ENV CHROME_CRASHPAD_DATABASE=/tmp/.chromium/Crashpad
+
+# Create the Crashpad directory (and ensure /tmp/.chromium is writable)
+RUN mkdir -p /tmp/.chromium/Crashpad && chmod -R 777 /tmp/.chromium
+
+# (Optional) Create the directory for Chrome data
+RUN mkdir -p /tmp/.chromium && chown -R root:root /tmp/.chromium
+
+# Copy the Rust binary from the builder stage
 COPY --from=builder /scraper-bin /app/scraper
 # COPY src/run.py /app/src/
 
@@ -62,17 +86,28 @@ RUN groupadd -r appgroup && \
     chown -R appuser:appgroup /app
 
 # Copy entire project (filtered by .dockerignore)
-# COPY --from=builder --chown=appuser:appgroup /build /app
+COPY --from=builder --chown=appuser:appgroup /build /app
+COPY --from=builder --chown=appuser:appgroup /build/.puppeteer-cache /app/puppeteer-cache
+ENV PUPPETEER_CACHE_DIR=/app/puppeteer-cache
+RUN chmod -R go-w /app/puppeteer-cache && \
+    find /app/puppeteer-cache -type f -name chrome -exec chmod 755 {} +
+
+COPY --from=builder /scraper-bin /app/scraper
 
 # Security hardening and permissions
 RUN find /app -type d -exec chmod 755 {} + \
     && find /app -type f -exec chmod 644 {} + \
     && chmod 755 /app/src/run.py \
-    && chmod 750 /app/output \
-    && rm -rf /app/node_modules /app/target
+    && chmod 750 /app/output 
+    # \
+    # && rm -rf /app/node_modules /app/target
 
 # Apply executable permission for the binary
 RUN chmod 755 /app/scraper
+
+# Apply exec permission for chrome
+RUN chmod -R 755 /app/puppeteer-cache/chrome
+
 # Apply executable permission for the backup page opener
 RUN chmod 755 /app/src/scrapers-js/backup-page-opener.mjs
 

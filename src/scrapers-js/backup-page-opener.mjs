@@ -1,5 +1,5 @@
 // this page opens from main.rs
-import { puppeteer } from "puppeteer";
+import puppeteer from "puppeteer";
 
 const url = process.argv[2];
 if (!url) {
@@ -9,7 +9,14 @@ if (!url) {
 
 const browser = await puppeteer.launch({
     headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-crash-reporter',
+        '--no-crashpad',
+        '--disable-features=Crashpad'
+    ],
 });
 
 const page = await browser.newPage();

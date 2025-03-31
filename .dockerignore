@@ -4,7 +4,7 @@
 
 # Development artifacts
 /target
-**/node_modules
+<!-- **/node_modules -->
 **/__pycache__
 **/*.py[cod]
 **/*.egg-info
