@@ -109,7 +109,7 @@ RUN chmod 755 /app/scraper
 RUN chmod -R 755 /app/puppeteer-cache/chrome
 
 # Apply executable permission for the backup page opener
-RUN chmod 755 /app/src/scrapers-js/backup-page-opener.mjs
+RUN chmod 755 /app/src/scrapers-js/backup-page-opener.js
 
 # Switch to non-root user and set working directory
 USER appuser

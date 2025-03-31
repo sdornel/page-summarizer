@@ -22,7 +22,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
             println!("{} => ⏩ Skipped DuckDuckGo redirect: {}", i, url);
             continue;
         }
-
+        // i need to spin up lots of threads to make it all faster
         println!("{} => {}", i, url);
         let result = fetch_url(url).await.or_else(|_| fallback_to_puppeteer(url));
 
@@ -85,6 +85,7 @@ async fn fetch_url(url: &str) -> Result<String, Box<dyn Error>> {
 
 fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn std::error::Error>> {
     let script_path = Path::new("scrapers-js/backup-page-opener.js");
+    // let script_path = Path::new("scrapers-js/backup-page-opener.mjs");
 
     let output = std::process::Command::new("node")
         .arg(script_path)
