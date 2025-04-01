@@ -58,10 +58,6 @@ async fn fetch_url(url: &str, client: &reqwest::Client,) -> Result<String, Box<d
     headers.insert("Sec-Fetch-Dest", HeaderValue::from_static("document"));
     headers.insert("Upgrade-Insecure-Requests", HeaderValue::from_static("1"));
     headers.insert("Cache-Control", HeaderValue::from_static("max-age=0"));
-
-    // let client = reqwest::Client::builder()
-    //     .user_agent(spoof_ua()) // backup user-agent
-    //     .build()?;
     
     let response = client
         .get(url)
