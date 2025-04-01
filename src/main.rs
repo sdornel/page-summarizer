@@ -10,12 +10,16 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let urls: Vec<String> = serde_json::from_str(&json_data)?;
 
     println!("Raw JSON data:\n{}", json_data);
+    let client = reqwest::Client::builder()
+    .user_agent(spoof_ua()) // backup user-agent
+    .build()?;
+
     let mut rust_failed_count: i32 = 0;
     for (i, url) in urls.iter().enumerate() {
         // i need to spin up lots of threads to make it all faster
         println!("{} => {}", i, url);
         let result = async {
-            match fetch_url(url).await {
+            match fetch_url(url, &client).await {
                 Ok(body) => Ok(body),
                 Err(_) => fallback_to_puppeteer(url).await,
             }
@@ -33,7 +37,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-async fn fetch_url(url: &str) -> Result<String, Box<dyn Error>> {
+async fn fetch_url(url: &str, client: &reqwest::Client,) -> Result<String, Box<dyn Error>> {
     let mut headers = HeaderMap::new();
     headers.insert(USER_AGENT, HeaderValue::from_str(spoof_ua())?);
     headers.insert(ACCEPT, HeaderValue::from_static(
@@ -55,9 +59,9 @@ async fn fetch_url(url: &str) -> Result<String, Box<dyn Error>> {
     headers.insert("Upgrade-Insecure-Requests", HeaderValue::from_static("1"));
     headers.insert("Cache-Control", HeaderValue::from_static("max-age=0"));
 
-    let client = reqwest::Client::builder()
-        .user_agent(spoof_ua()) // backup user-agent
-        .build()?;
+    // let client = reqwest::Client::builder()
+    //     .user_agent(spoof_ua()) // backup user-agent
+    //     .build()?;
     
     let response = client
         .get(url)
