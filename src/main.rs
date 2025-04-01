@@ -1,6 +1,5 @@
 use ua_generator::ua::spoof_ua; // fake user agent
 use reqwest::header::{HeaderMap, HeaderValue, USER_AGENT, ACCEPT, ACCEPT_LANGUAGE, REFERER}; // allows to set headers
-// use std::path::Path;
 use std::fs; // file parsing
 use std::error::Error; // allows us to use Result for error handling
 
