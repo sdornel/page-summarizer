@@ -1,9 +1,6 @@
-
 use ua_generator::ua::spoof_ua; // fake user agent
 use reqwest::header::{HeaderMap, HeaderValue, USER_AGENT, ACCEPT, ACCEPT_LANGUAGE, REFERER}; // allows to set headers
-// use std::env;
-use std::path::Path;
-// use std::process::Command;
+// use std::path::Path;
 use std::fs; // file parsing
 use std::error::Error; // allows us to use Result for error handling
 
@@ -16,15 +13,14 @@ async fn main() -> Result<(), Box<dyn Error>> {
     println!("Raw JSON data:\n{}", json_data);
     let mut rust_failed_count: i32 = 0;
     for (i, url) in urls.iter().enumerate() {
-
-        // probably redundant. see search-engine-scraper.js
-        if url.contains("duckduckgo.com/?q=") {
-            println!("{} => ⏩ Skipped DuckDuckGo redirect: {}", i, url);
-            continue;
-        }
         // i need to spin up lots of threads to make it all faster
         println!("{} => {}", i, url);
-        let result = fetch_url(url).await.or_else(|_| fallback_to_puppeteer(url));
+        let result = async {
+            match fetch_url(url).await {
+                Ok(body) => Ok(body),
+                Err(_) => fallback_to_puppeteer(url).await,
+            }
+        }.await;
 
         match result {
             Ok(body) => println!("✅ Final Success: {} bytes\n", body.len()),
@@ -39,8 +35,6 @@ async fn main() -> Result<(), Box<dyn Error>> {
 }
 
 async fn fetch_url(url: &str) -> Result<String, Box<dyn Error>> {
-    // let user_agent = spoof_ua();
-
     let mut headers = HeaderMap::new();
     headers.insert(USER_AGENT, HeaderValue::from_str(spoof_ua())?);
     headers.insert(ACCEPT, HeaderValue::from_static(
@@ -62,12 +56,10 @@ async fn fetch_url(url: &str) -> Result<String, Box<dyn Error>> {
     headers.insert("Upgrade-Insecure-Requests", HeaderValue::from_static("1"));
     headers.insert("Cache-Control", HeaderValue::from_static("max-age=0"));
 
-    // let client = reqwest::Client::new();
     let client = reqwest::Client::builder()
         .user_agent(spoof_ua()) // backup user-agent
         .build()?;
     
-    // let response = reqwest::get(url).await?;
     let response = client
         .get(url)
         .headers(headers)
@@ -83,19 +75,17 @@ async fn fetch_url(url: &str) -> Result<String, Box<dyn Error>> {
     Ok(body)
 }
 
-fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn std::error::Error>> {
-    let script_path = Path::new("scrapers-js/backup-page-opener.js");
-    // let script_path = Path::new("scrapers-js/backup-page-opener.mjs");
-
-    let output = std::process::Command::new("node")
-        .arg(script_path)
+async fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn std::error::Error>> {
+    println!("Failed to retrieve page. Falling back to puppeteer!");
+    let output = tokio::process::Command::new("node")
+        .arg("scrapers-js/backup-page-opener.js")
         .arg(url)
-        .output()?;
+        .output()
+        .await?;
 
     if !output.status.success() {
-        return Err(format!("Puppeteer fallback failed: {:?}", output).into());
+        return Err(format!("Puppeteer failed: {:?}", output).into());
     }
 
-    let text = String::from_utf8(output.stdout)?;
-    Ok(text)
+    String::from_utf8(output.stdout).map_err(Into::into)
 }
