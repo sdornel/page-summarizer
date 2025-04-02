@@ -39,14 +39,14 @@ const outputFile = "output/urls.json";
 
     console.log(`Typing search query: "${query}"`);
 
-    await page.waitForSelector('input[name="q"]', { timeout: 10000 });
+    await page.waitForSelector('input[name="q"]', { timeout: 7000 });
     await page.type('input[name="q"]', query);
     await page.keyboard.press("Enter");
 
     await page.waitForNavigation({ waitUntil: "networkidle2" });
 
     try {
-      await page.waitForSelector("#links", { timeout: 10000 });
+      await page.waitForSelector("#links", { timeout: 5000 });
     } catch (e) {
       console.log("❌ Could not find #links, maybe a different layout is used.");
     }
