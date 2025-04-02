@@ -30,9 +30,11 @@ RUN npm install --omit=dev \
 # Copy the rest of the project (after installing Node deps)
 COPY . .
 
-# Build Rust project
-RUN cargo build --release && \
-    mv target/release/scraper /scraper-bin
+# Build Rust project. cargo build --release has slower build but optimized for prod
+# RUN cargo build --release && \ 
+# mv target/release/scraper /scraper-bin
+RUN cargo build && \
+mv target/debug/scraper /scraper-bin
 
 # ──────────────────────────────────────────────────────────
 # 2. Runtime Stage (Security-Hardened)
