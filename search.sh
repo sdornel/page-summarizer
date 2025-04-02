@@ -11,7 +11,7 @@ fi
 node src/scrapers-js/search-engine-scraper.js "$QUERY" # required unless you already have url array inside urls.json
 
 # Build with security flags
-# podman build --no-cache --pull -t deep-research .
+podman build --no-cache --pull -t deep-research .
 podman build -t deep-research .
 
 # Ensure output directory exists
