@@ -1,90 +1,93 @@
-use ua_generator::ua::spoof_ua; // fake user agent
-use reqwest::header::{HeaderMap, HeaderValue, USER_AGENT, ACCEPT, ACCEPT_LANGUAGE, REFERER}; // allows to set headers
-use std::fs; // file parsing
-use std::error::Error; // allows us to use Result for error handling
+// Import from the futures crate for working with asynchronous streams.
+// `stream` provides functions to create and work with streams,
+// and `StreamExt` offers extension methods (like for_each_concurrent) for streams.
+use futures::stream::{self, StreamExt};
 
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn Error>> {
-    println!("Hello, world!");
-    let json_data = fs::read_to_string("../output/urls.json")?;
-    let urls: Vec<String> = serde_json::from_str(&json_data)?;
+// Import the reqwest Client type for making HTTP requests.
+use reqwest::Client;
 
-    println!("Raw JSON data:\n{}", json_data);
-    let client = reqwest::Client::builder()
-    .user_agent(spoof_ua()) // backup user-agent
-    .build()?;
+// Import the standard Error trait for error handling.
+use std::error::Error;
 
-    let mut rust_failed_count: i32 = 0;
-    for (i, url) in urls.iter().enumerate() {
-        // i need to spin up lots of threads to make it all faster
-        println!("{} => {}", i, url);
-        let result = async {
-            match fetch_url(url, &client).await {
-                Ok(body) => Ok(body),
-                Err(_) => fallback_to_puppeteer(url).await,
-            }
-        }.await;
+// Import the standard fs module for file system operations like reading files.
+use std::fs;
 
-        match result {
-            Ok(body) => println!("✅ Final Success: {} bytes\n", body.len()),
-            Err(error) => {
-                println!("❌ Failed to fetch: {}\n", error);
-                rust_failed_count += 1;
-            },        
-        }
+// Import Arc (Atomic Reference Counted pointer) for safe sharing of data across threads/tasks.
+use std::sync::Arc;
+
+// Import Mutex from tokio for asynchronous mutual exclusion when sharing data across tasks.
+use tokio::sync::Mutex;
+
+// Import the spoof_ua function from ua_generator to generate fake User-Agent strings.
+use ua_generator::ua::spoof_ua;
+
+mod generate_random_headers;
+use generate_random_headers::generate_random_headers;
+
+async fn fetch_url(url: &str, client: &Client) -> Result<String, Box<dyn Error>> {
+    let headers = generate_random_headers(url)?;
+    let response = client.get(url).headers(headers).send().await?;
+    if !response.status().is_success() {
+        return Err(format!("HTTP error: {}", response.status()).into());
     }
-    println!("rust_failed_count: {}", rust_failed_count); // measure how effective my fetch_url function is
-    Ok(())
-}
-
-async fn fetch_url(url: &str, client: &reqwest::Client,) -> Result<String, Box<dyn Error>> {
-    let mut headers = HeaderMap::new();
-    headers.insert(USER_AGENT, HeaderValue::from_str(spoof_ua())?);
-    headers.insert(ACCEPT, HeaderValue::from_static(
-        "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
-    ));
-    headers.insert(
-        ACCEPT_LANGUAGE,
-        HeaderValue::from_static(
-            "en-US,en;q=0.9,fr;q=0.8,de;q=0.7,es;q=0.6,zh;q=0.5,ja;q=0.4"
-        ),
-    );
-
-    let domain = url.split('/').take(3).collect::<Vec<_>>().join("/");
-    headers.insert(REFERER, HeaderValue::from_str(&domain)?);
-
-    headers.insert("Sec-Fetch-Site", HeaderValue::from_static("none"));
-    headers.insert("Sec-Fetch-Mode", HeaderValue::from_static("navigate"));
-    headers.insert("Sec-Fetch-Dest", HeaderValue::from_static("document"));
-    headers.insert("Upgrade-Insecure-Requests", HeaderValue::from_static("1"));
-    headers.insert("Cache-Control", HeaderValue::from_static("max-age=0"));
-    
-    let response = client
-        .get(url)
-        .headers(headers)
-        .send()
-        .await?;
-
-    let status = response.status(); 
-    if !status.is_success() {
-        return Err(format!("Http error: {}", status).into());
-    }
-
     let body = response.text().await?;
     Ok(body)
 }
 
-async fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn std::error::Error>> {
-    println!("Failed to retrieve page. Falling back to puppeteer!");
+async fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn Error>> {
+    println!("Fallback: using Puppeteer for URL: {}", url);
     let output = tokio::process::Command::new("node")
         .arg("scrapers-js/backup-page-opener.js")
         .arg(url)
         .output()
         .await?;
-
     if !output.status.success() {
         return Err(format!("Puppeteer failed: {:?}", output).into());
     }
-
     String::from_utf8(output.stdout).map_err(Into::into)
+}
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn Error>> {
+    let json_data = fs::read_to_string("../output/urls.json")?;
+    let urls: Vec<String> = serde_json::from_str(&json_data)?;
+    println!("Starting scrape of {} URLs...", urls.len());
+
+    let client = Client::builder().user_agent(spoof_ua()).build()?;
+
+    // Shared failure counter wrapped in an Arc<Mutex<_>>.
+    let rust_failed_count = Arc::new(Mutex::new(0));
+    let concurrency_limit = 30;
+
+    // Process URLs concurrently.
+    stream::iter(urls.into_iter().enumerate())
+        .for_each_concurrent(concurrency_limit, |(i, url)| {
+            let client = client.clone();
+            let fail_counter = rust_failed_count.clone(); // clone the Arc for this task
+            async move {
+                println!("Processing URL {}: {}", i, url);
+                let result = match fetch_url(&url, &client).await {
+                    Ok(body) => Ok(body),
+                    Err(_) => fallback_to_puppeteer(&url).await,
+                };
+                match result {
+                    Ok(body) => {
+                        println!("✅ URL {}: Success ({} bytes)", i, body.len());
+                        // Optionally, print a snippet:
+                        // println!("Snippet: {}", &body[..std::cmp::min(200, body.len())]);
+                    }
+                    Err(e) => {
+                        eprintln!("❌ URL {}: Failed: {}", i, e);
+                        let mut count = fail_counter.lock().await;
+                        *count += 1;
+                    }
+                }
+            }
+        })
+        .await;
+
+    let final_failed = *rust_failed_count.lock().await;
+    println!("Total failed URLs: {}", final_failed);
+
+    Ok(())
 }
