@@ -32,9 +32,9 @@ COPY . .
 
 # Build Rust project. cargo build --release has slower build but optimized for prod
 # RUN cargo build --release && \ 
-# mv target/release/scraper /scraper-bin
+# mv target/release/deep-research /deep-research-bin
 RUN cargo build && \
-mv target/debug/scraper /scraper-bin
+mv target/debug/deep-research /deep-research-bin
 
 # ──────────────────────────────────────────────────────────
 # 2. Runtime Stage (Security-Hardened)
@@ -66,7 +66,7 @@ RUN mkdir -p /tmp/.chromium/Crashpad && chmod -R 777 /tmp/.chromium
 RUN mkdir -p /tmp/.chromium && chown -R root:root /tmp/.chromium
 
 # Copy the Rust binary from the builder stage
-COPY --from=builder /scraper-bin /app/scraper
+COPY --from=builder /deep-research-bin /app/deep-research
 # COPY src/run.py /app/src/
 
 # Copy the entire src folder
@@ -77,7 +77,7 @@ COPY src/ /app/src/
 COPY requirements.txt /app/
 
 # # Set executable permission on the binary
-# RUN chmod 755 /app/scraper
+# RUN chmod 755 /app/deep-research
 
 # Create secure user and directories
 RUN groupadd -r appgroup && \
@@ -92,7 +92,7 @@ ENV PUPPETEER_CACHE_DIR=/app/puppeteer-cache
 RUN chmod -R go-w /app/puppeteer-cache && \
     find /app/puppeteer-cache -type f -name chrome -exec chmod 755 {} +
 
-COPY --from=builder /scraper-bin /app/scraper
+COPY --from=builder /deep-research-bin /app/deep-research
 
 # Security hardening and permissions
 RUN find /app -type d -exec chmod 755 {} + \
@@ -103,7 +103,7 @@ RUN find /app -type d -exec chmod 755 {} + \
     # && rm -rf /app/node_modules /app/target
 
 # Apply executable permission for the binary
-RUN chmod 755 /app/scraper
+RUN chmod 755 /app/deep-research
 
 # Apply executable permission for the backup page opener
 RUN chmod 755 /app/src/scrapers-js/backup-page-opener.js
