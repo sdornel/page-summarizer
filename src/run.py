@@ -21,7 +21,7 @@ def main():
 
     try:
         # run rust scraper
-        run_subprocess(["/app/scraper"], cwd=RUST_DIR)
+        run_subprocess(["/app/deep-research"], cwd=RUST_DIR)
 
         print("🎉 Scraping pipeline complete.")
     except Exception as e:
