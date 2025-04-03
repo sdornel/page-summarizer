@@ -67,7 +67,7 @@ const outputFile = "output/urls.json";
       let moreButton = await page.$("#more-results");
       if (!moreButton) {
         console.log("❌ No 'More Results' button found. Trying to scroll for more results...");
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         moreButton = await page.$("#more-results");
         if (!moreButton) {
           console.log("❌ Still no 'More Results' button found – stopping.");
@@ -77,9 +77,9 @@ const outputFile = "output/urls.json";
       console.log("Clicking 'More Results' button...");
       await moreButton.click();
 
-      await new Promise(resolve => setTimeout(resolve, 2000)); // this might be redundant?
+      await new Promise(resolve => setTimeout(resolve, 2000));
 
-      const foundMore = await page.waitForSelector("#more-results", { timeout: 10000 })
+      const foundMore = await page.waitForSelector("#more-results", { timeout: 4000 })
         .catch(() => {
           console.log("❌ Possibly no more results loaded – stopping.");
         });
