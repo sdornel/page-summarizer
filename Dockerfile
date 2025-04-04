@@ -65,17 +65,6 @@ RUN mkdir -p /tmp/.chromium/Crashpad && chmod -R 777 /tmp/.chromium
 # (Optional) Create the directory for Chrome data
 RUN mkdir -p /tmp/.chromium && chown -R root:root /tmp/.chromium
 
-# Copy the Rust binary from the builder stage
-COPY --from=builder /deep-research-bin /app/deep-research
-# COPY src/run.py /app/src/
-
-# Copy the entire src folder
-COPY src/ /app/src/
-
-# COPY src/scrapers-js/ /app/src/scrapers-js/
-
-COPY requirements.txt /app/
-
 # # Set executable permission on the binary
 # RUN chmod 755 /app/deep-research
 
