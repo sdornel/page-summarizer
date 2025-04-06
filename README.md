@@ -17,3 +17,7 @@ Use fast, lightweight algorithms (e.g., keyword matching, TF-IDF, or Sentence Tr
 Then run a summarization model (for example, a distilled model like DistilBART or T5-small) on the relevant segments. This step rewrites the content into a concise summary that directly addresses the query. – Combined Output:
 Present both a list of key excerpts (verbatim quotes or critical pieces) and a synthesized summary that integrates query-specific insights.
 
+– If local CPU processing still feels heavy, you can integrate a cloud-based summarization API (e.g., Hugging Face Inference API or a free tier of another service) to perform the abstractive summarization.
+– This offloads the heavy computation to remote hardware while your Rust scraper continues working quickly on your local machine.
+
+– Optimize your asynchronous code so that the scraping and summarization are fully parallelized.
