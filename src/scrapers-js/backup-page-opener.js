@@ -1,5 +1,6 @@
 // this page opens from main.rs
 import puppeteer from "puppeteer";
+import { faker } from '@faker-js/faker';
 
 const url = process.argv[2];
 if (!url) {

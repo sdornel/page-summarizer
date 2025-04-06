@@ -8,8 +8,16 @@ RUST_DIR = ROOT
 
 def run_subprocess(cmd, cwd):
     print(f"▶️ Running: {' '.join(cmd)}")
-    result = subprocess.run(cmd, cwd=cwd)
-    if result.returncode != 0:
+    process = subprocess.Popen(cmd, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+    for line in process.stdout:
+        print(line, end="")
+
+    for line in process.stderr:
+        print(line, end="", file=sys.stderr)
+
+    process.wait()
+    if process.returncode != 0:
         raise RuntimeError(f"❌ Command failed: {' '.join(cmd)}")
 
 def main():

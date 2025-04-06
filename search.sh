@@ -32,7 +32,7 @@ export QUERY
 export RUST_LOG="${RUST_LOG:-info}"
 export RUST_BACKTRACE="${RUST_BACKTRACE:-full}"
 
-# node src/scrapers-js/search-engine-scraper.js "$QUERY" # required unless you already have url array inside urls.json
+node src/scrapers-js/search-engine-scraper.js "$QUERY" # required unless you already have url array inside urls.json
 
 # Ensure volumes exist
 mkdir -p ./output && touch ./output/urls.json ./output/summaries.json
