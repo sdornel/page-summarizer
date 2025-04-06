@@ -37,4 +37,4 @@ export RUST_BACKTRACE="${RUST_BACKTRACE:-full}"
 # Ensure volumes exist
 mkdir -p ./output && touch ./output/urls.json ./output/summaries.json
 
-podman-compose up --build
+docker compose up --build
