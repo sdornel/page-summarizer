@@ -7,22 +7,34 @@ if [[ -z "$QUERY" ]]; then
   exit 1
 fi
 
-# Run Puppeteer (assumes node_modules are installed already)
-node src/scrapers-js/search-engine-scraper.js "$QUERY" # required unless you already have url array inside urls.json
+# # Run Puppeteer (assumes node_modules are installed already)
+# # node src/scrapers-js/search-engine-scraper.js "$QUERY" # required unless you already have url array inside urls.json
 
-# Build with security flags
-podman build --no-cache --pull -t deep-research .
-podman build -t deep-research .
+# # Build with security flags
+# podman build --no-cache --pull -t deep-research .
+# podman build -t deep-research .
 
-# Ensure output directory exists
-mkdir -p "./output"
+# # Ensure output directory exists
+# mkdir -p "./output" && touch "./output/urls.json" "./output/summaries.json"
 
-# Run with strict confinement
-podman run -it --rm \
-  --read-only \
-  --cap-drop=ALL \
-  --security-opt no-new-privileges \
-  --tmpfs /run:rw,noexec,nosuid,size=8m \
-  --shm-size=256m \
-  -v "$(pwd)/output:/app/output:Z" \
-  deep-research "$QUERY"
+# # Run with strict confinement
+# podman run -it --rm \
+#   --read-only \
+#   --cap-drop=ALL \
+#   --security-opt no-new-privileges \
+#   --tmpfs /run:rw,noexec,nosuid,size=8m \
+#   --shm-size=256m \
+#   -v "$(pwd)/output:/app/output:Z" \
+#   deep-research "$QUERY"
+
+export QUERY
+
+export RUST_LOG="${RUST_LOG:-info}"
+export RUST_BACKTRACE="${RUST_BACKTRACE:-full}"
+
+# node src/scrapers-js/search-engine-scraper.js "$QUERY" # required unless you already have url array inside urls.json
+
+# Ensure volumes exist
+mkdir -p ./output && touch ./output/urls.json ./output/summaries.json
+
+podman-compose up --build
