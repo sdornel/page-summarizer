@@ -40,6 +40,7 @@ services:
       - no-new-privileges
     read_only: true
     tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
       - /run
     shm_size: 256m
     cap_drop:
