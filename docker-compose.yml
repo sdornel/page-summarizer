@@ -1,0 +1,55 @@
+services:
+  nats:
+    image: docker.io/nats:latest
+    container_name: nats
+    ports:
+      - "127.0.0.1:4222:4222"   # NATS client connection
+      # - "127.0.0.1:8222:8222" # Optional: NATS web monitoring
+    networks:
+      - deep-net
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "nats", "ping", "-s", "nats://127.0.0.1:4222"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  deep-research:
+    build:
+      context: .
+    image: deep-research
+    container_name: deep-research
+    depends_on:
+      nats:
+        condition: service_started
+    volumes:
+      - ./output:/app/output:Z
+    networks:
+      - deep-net
+    dns:
+    - 8.8.8.8
+    - 1.1.1.1
+    security_opt:
+      - no-new-privileges
+    read_only: true
+    tmpfs:
+      - /run
+    shm_size: 256m
+    cap_drop:
+      - ALL
+    environment:
+      RUST_LOG: ${RUST_LOG}
+      RUST_BACKTRACE: ${RUST_BACKTRACE}
+      QUERY: ${QUERY}
+    entrypoint: ["/app/deep-research"]
+
+networks:
+  deep-net:
+    driver: bridge
