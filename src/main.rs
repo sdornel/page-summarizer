@@ -152,10 +152,14 @@ async fn main() -> Result<(), Box<dyn Error>> {
                         while seen.len() < SUMMARY_TYPES_EXPECTED {
                             match timeout(Duration::from_secs(NATS_TIMEOUT_SECS), rx.recv()).await {
                                 Ok(Some(resp_json)) => {
-                                    if let Some(summary_type) = resp_json.get("summary_type").and_then(|v| v.as_str()) {
+                                    let status = resp.get("status").and_then(|v| v.as_str()).unwrap_or("failed");
+
+                                    if let Some(summary_type) = resp.get("summary_type").and_then(|v| v.as_str()) {
                                         let key = format!("{}:{}", url, summary_type);
-                                        summaries.lock().await.insert(key, resp_json.clone());
+                                        summaries.lock().await.insert(key, resp.clone());
                                         seen.insert(summary_type.to_string());
+                                    } else {
+                                        eprintln!("⚠️ Summary response for {} missing summary_type", url);
                                     }
                                 }
                                 Ok(None) => {
