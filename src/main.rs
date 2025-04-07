@@ -57,25 +57,16 @@ fn truncate_utf8(input: &str, max_bytes: usize) -> &str {
     &input[..end]
 }
 
-async fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn std::error::Error>> {
+async fn fallback_to_puppeteer(url: &str, correlation_id: &str) -> Result<(), Box<dyn std::error::Error>> {
     eprintln!("🧪 Triggering Puppeteer fallback for: {}", url);
 
-    let output = tokio::process::Command::new("node")
+    let _ = tokio::process::Command::new("node")
         .arg("/app/src/scrapers-js/backup-page-opener.js")
         .arg(url)
-        .output()
-        .await?;
+        .arg(correlation_id)
+        .spawn();
 
-    let stdout = String::from_utf8_lossy(&output.stdout);
-    let stderr = String::from_utf8_lossy(&output.stderr);
-
-    if !output.status.success() {
-        eprintln!("❌ Puppeteer failed for {}:\nSTATUS: {:?}\nSTDERR:\n{}\nSTDOUT:\n{}", url, output.status, stderr, stdout);
-        return Err("Puppeteer fallback failed".into());
-    }
-
-    println!("✅ Puppeteer succeeded for {}:\n{}", url, stdout);
-    Ok(stdout.trim().to_string())
+    Ok(())
 }
 
 #[tokio::main]
@@ -124,14 +115,18 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
             async move {
                 println!("🌐 [{}] Processing: {}", i, url);
+                let corr_id = Uuid::new_v4().to_string();
                 let body_result = match fetch_url(&url, &client).await {
                     Ok(body) => Ok(body),
                     Err(e) => {
                         eprintln!("❌ URL {}: Fetch failed: {}", i, e);
                         // fallback
-                        fallback_to_puppeteer(&url).await
+                        if let Err(e) = fallback_to_puppeteer(&url, &corr_id).await {
+                            eprintln!("⚠️ Puppeteer fallback failed: {}", e);
+                        }
+                        Err(e)
                     }
-                };                
+                };              
 
                 match body_result {
                     Ok(body) => {
@@ -152,11 +147,11 @@ async fn main() -> Result<(), Box<dyn Error>> {
                         while seen.len() < SUMMARY_TYPES_EXPECTED {
                             match timeout(Duration::from_secs(NATS_TIMEOUT_SECS), rx.recv()).await {
                                 Ok(Some(resp_json)) => {
-                                    let status = resp.get("status").and_then(|v| v.as_str()).unwrap_or("failed");
+                                    let status = resp_json.get("status").and_then(|v| v.as_str()).unwrap_or("failed");
 
-                                    if let Some(summary_type) = resp.get("summary_type").and_then(|v| v.as_str()) {
+                                    if let Some(summary_type) = resp_json.get("summary_type").and_then(|v| v.as_str()) {
                                         let key = format!("{}:{}", url, summary_type);
-                                        summaries.lock().await.insert(key, resp.clone());
+                                        summaries.lock().await.insert(key, resp_json.clone());
                                         seen.insert(summary_type.to_string());
                                     } else {
                                         eprintln!("⚠️ Summary response for {} missing summary_type", url);
@@ -199,10 +194,10 @@ async fn main() -> Result<(), Box<dyn Error>> {
         "summaries": *sum_map
     });
 
-    println!("SUMMARIES: {}", summary_result);
+    // println!("SUMMARIES: {}", summary_result);
     fs::create_dir_all("output")?;
     fs::write("output/summaries.json", serde_json::to_string_pretty(&summary_result)?)?;
-    println!("Saved summaries to output/summaries.json");
+    // println!("Saved summaries to output/summaries.json");
 
     Ok(())
 }

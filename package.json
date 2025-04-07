@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^9.6.0",
+    "nats": "^2.29.3",
     "puppeteer": "^24.4.0"
   }
 }
