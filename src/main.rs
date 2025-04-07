@@ -142,7 +142,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
                     Ok(body) => {
                         let clean_text = extract_main_content(&body);
                         let trimmed_text = truncate_utf8(&clean_text, 1_000_000);
-                        let corr_id = Uuid::new_v4().to_string();
+
                         let (tx, mut rx) = mpsc::channel::<Value>(SUMMARY_TYPES_EXPECTED);
                         tx_map.lock().await.insert(corr_id.clone(), tx);
 
