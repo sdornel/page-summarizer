@@ -126,7 +126,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
             async move {
                 println!("🌐 [{}] Processing: {}", i, url);
                 let corr_id = Uuid::new_v4().to_string();
-                let body_result = match fetch_url(&url, &client).await {
+                let body_result = match fetch_url(&url, &client, &corr_id).await {
                     Ok(body) => Ok(body),
                     Err(e) => {
                         eprintln!("❌ URL {}: Fetch failed: {}", i, e);
