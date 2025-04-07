@@ -1,0 +1,1760 @@
+{
+  "meta": {
+    "failed": 150,
+    "successful": 0,
+    "total_urls": 150
+  },
+  "summaries": {
+    "https://alphacoders.com/anakin-skywalker-wallpapers:tfidf": {
+      "correlation_id": "63ec2cac-06a3-413f-a4f4-599151a7ab50",
+      "error": "Empty text",
+      "query": "https://alphacoders.com/anakin-skywalker-wallpapers",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://archiveofourown.org/tags/Anakin%20Skywalker%20%7C%20Darth%20Vader/works:tfidf": {
+      "correlation_id": "eb7b2b05-4144-4039-bc4e-6e80fbf78995",
+      "error": "Empty text",
+      "query": "https://archiveofourown.org/tags/Anakin%20Skywalker%20%7C%20Darth%20Vader/works",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://archiveofourown.org/tags/Anakin%20Skywalker%20*a*%20Luke%20Skywalker/works:tfidf": {
+      "correlation_id": "b290710f-37e6-4a6f-9e1b-5393c28de84c",
+      "error": "Empty text",
+      "query": "https://archiveofourown.org/tags/Anakin%20Skywalker%20*a*%20Luke%20Skywalker/works",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://archiveofourown.org/tags/Anakin%20Skywalker*s*Reader/works:tfidf": {
+      "correlation_id": "f517e1e4-dd9f-4b1c-b918-6f178ba20740",
+      "error": "Empty text",
+      "query": "https://archiveofourown.org/tags/Anakin%20Skywalker*s*Reader/works",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://archiveofourown.org/tags/Anakin%20Skywalker/works:tfidf": {
+      "correlation_id": "3406723e-a2fc-40bb-8746-52a3b49aa042",
+      "error": "Empty text",
+      "query": "https://archiveofourown.org/tags/Anakin%20Skywalker/works",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://archiveofourown.org/tags/Padm%C3%A9%20Amidala*s*Anakin%20Skywalker/works:tfidf": {
+      "correlation_id": "041978bd-11a5-4cf8-b7b9-8e8450489c73",
+      "error": "Empty text",
+      "query": "https://archiveofourown.org/tags/Padm%C3%A9%20Amidala*s*Anakin%20Skywalker/works",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://archiveofourown.org/tags/hurt%20Anakin%20Skywalker/works:tfidf": {
+      "correlation_id": "cb37b9c7-0332-4567-8f96-0a16f6d3de73",
+      "error": "Empty text",
+      "query": "https://archiveofourown.org/tags/hurt%20Anakin%20Skywalker/works",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://battlefront.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "2f6f28fd-61b4-4380-bc76-98371c6d8473",
+      "query": "https://battlefront.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "https://battlefront.fandom.com/wiki/File:Anakin-Skywalker_Intro-Theme.ogg https://battlefront.fandom.com/wiki/File:Anakin-Skywalker_Outro-Theme.ogg The Chosen One Update The Chosen One Hotfix Capital Supremacy Update Capital Supremacy Hotfix Giants Above Kachirho Update Giants Above Kachirho Patch Siege of Kamino Update Where are those Droidekas?",
+        "This site has now split from the SW Games Wiki .",
+        "Anakin Skywalker is a Galactic Republic Hero in DICE 's Star Wars Battlefront II .",
+        "Update Another Night on Endor Update The Rise of Skywalker Update The Age of Rebellion Update",
+        "This means that if enemies hit Anakin just as he activates the abilities, or in the final moments of the abilities' durations, they can take advantage to deal full damage to him, knock him down, push or pull him, immobilize him and even cancel the usage of the abilities altogether."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://book-of-heroes-and-villains.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "8707151f-cdd4-4137-b7ee-fbc8d4b82aa0",
+      "query": "https://book-of-heroes-and-villains.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "He appears as the deuteragonist of The Phantom Menace , the protagonist of Attack of the Clones and the villain protagonist of Revenge of the Sith and is the titular deuteragonist of the canon comic book series, Obi-Wan and Anakin .",
+        "He is the secret husband of Padmé Amidala, father of Luke Skywalker and Leia Organa, and the grandfather of Kylo Ren.In his animated appearance, Anakin is the main protagonist of the 2008 film, Star Wars: The Clone Wars and one of the main protagonists of its follow up series, where he is the Jedi master of Ahsoka Tano until she eventually left the Jedi Order.",
+        "In this Vader persona, Vader was the main antagonist of A New Hope and The Empire Strikes Back and the antagonist-turned deuteragonist of Return of the Jedi .",
+        "In the prequel trilogy, Anakin was portrayed by Jake Lloyd as a child in its first film The Phantom Menace and by Hayden Christensen as a young adult in second and third films Attack of The Clones and Revenge of the Sith with James Earl Jones reprising the role of Anakin's Darth Vader voice at the end of Revenge of the Sith .",
+        "Christensen also played Anakin's force ghost in the 2004 DVD version of Return of the Jedi and voiced the character in Revenge of the Sith ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://brickipedia.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "488a72ae-6259-4bcd-9cdb-fa0401c52f38",
+      "query": "https://brickipedia.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Join the official Brickipedia Discord server!",
+        "Raised as a slave on Tatooine, Anakin Skywalker grew from a skilled young pilot into a famous Jedi Knight and general during the Clone Wars.",
+        "Anakin Skywalker is a purchasable skin in-game for 1,500 V-Bucks or with the Anakin Skywalker Bundle for 2,300 V-Bucks.",
+        "He was later worshiped by Kylo Ren , who believed his grandfather had been seduced by the light side of the Force.",
+        "His strong temper and emotions ultimately cause him to fall to the dark side of the Force and become the dreaded Sith Lord called Darth Vader."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://characterprofile.fandom.com/wiki/Darth_Vader/Anakin_Skywalker:tfidf": {
+      "correlation_id": "4283c73e-3e31-496b-a1df-c27a4540a808",
+      "query": "https://characterprofile.fandom.com/wiki/Darth_Vader/Anakin_Skywalker",
+      "relevant_sentences": [
+        "After life, Anakin would spend his afterlife as a spirit of the Force, guiding the next generations of Skywalkers to come.",
+        "Years later, after discovering his son , Vader had a change of heart, and sacrificed himself to save him from the Emperor and the Dark Side.",
+        "Even though he was severely damaged, the Emperor rescued him and supported him with new armor, turning him into Darth Vader.",
+        "With the tipping point being a dream about his wife dying at birth, Anakin turned to the dark side of the Force to fix himself, which resulted in him falling into lava during a battle against Obi-Wan.",
+        "But as he grew older, he only felt more and more imperfect."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://clonewars.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "584dfe1b-c333-4b6f-a2ab-1c1887976347",
+      "query": "https://clonewars.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "This article is in need of major additions and/or work.",
+        "Anakin's rendering as a Lego Mini-figure",
+        "In a force vision witnessed by Ahsoka Tano in \" Shattered \", Anakin was voiced by Hayden Christensen .",
+        "Anakin was voiced by Matt Lanter in the TV show the Clone Wars.",
+        "At times when he gave into his anger, Anakin would default to Form V, using extremely powerful attacks to overwhelm his opponent."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://disney-media.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "04a11270-4a30-421d-8d2c-e1a5246e04a6",
+      "query": "https://disney-media.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "He later becomes the iconic Sith Lord, Darth Vader ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://disney.fandom.com/wiki/Anakin_Skywalker/Gallery:tfidf": {
+      "correlation_id": "4e5f386e-0ab0-478a-8f74-6ffe0fc127e0",
+      "query": "https://disney.fandom.com/wiki/Anakin_Skywalker/Gallery",
+      "relevant_sentences": [
+        "Images of Anakin Skywalker/Darth Vader from the Star Wars franchise."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://disney.fandom.com/wiki/Anakin_Skywalker/Relationships:tfidf": {
+      "correlation_id": "94edd9fa-149a-4109-9867-f8c0dcc41b6e",
+      "query": "https://disney.fandom.com/wiki/Anakin_Skywalker/Relationships",
+      "relevant_sentences": [
+        "The relationships of Anakin Skywalker/Darth Vader from the Star Wars universe.",
+        "When Obi-Wan told him it was Ahsoka who had saved the day, he \"felt a rush of pride\" and boasted that she was his apprentice.",
+        "Although Anakin was usually reckless and impulsive, Ahsoka's presence seemed to soften these tendencies.",
+        "Despite the fact that when he was Obi-Wan's apprentice, he occasionally disobeyed him, he did not like it when Ahsoka disobeyed him.",
+        "Nearing the end of the Clone Wars, Anakin held a great degree of trust in her, being one of the few people to correctly believe that Ahsoka had actually been framed and was just in the wrong place at the wrong time, due to knowing her well enough to be certain that she would never commit the crimes she was being accused of."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://disney.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "264b1d0c-f21d-4085-8c44-829924aac1a0",
+      "query": "https://disney.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Anakin Skywalker appears as a meetable character at Disney's Hollywood Studios during Star Wars Weekends at the Walt Disney World .",
+        "[ 18 ] Anakin Skywalker appears in Disney Infinity's third installment as a playable character.",
+        "\" • \" Perilous Pursuit \" • \" Traps and Tribulations \" • \" A Disarming Lesson \" • \" Triplecross \" Tales of the Empire : Morgan Elsbeth • Barriss Offee • General Grievous • Thrawn • Rukh • Lyn Rakish/Fourth Sister • The Grand Inquisitor • Marrok • Purge Troopers Tales of the Underworld : Asajj Ventress • Cad Bane • Stormtroopers Tales of the Empire : \" The Path of Fear \" • \" The Path of Anger \" • \" The Path of Hate \" • \" Devoted \" • \" Realization \" • \" The Way Out \" Rebels/Resistance: Leia Organa • Han Solo • Chewbacca • Lando Calrissian • Admiral Ackbar • Rebel Pilots • Jyn Erso • Finn Imperials/First Order: Stormtroopers • Scout Troopers • Death Troopers • Jumptroopers • TIE Pilots • General Hux • First Order Stormtroopers • Captain Phasma Miscellaneous: Boba Fett • Clone Troopers • General Grievous • Battle Droids • Super Battle Droid Imperials/First Order: Imperial Shuttle • Imperial Freighter • Imperial Star Destroyer • Super Star Destroyer • First Order Star Destroyer • TIE Fighter • TIE Advanced x1 • TIE Bomber • TIE Interceptor • TIE Striker • TIE Defender • First Order TIE fighter • First Order Special Forces TIE Fighter • TIE Silencer • 74-Z speeder bike • AT-AT • AT-ST • First Order AT-ST • AT-M6 Miscellaneous: Slave I Disney Infinity: 2.0 Edition: Iron Man • Captain America • Hulk • Black Widow • Thor Odinson • Hawkeye • Nick Fury • Loki Laufeyson • Maleficent • Merida • Spider-Man • Venom • Iron Fist • Nova • Green Goblin • Rocket Raccoon • Groot • Star-Lord • Gamora • Drax the Destroyer • Stitch • Tinker Bell • Aladdin • Jasmine • Donald Duck • Baymax • Hiro Hamada • Falcon • Yondu • Sam Flynn • Quorra • Doctor Octopus Disney Infinity: 3.0 Edition: Yoda • Ultron • Luke Skywalker • Fa Mulan • Anakin Skywalker/Darth Vader • Leia Organa • Han Solo • Ahsoka Tano • Darth Maul • Obi-Wan Kenobi • Finn • Rey • Poe Dameron • Kylo Ren • Joy • Sadness • Anger • Fear • Disgust • Minnie Mouse • Olaf • Chewbacca • Hulkbuster Iron Man • Ezra Bridger • Kanan Jarrus • Garazeb Orrelios • Sabine Wren • Boba Fett • Spot • Judy Hopps • Nick Wilde • Peter Pan • Baloo • Captain America - The First Avenger • Black Panther • Vision • Ant-Man • Alice • Mad Hatter • Time • Dory • Nemo Disney Infinity: 2.0 Edition: Wasp • Captain Marvel • Ant-Man (Hank Pym) • Sif • MODOK • Frost Giants • Iron Patriot • Winter Soldier • Mysterio • Doctor Octopus • Black Cat • White Tiger • Luke Cage • J.",
+        "Jonah Jameson • Cosmo the Spacedog • The Collector • The Witch • Pleakley • Golden Harp Disney Infinity: 3.0 Edition: R2-D2 • C-3PO • Jabba the Hutt • Jar Jar Binks • Mace Windu • Padmé Amidala • King Candy • Marshmallow • Yokai • Battle Droids • Marlin • Bruce • Anglerfish • Seagulls • Hank • Destiny • Bailey • Jellyfish Pooh and Pals : Pooh • Tigger • Piglet • Eeyore • Rabbit • Owl • Roo • Kanga • Gopher • Christopher Robin • Lumpy Lilo & Stitch : Stitch • Lilo • Scrump • Pleakley • Jumba • Angel • Leroy • Dr.",
+        "Moana : Moana • Maui • Pua • Heihei • Tamatoa • Kakamora Chip 'n Dale Rescue Rangers : Chip • Dale • Gadget • Monterey Jack Phineas and Ferb : Perry The Lion Guard : Kion • Ono • Bunga • Beshte • Fuli DuckTales (2017) : Scrooge McDuck • Huey, Dewey, and Louie • Webby Vanderquack Kingdom Hearts : Sora • Riku • Kairi • Aqua • Xemnas • Ansem, Seeker of Darkness • Ventus • Terra • Chirithy • Lea • Young Xehanort • Roxas • Dark Riku • Naminé UniBEARsity : Sofia the First : Sofia • Minimus • Skye Elena of Avalor : Elena Enchanted : Giselle Disney Fairies: Periwinkle • Rosetta • Silvermist The Sword in the Stone: Wart • Merlin Oliver & Company: Oliver Raya and the Last Dragon: Raya • Sisu Twisted Wonderland : Grim Encanto : Mirabel • Isabela Wish : Asha • King Magnifico A Bug's Life : Flik • Dot • Heimlich Monsters, Inc."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://disneyinfinity.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "d872cf6e-cd54-416f-896a-a7197f8d2b1e",
+      "query": "https://disneyinfinity.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Play Set: Star Wars: Twilight of the Republic Play Set Playable Characters: Ahsoka | Anakin Skywalker | Obi-Wan Kenobi | Yoda | Darth Maul Cast Members: Aayla Secura | Mace Windu | Padmé Amidala | Plo Koon | TD-54 Townspeople: Captain Typho | Clone Trooper | Coruscant Child | Coruscant Diplomat 1 | Coruscant Diplomat 2 | Coruscant Diplomat 3 | Coruscant Diplomat 4 | Dexter Jettster | Droid Band Lead Dancer | Droid Dancer 1 | Droid Dancer 2 | Droid Dancer 3 | Droid Dancer 4 | Duros Child | Female Coruscant Citizen 1 | Female Coruscant Citizen 2 | Female Coruscant Citizen 3 | Female Coruscant Citizen 4 | Female Theed Citizen | Gungan Citizen | Jay Igno | Jedi Knight 1 | Jedi Knight 2 | Kubaz Spy | Male Coruscant Citizen 1 | Male Coruscant Citizen 2 | Male Coruscant Citizen 3 | Male Coruscant Citizen 4 | Male Theed Citizen | Meebur Gascon | M5-NT | Naboo Pilot | Nimbanel Diplomat | Pantoran Diplomat | Sarrish Diplomat | Senator Orn Free Taa | Senator Stonk | Shistavenan Child | Swaja Malon | Theelin Child | Tholothian Child | Youngling Capo | Youngling Garr | Youngling Hodo | Youngling Jama | Youngling Kron | Youngling Meli | Youngling Rikoo | Youngling Tril | Youngling Tuz | Youngling Vurluha Costumes: Ahsoka Tano | Anakin Skywalker | Darth Maul | General Grievous | Obi-Wan Kenobi | Yoda Sidekicks: Capo | Gar | Hodo | Jama | Kron | Meli | Rikoo Tril | Tuz | Vurluha Enemies: B1 Battle Droid | B2 Battle Droid | Battle Droid Commander | BX Commando Battle Droid | Clone Trooper | Droideka | Dual BX Droid | Long Ranged Nikto Thug | MagnaGuard | Mandalorian | Nikto Thug Bruiser | Nikto Thug with Axe | Nikto Thug with Baton | Nikto Thug with Baton Shield | Shielded BX Droid | Single BX Droid Bosses: Darth Maul | General Grievous Antagonists: Cad Bane | Sebulba Objects: Droid Factory Floating Platform | Republic Gunship Vehicles: Anakin's Podracer | ARC-170 Starfighter | EasyRide Passenger Airspeeder | Jedi Starfighter | Naboo N-1 Starfighter | Sebulba's Podracer | XJ-6 Airspeeder Packs and Tools: Lightsaber Power Discs: Galactic Team-Up: Mace Windu | General Grievous' Wheel Bike | Skies Over Felucia | Forests of Felucia Power Disc Packs: Twilight of the Republic Power Disc Pack Locations: Coruscant | Geonosis | Mos Espa | Naboo | Tatooine",
+        "His Special Move is Sense Your Surroundings , which causes him to rip up a portion of the ground and throw it at nearby Enemies .",
+        "His other abilities abilities include a Super Jump , a Block Breaker , an Air Assault , and the ability to deflect blaster shots with his lightsaber.",
+        "These include a Force Finisher called Anakin's Fury, which causes Anakin to make a flurry of attacks during his Force Dash; and Power of the Force, which causes Anakin to use the Force to pull enemies toward him and then throw them out in all directions.",
+        "[ 5 ] He is Force sensitive, and as such possesses all basic Force-related abilities, along with some others unlocked via his Skill Tree ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://disneynews.us/star-wars-character/anakin-skywalker/:tfidf": {
+      "correlation_id": "9504d0ce-bb72-4072-aa2f-c914cbeba69a",
+      "query": "https://disneynews.us/star-wars-character/anakin-skywalker/",
+      "relevant_sentences": [
+        "Anakin Skywalker is a fictional character from the Star Wars franchise.",
+        "DINUS » Anakin Skywalker Last Updated on: November 15th, 2024 Who is Anakin Skywalker?",
+        "More Lego Star Wars: The Skywalker Saga facts and stats than you will ever need to know including news, release dates and more.",
+        "Here is the Internet’s largest collection of Anakin Skywalker related movies, TV shows, toys and other products.",
+        "He is a central character in the Star Wars prequel trilogy and later becomes the main villain of the original trilogy, Darth Vader."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://dorksideoftheforce.com/2020/02/01/star-wars-ranking-anakin-skywalker/:tfidf": {
+      "correlation_id": "7807e96e-b93e-4f1e-82c5-1454cf484d50",
+      "query": "https://dorksideoftheforce.com/2020/02/01/star-wars-ranking-anakin-skywalker/",
+      "relevant_sentences": [
+        "With Star Wars: The Clone Wars returning later in February, lets take a look at every film or television appearance of Anakin Skywalker in the Star Wars Galaxy.",
+        "With that being said, lets take a look at the best and worst appearances of Anakin Skywalker.",
+        "Number 5: Attack of The Clones Attack of the Clones features the worst of Anakin Skywalker.",
+        "On top of that, as Old Ben stated, “he’s more machine than man.” Anakin Skywalker has always been one of my favorite movie characters.",
+        "Number 4: The Phantom Menace When we first encounter Anakin Skywalker in The Phantom Menace, it is hard to know how to feel."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://dorksideoftheforce.com/2021/08/19/why-does-anakin-skywalker-become-darth-vader-in-star-wars/:tfidf": {
+      "correlation_id": "bb276dcf-58b8-4aff-807e-a5cc1d2f0b1b",
+      "query": "https://dorksideoftheforce.com/2021/08/19/why-does-anakin-skywalker-become-darth-vader-in-star-wars/",
+      "relevant_sentences": [
+        "So, just why did the man named Anakin Skywalker become Darth Vader?",
+        "In Star Wars’ prequel series (Episodes I-III), we get the backstory on Darth Vader , back when he was Anakin Skywalker.",
+        "But the story of how Anakin Skywalker became Darth Vader is one of the more fascinating ones in Star Wars lore.",
+        "Really, there’s no one reason for why Anakin became Darth Vader.",
+        "When introduced in 1977’s Star Wars , people didn’t quite know what to make of Vader."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://editorial.rottentomatoes.com/guide/star-wars-movies-in-order/:tfidf": {
+      "correlation_id": "39f28f90-fd29-419b-a504-86a0fb15e92c",
+      "query": "https://editorial.rottentomatoes.com/guide/star-wars-movies-in-order/",
+      "relevant_sentences": [
+        "Now see the full list of Star Wars movies and shows in order below!",
+        "TAGGED AS: movies , Star Wars (Photo by Fox/ courtesy Everett Collection) If you want to watch the Star Wars movies in chronological order, witnessing the separate rises of Anakin, Luke, and Rey as they unfolded in their timeline, we’ve ordered all the movies (and thrown in some bonus Mandalorian ) in one complete list.",
+        "Animated series Star Wars Resistance runs parallel across the three sequel-trilogy movies.",
+        "The Star Wars movies are spread across three trilogies, with spin-offs and side-stories filling in the universe’s mythic lore.",
+        "But that’s all that remains for strange satellite films within Star Wars : In 2014, a great disturbance was felt when the Lucasfilm Story Group rebooted the canon, preserving the main films and shows, and punting the associated TV movies, books, games, and comics into the “ Star Wars Legends” category."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://en.wikipedia.org/?title=Anakin_Skywalker&redirect=no:tfidf": {
+      "correlation_id": "2c516795-97d8-4a24-a403-bd552e0bb938",
+      "error": "Empty text",
+      "query": "https://en.wikipedia.org/?title=Anakin_Skywalker&redirect=no",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://en.wikipedia.org/wiki/Ahsoka_Tano:tfidf": {
+      "correlation_id": "2d7598c6-3ff4-4eee-8112-c6210c959612",
+      "query": "https://en.wikipedia.org/wiki/Ahsoka_Tano",
+      "relevant_sentences": [
+        "[ 59 ]",
+        "[ 59 ] Wood added that Ahsoka probably shows the most growth of any woman in the Star Wars canon.",
+        "[ 58 ] Mara Wood called Ahsoka a feminist icon, adding that Ahsoka is one of several characters that make The Clone Wars superior to the original and prequel trilogies in depicting strong women.",
+        "[ 52 ] Erika Travis of California Baptist University said Ahsoka is \"compassionate and feminine, without being overtly sexualized\".",
+        "[ 32 ] Blastr identified Ahsoka as one of the most important characters in Star Wars , especially for young girls who, until that point, had not seen a potent female Jedi depicted on screen."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://en.wikipedia.org/wiki/Darth_Vader:tfidf": {
+      "correlation_id": "cde2e56a-967c-4f1a-af17-5cc666de7f9f",
+      "query": "https://en.wikipedia.org/wiki/Darth_Vader",
+      "relevant_sentences": [
+        "Darth Vader ( / d ɑːr θ ˈ v eɪ d ər / ) is a fictional character in the Star Wars franchise.",
+        "The car was made its public debut at San Diego Comic-Con that year and currently as part of the Garage of Legends car collection.",
+        "Built by Action Vehicle Engineering and designed by Bryan Benedict, the car was built on the Chevrolet Corvette C5 chassis and sporting a small-block LS3 V8 engine.",
+        "[ 161 ] In 2014, Hot Wheels created a full-size Darth Vader-inspired car (dubbed as the 'Darth Car') to coincide their partnership with Star Wars franchise.",
+        "[ 160 ] In 2019, an original Vader helmet from The Empire Strikes Back was sold for $900,000 in an online auction."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://en.wikipedia.org/wiki/Hayden_Christensen:tfidf": {
+      "correlation_id": "bc504017-8fff-4fb6-afc8-19a423b7d97e",
+      "query": "https://en.wikipedia.org/wiki/Hayden_Christensen",
+      "relevant_sentences": [
+        "[ 76 ] [ 77 ]",
+        "[ 75 ] He was featured in RED's Lazarus Effect Campaign , which is intended to increase awareness for its efforts to fight AIDS in Africa .",
+        "[ 73 ] He modelled in Louis Vuitton 's advertising, [ 74 ] and was also named as the face of Lacoste 's newest fragrance, Lacoste Challenge.",
+        "[ 72 ] In 2008, Christensen performed a public service announcement for Do Something 's Teens for Jeans Campaign.",
+        "[ 71 ] Christensen is an avid Toronto Maple Leafs fan."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://en.wikipedia.org/wiki/Skywalker_family:tfidf": {
+      "correlation_id": "76733f48-3d48-4063-af30-30db26d99200",
+      "query": "https://en.wikipedia.org/wiki/Skywalker_family",
+      "relevant_sentences": [
+        "[ 40 ]",
+        "The character was voted the 84th top Star Wars character by IGN.",
+        "Despite this, he still encounters other Jedi, as well as the ghost of his ancestor Luke Skywalker, and ultimately reclaims his heritage to fight the Sith.",
+        "Cade has completely abandoned the Jedi way after an attack by the New Sith Order on the Jedi Academy on Ossus.",
+        "He is a protagonist of the Star Wars: Legacy comic book series from Dark Horse , which takes place 125 years after Return of the Jedi ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://es.wikipedia.org/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "13d0f7ca-185f-45d0-8b8f-7cac8edc20ce",
+      "query": "https://es.wikipedia.org/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Es el padre de Luke Skywalker y de la princesa Leia .",
+        "Es ridículo mantener el mito de que todo fue hecho por un solo hombre\".",
+        "El papel de Darth Vader ha sido desempeñado por muchos dobles, el más notable es el instructor de esgrima Bob Anderson .",
+        "[ 9 ] ​ El traje de Vader es una de las áreas en las cuales el interés de Lucas por la cultura japonesa (en particular de los guerreros samurái ) se pone de manifiesto.",
+        "En las tres primeras películas de la saga hace su aparición como el antihéroe principal, Darth Vader (interpretado por Hayden Christensen , David Prowse con la voz de James Earl Jones ), y al final en Star Wars: Episodio VI - El retorno del Jedi es personificado con el actor Sebastian Shaw cuando se retira la máscara."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://ew.com/tv/hayden-christensen-grateful-anakin-skywalker-return-ahsoka/:tfidf": {
+      "correlation_id": "0d1fef6e-26b8-437b-8317-f9cac95700e1",
+      "query": "https://ew.com/tv/hayden-christensen-grateful-anakin-skywalker-return-ahsoka/",
+      "relevant_sentences": [
+        "Christensen's Anakin Skywalker made a surprise return in episodes 4 and 5 , reuniting with his former Jedi apprentice Ahsoka Tano ( Rosario Dawson ).",
+        "\"I just feel very grateful.\" Ahsoka airs Tuesdays on Disney+ at 9 p.m.",
+        "Now Disney is sharing a behind-the-scenes look at Christensen's return.",
+        "After months of speculation, Hayden Christensen finally popped up on Ahsoka , reprising his role as everyone's favorite podracer-turned-Jedi-turned-interstellar-dictator.",
+        "To hear exclusive interviews with the Ahsoka cast, as well as full episode recaps, listen to EW's Dagobah Dispatch podcast ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://fi.wikipedia.org/wiki/Darth_Vader:tfidf": {
+      "correlation_id": "cc9bfb80-b15c-43fb-98a1-2748c958c8e8",
+      "query": "https://fi.wikipedia.org/wiki/Darth_Vader",
+      "relevant_sentences": [
+        "Tunnetuin parodiahahmo on Rick Moranisin esittämä (Lord) Dark Helmet, joka nähdään Mel Brooksin ohjaamassa Tähtien sota -parodiassa Avaruusboltsit vuodelta 1987.",
+        "Vaderia on parodioitu useita kertoja elokuvissa.",
+        "Siitä on sittemmin tullut yksi tunnetuimmista elokuvien tunnusmusiikeista.",
+        "Vaderin tunnuskappale on John Williamsin säveltämä Imperiumin marssi ( The Imperial March ), joka kuultiin ensi kerran Imperiumin vastaiskussa .",
+        "Näistä jälkimmäisin oli suosituin, ja Jedin paluun pohjalta tehty romaanikin vihjasi Vaderin vammojen syntyneen palamisen jäljiltä."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://fictionhorizon.com/anakin-skywalker-quotes/:tfidf": {
+      "correlation_id": "28b1b575-bf2f-4629-bbe0-42a8a260c5d7",
+      "query": "https://fictionhorizon.com/anakin-skywalker-quotes/",
+      "relevant_sentences": [
+        "Before we wrap this up, here are a few frequently asked questions and their answers about Anakin Skywalker quotes.",
+        "This article is going to include a list of the 30 best and most memorable Anakin Skywalker quotes, as they have appeared in the Star Wars canon.",
+        "The dying Vader becoming Anakin Skywalker once again, seeing his son, for the first and last time, without his mask.",
+        "As far as Star Wars are concerned, we all know that Anakin Skywalker is one of the most important characters in the whole franchise.",
+        "Anakin Skywalker has, as we have seen, uttered a lot of famous words that marked the Star Wars franchise, but he doesn’t really have a catchphrase, something he repeated all too often or something that stuck with him for a long time."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://fr.wikipedia.org/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "574e9423-42bc-47df-ad11-19eed137a5b9",
+      "query": "https://fr.wikipedia.org/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Anakin naît en 41 av.",
+        "BY [ 5 ] .",
+        "Il passe son enfance avec sa mère Shmi Skywalker sur Tatooine .",
+        "D'abord esclaves de Gardulla la Hutt , Anakin et Shmi deviennent les esclaves du ferrailleur Watto après que celui-ci a gagné un pari contre Gardulla [ 6 ] .",
+        "Watto donne à Anakin et Shmi une maison en périphérie de Mos Espa, dans une zone densément peuplée."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://gamerant.com/star-wars-anakin-skywalker-arc-explained/:tfidf": {
+      "correlation_id": "f6e4091d-be2e-49dd-8207-944aeee20581",
+      "query": "https://gamerant.com/star-wars-anakin-skywalker-arc-explained/",
+      "relevant_sentences": [
+        "RELATED: Star Wars: Revenge of the Sith Almost Had An Even Darker Twist Perhaps the most the important — and arguably the most developed — character arc in the franchise is that of Anakin Skywalker.",
+        "Anakin's arc throughout the Star Wars saga was like a roller coaster, soaring above all expectations before sinking terribly low.",
+        "MORE: Star Wars: The Difference Between Anakin And Vader Is One Of Emotional Control",
+        "But an arc that starts from innocence and gives that character the option of good or evil is far more complex, and plays an especially prominent role in the Star Wars saga.",
+        "His story is essentially the basis of most everything that happens in the Star Wars storyline."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://hero-and-villain.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "5cc6cf9f-7489-4c25-b8a4-3b23fc04d1c5",
+      "query": "https://hero-and-villain.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "In the prequel trilogy, He was portrayed by Jake Lloyd as a child in its first film The Phantom Menace and by Hayden Christensen as an adult in second and third films Attack of The Clones and Revenge of the Sith with James Earl Jones reprising the role of Anakin's Darth Vader voice at the end of Revenge of the Sith .",
+        "In the Clone Wars movie and series, he was voiced by Matt Lanter, who also portrays Wyatt Logan in Timeless .",
+        "James Earl Jones reprised the role of Anakin's Darth Vader voice in Star Wars Rebels and Rogue One: A Star Wars Story .",
+        "In The Rise of Skywalker , Anakin is one of the voices of the Jedi of the past helping Rey stand up and defeat her grandfather, Darth Sidious.",
+        "Anakin with his then-Padawan, Ahsoka Tano"
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://hero.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "e1406980-9743-4d66-a6e6-fc29c87db34e",
+      "query": "https://hero.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "-Welcome to the Hero/Protagonist wiki!",
+        "If you can help us with this wiki please sign up and help us!",
+        "He was a Jedi Knight who would later become a Sith lord known as Darth Vader .",
+        "Thanks!",
+        "-M-NUva Anakin Skywalker is one of the protagonists of Star Wars ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://hero.fandom.com/wiki/Anakin_Skywalker_(Star_Wars)/Synopsis:tfidf": {
+      "correlation_id": "501e139f-4743-4ca5-85dd-ee9a8fbaa921",
+      "query": "https://hero.fandom.com/wiki/Anakin_Skywalker_(Star_Wars)/Synopsis",
+      "relevant_sentences": [
+        "-Welcome to the Hero/Protagonist wiki!",
+        "Despite his young age, Anakin was a hero.",
+        "If you can help us with this wiki please sign up and help us!",
+        "Anakin was one of the numerous voices of past Jedi that tell Rey that they were with her and gave her the strength to destroy her grandfather, Emperor Palpatine, forever.",
+        "She would then join Anakin and her departed family within the Force."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://legostarwars.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "419a96ba-6519-4a21-8ded-cbfa09868dd6",
+      "query": "https://legostarwars.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "The last time he appears is when he, Obi Wan, and Yoda meet Luke at the party with the Ewoks on Endor.",
+        "However he came back as a ghost.",
+        "Vader turned back to the light side of the Force and became Anakin Skywalker, the Chosen, who brought the balance of forces, killing Palpatine and dying.",
+        "In the last moments of his life, he begged Luke to remove his mask so that he could see with his own eyes.",
+        "He briefly survived the Emperor."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://lightsabers.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "90d46cd8-912c-4f61-a69d-77e76a784bf1",
+      "query": "https://lightsabers.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "In Bloodlines , the second novel in the Legacy of the Force series, Jacen uses the Force to \"watch\" Anakin slaughter the children at the Jedi Temple.",
+        "For the first time, they see their own birth and their mother's death, as well as their father's corruption to the dark side.",
+        "In the Dark Nest Trilogy , Luke and Leia uncover old recordings of their parents in R2-D2 's memory drive.",
+        "In the novel The Unifying Force of the New Jedi Order series, set 30 years after A New Hope , Anakin's voice speaks to his grandson, Jacen Solo , telling him to \"stand firm\" in his battle with the Supreme Overlord of the Yuuzhan Vong .",
+        "In Tatooine Ghost , Leia learns to forgive her father after learning about his childhood as a slave and the death of her paternal grandmother."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://listofdeaths.fandom.com/wiki/Anakin_Skywalker/Darth_Vader:tfidf": {
+      "correlation_id": "42b1cb69-55d6-4854-8169-e5af50faf8f1",
+      "query": "https://listofdeaths.fandom.com/wiki/Anakin_Skywalker/Darth_Vader",
+      "relevant_sentences": [
+        "The Chosen Ones Anakin Skywalker | Luke Skywalker Jedi Adi Gallia | Ahsoka Tano | Ben Solo | Even Piell | Ezra Bridger | Galen Marek | Grogu | Ima-Gun Di | Jaro Tapal Jocasta Nu | Ki-Adi-Mundi | Kit Fisto | Ky Narec | Kento Marek | Leia Organa | Luminara Unduli | Mace Windu Margrave Juro | Nahdar Vebb | Obi-Wan Kenobi | Qui-Gon Jinn | Reva | Rey Skywalker | Shaak Ti | Sors Bandeam The Grand Inquisitor | Tiplar | Tiplee | Trilla Suduri | Yoda | Zett Jukassa Sith Asajj Ventress | Barriss Offee | Count Dooku | Darth Desolous | Darth Malgus | Darth Nihilus | Darth Phobos | Fifth Brother | Maul | Pong Krell | Savage Opress | Seventh Sister | Sheev Palpatine New Republic Carasynthia Dune Galactic Republic Jar Jar Binks | Lolo Purs | Notluwiski Papanoida | Padmé Amidala | Satine Kryze | Saw Gerrera | Taggart Galactic Empire Dedra Meero | Moff Gideon | Jimmon Arbmab | Major Oniye Namada | Orson Callan Krennic | Officer Rasha Bex | Ochi of Bestoon | Rick, the Door Technician | Tala Durith | Thrawn | Vice Admiral Rampart | Vult Skerris | Wilhuff Tarkin | Zuud Confederacy of Independent Systems General Grievous | Moralo Eval | Osi Sobeck | Tal Merrik First Order Armitage Hux | Amret Engell | Bellava Parnadee | Captain Phasma | Chesille Sabrond | CS-9147 | Domaric Quinn | Enric Pryde | Frantis Griss | FN-2199 | FN-2802 | Lanzora Garan | Masir Trach | \"Slip\" | ST-A1215 | Tishra Kandia Rebellion Alexsandr Kallus | Amilyn Holdo | Antoc Merrick | Arvel Crynyd | Baze Malbus | Bodhi Rook | Carson Teva | Cassian Andor | Cham Syndulla | Chewbacca | Chirrut Îmwe | Dicer | Haja Estree | Han Solo | Hera Syndulla | Jyn Erso | Kado Oquoné | Lando Calrissian | Melch | Rafa Martez | Sabine Wren | Trace Martez | Trapper Wolf Resistance Boolio | Poe Dameron | Seftin Vanik | Tallie Lintral Military Personnel Rigosso Clones \"99\" | \"Alpha\" | \"Bacara\" | \"Barr\" Bogey 1212 | Bogey 9662 | Bogey 4409 | Bogey 5632 | Bogey 3856 | \"Banks\" | \"Boil\" | \"Bouncer\" | \"Bow\" | \"Breaker\" | CT-8508 | CT-3278 | CT-327 | \"Cade\" | \"Cannon\" | \"Charlie\" | \"Chatterbox\" | \"Cody\" | \"Colt\" | \"Cooker\" | \"Crazy Legs\" | \"Crosshair\" | \"Cut Lawquane\" | \"Cutter\" | \"Cutup | \"Droidbait\" | \"Deviss\" | \"Denal\" | \"Di'kut\" | \"Dogma\" | \"Doom\" | \"Dox\" | \"Echo\" | \"Faie\" | \"Fives\" | \"Fordo\" | \"Fox\" | \"Ghost\" | \"Glitch\" | \"Goji\" | \"Gree\" | \"Gregor\" | \"Hardcase\" | \"Havoc\" | \"Heater\" | \"Hevy\" | \"Hock Malsuum\" | \"Horns\" | \"Hunter\" | \"Hexx\" | \"Jag\" | \"Jek\" | \"Jesse\" | \"Jet\" | \"Kaddak\" | \"Keeli\" | \"Keller\" | \"Kite\" | \"Koho\" | \"Matchstick\" | \"Mayday\" | \"Neyo\" | \"Nub\" | \"Nova\" | \"Omega\" | \"O'Niner\" | \"Ponds\" | \"Racetrack\" | \"Rex\" | \"Remy\" \"Rod\" | \"Rys\" | \"Sarge\" | \"Sharp\" | \"Sharp\" (2) | \"Sinker\" | \"Skye\" | \"Stripe\" | \"Slip\" | \"Sync\" | \"Tech\" | \"Tag\" | \"Thire\" | \"Thorn\" | \"Tracer\" | \"Tup\" | \"Tyto\" | \"Vaughn\" | \"Voca\" | \"Veetch\" | \"Vill\" | \"Wilco\" | \"Wyler\" | \"Waxer\" | \"Wrecker\" | \"Zag\" Bounty Hunters Aurra Sing | Boba Fett | Cad Bane | Castas | Clone X | Embo | Falco Sang | Fennec Shand | Greef Karga | Kannen Doom | Latts Razzi | Riot Mar Mandalorians Axe Woves | Bo-Katan Kryze | Din Djarin | Fenn Rau | Gar Saxon | Koska Reeves | Patrok Ru-Saxon | Paz Vizsla | Pre Vizsla | The Armorer | Tristan Wren | Ursa Wren Mercenaries Burg | Migs Mayfeld | Xi'an Pirates Baroosh Pawk | Chussido | Dokk Strassi | Dryden Vos | Hondo Ohnaka | Krismo Sodi | Mok Shaiz | Moloch | Qi'ra Small Time Criminals Cassie Cryar | Drash | Drexl Roosh | Gor Koresh | Ione Marcy | Rio Durant | Skad | Sy Snootles | Tobias Beckett | Val | Vect Nokru Civilians Frog Lady | Jo | King Terak | Taanti Droids AL-42 | AZI | Battle Droid 513 | C-21 Highsinger | C-3PO | C1-10P | Commander 224 | IG-11 | K-2SO | Nobot | R2-J8 | R6-D8 | R2-D2 Animals Great Leveler | Muchi | Nameless | Pateesa | Pikk Mukmuk",
+        "For his appearances in Legends, click here .",
+        "As Darth Vader, he was mainly portrayed by the late David Prowse and temporarily by the late Sebastian Shaw in live action roles with Hayden Christensen replacing them in the Obi-Wan Kenobi TV show, and is voiced by the late James Earl Jones.",
+        "(41 BBY - 4 ABY) ( 45 Years Old ) He is portrayed as Anakin by Hayden Christensen and Jake Lloyd in the Prequel trilogy and voiced by Matt Lanter in Star Wars: The Clone Wars .",
+        "He is also the husband to Padmé Amidala , father to Luke Skywalker and Leia Organa , Padawan to Obi-Wan Kenobi and Darth Sidious , and former master to Ahsoka Tano ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://lucasfilm.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "7ccb97c8-f3e7-4479-9339-9038d076658d",
+      "query": "https://lucasfilm.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "[ 51 ] On their list of the 100 Greatest Fictional Characters , Fandomania.com ranked Vader at number 6.",
+        "[ 56 ] Vader received the Ultimate Villain recognition at the 2011 Scream Awards .",
+        "[ 57 ]",
+        "100 Movie Quotes , a list of the greatest American movie quotes.",
+        "The line was selected as one of the 400 nominees for the American Film Institute 's 100 Years..."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://medium.com/@sunasleftbang/the-tragedy-of-anakin-skywalker-1be5331f5bb0:tfidf": {
+      "correlation_id": "6763a1cb-8bfd-4e87-b3d8-3bd1a0209e06",
+      "query": "https://medium.com/@sunasleftbang/the-tragedy-of-anakin-skywalker-1be5331f5bb0",
+      "relevant_sentences": [
+        "This is my take on the story of Anakin Skywalker.",
+        "The tragedy of Anakin’s life is closely connected to the Jedi Order and his relationship to the code and the council.",
+        "It’s a tale of destiny, choices and quite frankly, tragedy.",
+        "The culmination of Anakin’s tragedy is undoubtedly his life as Darth Vader: the darkest (and for most Star Wars fans most famous) chapter of his life.",
+        "And yet, there is hope: his son, Luke Skywalker."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://movieweb.com/star-wars-anakin-journey-chronological-order/:tfidf": {
+      "correlation_id": "b1e23c32-5e59-481f-bb4d-257c9a79cac5",
+      "query": "https://movieweb.com/star-wars-anakin-journey-chronological-order/",
+      "relevant_sentences": [
+        "Here's how to watch Anakin's story in chronological order.",
+        "The final installment into the prequel trilogy, Star Wars: Episode III - Revenge of the Sith , is set later on in the Clone Wars, with Anakin now known and held to the highest standard by almost everyone in the Jedi Order, apart from the Jedi Council.",
+        "After a sixteen-year hiatus from Star Wars , George Lucas brought the franchise back to the big screen in 1999 with Star Wars: Episode I - The Phantom Menace .",
+        "Appearing in TV shows such as Star Wars: Rebels , Obi-Wan Kenobi as the main antagonist, and of course in the original trilogy, seeing the entirety of Anakin's life journey also adds so much to the character Darth Vader, who in the original trilogy was only seen as the menacing, all-powerful villain.",
+        "Related: Star Wars: Will Hayden Christensen Return as Anakin Skywalker Again After Ahsoka?"
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://movieweb.com/star-wars-anakin-skywalker-best-quotes/:tfidf": {
+      "correlation_id": "8393dccd-5c78-41f7-9d89-ddabcabb1a77",
+      "query": "https://movieweb.com/star-wars-anakin-skywalker-best-quotes/",
+      "relevant_sentences": [
+        "There is no character as central to the Star Wars franchise as Anakin Skywalker.",
+        "Related: Star Wars: Will Hayden Christensen Return as Anakin Skywalker Again After Ahsoka?",
+        "With that in mind, we’ve gathered what we believe to be 10 of the best quotes from Anakin Skywalker over the years.",
+        "Although his son Luke Skywalker may have been the lead character of the original films, Anakin has become one of the most important characters to the broader Star Wars galaxy as a whole.",
+        "Related: Star Wars: The 15 Most Powerful Sith Lords, Ranked Another one of Anakin’s best lines from The Clone Wars comes in the finale of the show’s fifth season, as his apprentice Ahsoka Tano leaves the Jedi Order, her training and her friends behind."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://movieweb.com/star-wars-the-skywalker-family-tree-explained-including-the-legends-characters/:tfidf": {
+      "correlation_id": "624a7e11-e5c5-4afd-a50f-1912aaf42662",
+      "query": "https://movieweb.com/star-wars-the-skywalker-family-tree-explained-including-the-legends-characters/",
+      "relevant_sentences": [
+        "Rey is now the face of the Skywalker family and will be the one who continues their family tree.",
+        "The Skywalker family tree gets a little murky after Ben Skywalker.",
+        "Related: Every New Star Wars Movie and Show Releasing In 2024 Ben Skywalker is the only child of Luke and Mara Jade Skywalker in Star Wars Legends, named after Luke's former master, Ben Kenobi.",
+        "Although they're minor characters and not blood-related, the Lars family becomes an important branch in the Skywalker family tree as Owen and Beru are left to care for Luke Skywalker by Obi-Wan Kenobi after Padme's death at the hands of Anakin.",
+        "Related: Star Wars: The Battle of Yavin, Explained Senator Bail Organa and his wife, Queen Breha, adopted Leia Skywalker in Episode III: Revenge of the Sith and bestowed her with the surname Organa."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://neosabers.com/blogs/news/who-is-anakin-skywalker:tfidf": {
+      "correlation_id": "f72b4d35-0c8b-4630-8683-b9867213008e",
+      "query": "https://neosabers.com/blogs/news/who-is-anakin-skywalker",
+      "relevant_sentences": [
+        "Anakin Skywalker is the main character who started this iconic tale that shaped the fate of an entire galaxy.",
+        "Anakin Skywalker’s story is full of adventures and renewal.",
+        "Understanding the Balance Between Light and Dark Who Is Obi-Wan Kenobi?",
+        "Image Source: polygon.com Anakin Skywalker was born on Tatooine, a desert planet ruled by the Hutts.",
+        "What Is a Grey Jedi?"
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://nl.wikipedia.org/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "17ed909a-59df-4b55-9576-f111b602eee4",
+      "query": "https://nl.wikipedia.org/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Stamboom van de familie Skywalker in de officiële filmreeks: Stamboom van de familie Skywalker volgens de Expanded Universe:",
+        "Het is een van de eerste missies samen met Obi-Wan.",
+        "Het is de tijd dat Anakin nog niet heel lang bij de Jedi is.",
+        "Hierin gaat een nog jonge Padawaan Anakin Skywalker, samen met Obi-Wan Kenobi op zoek naar de verdwenen Jedi Vergere.",
+        "Dit boek is in het Nederlands verschenen onder de titel: \"De Woeste Planeet.\" Het speelt zich even na de gebeurtenissen in Episode I af."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://people.com/hayden-christensen-anakin-skywalker-ahsoka-teaser-trailer-7642931:tfidf": {
+      "correlation_id": "c1387dee-4fb6-4a1e-86f5-41f4a5fced27",
+      "query": "https://people.com/hayden-christensen-anakin-skywalker-ahsoka-teaser-trailer-7642931",
+      "relevant_sentences": [
+        "23 Hayden Christensen is stepping back into the robes of Anakin Skywalker!",
+        "A new teaser trailer for the Disney+ series Ahsoka debuted Sunday, showing Christensen, 42, reprised as both Skywalker and his alter ego Darth Vader.",
+        "“Everyone in the order knew Anakin Skywalker,” Baylan Skoll — played by the late Ray Stevenson in the Star Wars original fantasy series — narrates at the trailer's beginning.",
+        "Never miss a story — sign up for PEOPLE's free daily newsletter to stay up-to-date on the best of what PEOPLE has to offer, from juicy celebrity news to compelling human interest stories.",
+        "“Few would live to see what he became.” Rosario Dawson , 43, starring as Ahsoka Tano, then adds “Before the end of the Clone Wars I walked away from him, and the Jedi.” A montage of lightsaber battles is then captured before a close-up of Ahsoka is shown with the words, “A new Jedi will rise.” “As your master, it’s my responsibility to prepare you,\" adds Christensen over a montage of images showing Ahsoka in a fierce battle."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://scifi.fandom.com/wiki/Star_Wars:Anakin_Skywalker:tfidf": {
+      "correlation_id": "40f5cfe7-1516-43b6-a4e2-f3d4d907cf16",
+      "query": "https://scifi.fandom.com/wiki/Star_Wars:Anakin_Skywalker",
+      "relevant_sentences": [
+        "Anakin Skywalker was a legendary Force-sensitive Human male Jedi Knight who served during the waning days of the Galactic Republic , and later turned into a Sith Lord taking the name of Darth Vader and serving the newly formed Empire .",
+        "(he may have been saying this in a respectable way, because he knows the reason, why his ancestor Anakin became evil, and others believe he was consumed by the dark side of the force, but Nat knows Anakin became evil of his own free will, and did it to save his wife from death.), They went through with the plan.",
+        "Nat, however, said his ancestor was evil, and the suit had nothing to do with it.",
+        "Droo didn't like the idea, thinking it would make Azlyn the next Darth Vader, as the suit bore a similar disturbing point to Darth Vader's suit.",
+        "Nat refused to give up, and decided on a desperate measure: placing Azlyn in a life supporting suit for mortally wounded Kiffu guardians."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/anakin-skywalker-dark-side-fall-beginning-op-ed/:tfidf": {
+      "correlation_id": "0005a961-a87d-43f0-b0ab-1d560254fd20",
+      "query": "https://screenrant.com/anakin-skywalker-dark-side-fall-beginning-op-ed/",
+      "relevant_sentences": [
+        "While the Tusken Raider incident was the beginning of Anakin's dark side path, it's also true that no one thing 'caused' Anakin's fall to the dark side .",
+        "Anakin Skywalker/Darth Vader's fall to the dark side is one of the most important events in Star Wars , but when did it really begin?",
+        "One moment in particular was the true start of Anakin's fall to the dark side .",
+        "The true beginning of Anakin's path to the dark side was his massacre of the Tusken Raiders .",
+        "Yes, the Tusken Raider incident was the beginning of the end in terms of Anakin Skywalker/Darth Vader's path to the dark side, but Star Wars has proven that it was so much more than any one moment."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/anakin-skywalker-darth-vader-lightsabers-used/:tfidf": {
+      "correlation_id": "605a041d-885c-4862-987a-6e14eb381b7a",
+      "query": "https://screenrant.com/anakin-skywalker-darth-vader-lightsabers-used/",
+      "relevant_sentences": [
+        "Anakin Skywalker wielded 4 different lightsabers across the Star Wars timeline (including his years as Darth Vader).",
+        "Placing his red kyber crystal within a new hilt of his own design, Darth Vader's second lightsaber seen in Obi-Wan Kenobi and the original trilogy bears similarities to his first two lightsabers as Anakin Skywalker.",
+        "Related: The Mandalorian Season 3 Trailer Sets Up Anakin Skywalker's Return Having lost his lightsaber after Mustafar, Darth Vader's first task following Order 66 was to gain a new blade.",
+        "Ultimately, Anakin's second lightsaber was recovered by Kenobi following their duel on Mustafar where Skywalker was defeated after sustaining heavy injuries, requiring his cybernetics and life support armor as Darth Vader .",
+        "However, Anakin actually had two lightsabers during his Jedi career, with his second becoming far more important with a very complex legacy."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/anakin-skywalker-hayden-christensen-ahsoka-star-wars-return-explained/:tfidf": {
+      "correlation_id": "f00aa41f-5a3b-4402-9a1b-e06ac05431ae",
+      "query": "https://screenrant.com/anakin-skywalker-hayden-christensen-ahsoka-star-wars-return-explained/",
+      "relevant_sentences": [
+        "Yes, Hayden Christensen is playing Anakin Skywalker in Ahsoka episode 4.",
+        "The Star Wars sequels never brought Anakin back, beyond a small voice cameo in Star Wars: The Rise of Skywalker , and Ahsoka can atone for that.",
+        "It had long been speculated that Anakin would return in some way during the show, with Hayden Christensen reportedly among Ahsoka 's cast , although there was little official confirmation beyond some lines of dialogue in a trailer.",
+        "While he's appeared in Obi-Wan Kenobi and Star Wars Rebels , this is his big post- Return of the Jedi return.",
+        "Then there's the return of Anakin himself."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/anakin-skywalker-timeline-balance-force/:tfidf": {
+      "correlation_id": "ee9ddcef-ef7e-41a6-9ea7-f0925b0f5fa8",
+      "query": "https://screenrant.com/anakin-skywalker-timeline-balance-force/",
+      "relevant_sentences": [
+        "Anakin Skywalker's personal timeline in the Star Wars canon shows the perfect balance of the Force.",
+        "Anakin's own timeline proves he was always destined to bring balance in the Force to the galaxy at large.",
+        "As confirmed by the Force-being known as the Father, Anakin's ability to control his children proved Skywalker was indeed the Chosen One to bring balance to the Force, even if his fulfillment of the prophecy unexpectedly happened years after his corruption as the Dark Lord of the Sith Darth Vader.",
+        "Related: When The Galaxy Learned Darth Vader's Identity & The Myth Of Anakin Skywalker Was Destroyed Born in 41 BBY, Anakin Skywalker was approximately 22 years old during the events of Revenge of the Sith .",
+        "Believed by many to be the figure of a prophecy who would bring balance to the Force, Anakin's status as the Chosen One was definitively confirmed during The Clone Wars ahead of his redemption and defeat of Emperor Palpatine in Return of the Jedi ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/kenobi-anakin-star-wars-high-ground-mistake/:tfidf": {
+      "correlation_id": "b5ee1462-a534-4a4a-a42f-8698f080cdb0",
+      "query": "https://screenrant.com/kenobi-anakin-star-wars-high-ground-mistake/",
+      "relevant_sentences": [
+        "Warning: Contains SPOILERS for Obi-Wan Kenobi , \"Chapter V\" Anakin's fateful decision to challenge his master for the high ground on Mustafar during the Revenge of the Sith finale has always been a puzzling plot point, but Obi-Wan Kenobi has finally explained exactly why he took such a risk.",
+        "Many of the Star Wars spin-off projects have been fairly criticized for providing background to characters and stories that didn't need further explanation.",
+        "Now, thanks to Obi-Wan Kenobi , it's clear that there was actually something much more deep-seated behind Anakin's decision.",
+        "Want more Obi-Wan Kenobi articles?",
+        "In a flashback sequence that interspersed the episode, viewers finally got to see actors Ewan McGregor and Hayden Christensen reunite as Obi-Wan Kenobi and Anakin Skywalker respectively."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/return-jedi-anakin-ghost-hayden-christensen-sebastian-shaw-replace/:tfidf": {
+      "correlation_id": "e9dac8fb-eb87-4fe8-9553-3b99982ceffa",
+      "query": "https://screenrant.com/return-jedi-anakin-ghost-hayden-christensen-sebastian-shaw-replace/",
+      "relevant_sentences": [
+        "Replacing Sebastian Shaw with Hayden Christensen in Return of the Jedi isn’t the only change to the original Star Wars trilogy that divided fans.",
+        "For the 2004 DVD release of the original trilogy, Lucas changed Return of the Jedi 's ending so that instead of Shaw, Anakin Skywalker’s Force Ghost was played by Hayden Christensen.",
+        "Sebastian Shaw was the first actor to portray the unmasked Anakin Skywalker following the redemption of Darth Vader in Return of the Jedi .",
+        "Hayden Christensen also returned as Anakin Skywalker's Force Ghost in Ahsoka season 1.",
+        "Sebastian Shaw's appearance as the unmasked Darth Vader was altered slightly to make him look more like Hayden Christensen."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-anakin-father-emperor/:tfidf": {
+      "correlation_id": "22b190ee-2544-4d99-a883-4b4d5cfd168d",
+      "query": "https://screenrant.com/star-wars-anakin-father-emperor/",
+      "relevant_sentences": [
+        "Yes, Star Wars fans, Darth Vader #25 confirms Anakin Skywalker was the result of Dark Side/Midi-chlorian manipulation inside of Shmi Skywalker’s womb, performed personally by Emperor Palpatine .",
+        "Not because he was created without a father, but because his 'father' was the Force itself.",
+        "Anakin Skywalker was created by manipulating the Dark Side of the Force , as many suspected, but the identity of his ‘father’ put forward in the new canon guarantees no fan will ever see the Star Wars saga the same way again.",
+        "At the very least, Lucasfilm confirms Anakin drew the same conclusions about being created by Darth Plageuis and his apprentice, Emperor Palpatine.",
+        "Until now, it was still just rumor and fan theory that suggested Darth Sidious had been the closest thing to a father Anakin Skywalker had, making Palpatine and Vader a father and son."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-anakin-skywalker-actors/:tfidf": {
+      "correlation_id": "ab7f7b99-f61c-4f0b-8800-bab1902a8af8",
+      "query": "https://screenrant.com/star-wars-anakin-skywalker-actors/",
+      "relevant_sentences": [
+        "Star Wars Projects Featuring Matt Lanter Star Wars: The Clone Wars Star Wars Forces of Destiny Lego Star Wars Holiday Special Lego Star Wars Summer Vacation Tales of the Jedi season 1 Matt Lanter has been the animated voice of Anakin Skywalker since Star Wars: The Clone Wars movie premiered in 2008.",
+        "While that is Mat Lucas’ only outing as Anakin Skywalker on television, he has portrayed Anakin 11 times in different Star Wars video games, including Star Wars: Battlefront and Star Wars: The Force Unleashed .",
+        "Anakin Skywalker is one of the most iconic characters in Star Wars and over the course of his many appearances, he’s been portrayed by multiple actors.",
+        "Star Wars Projects Featuring Hayden Christensen Star Wars Episode II--Attack of the Clones Star Wars Episode III--Revenge of the Sith Star Wars: The Rise of Skywalker (vocal cameo) The role of Anakin Skywalker is almost synonymous with Hayden Christensen, who first appeared as the character in 2002’s Star Wars Episode II—Attack of the Clones .",
+        "The adventures of Star Wars ' Chosen One have been told in many different mediums, and here are all the actors who have played Anakin Skywalker ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-anakin-skywalker-all-force-powers-canon-legends/:tfidf": {
+      "correlation_id": "d4edff45-9932-4e80-b2f5-b5d569ad9014",
+      "query": "https://screenrant.com/star-wars-anakin-skywalker-all-force-powers-canon-legends/",
+      "relevant_sentences": [
+        "Anakin Skywalker is one of the Star Wars galaxy’s most powerful characters, using a variety of Force powers throughout both the modern canon and the original Legends continuity.",
+        "In the modern Star Wars canon, Anakin uses mind tricks on several occasions in The Clone Wars .",
+        "During his darker moments as a Jedi, Anakin has unknowingly used the dark power of Force scream on several occasions , all in the Legends continuity.",
+        "There is only one instance of Anakin Skywalker using a Force barrier in either Star Wars continuity.",
+        "Both the Legends and modern canon continuities establish that Anakin Skywalker lacks a father, having been created by midi-chlorians and born to the human Shmi Skywalker."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-anakin-skywalker-best-friendships-rivalries/:tfidf": {
+      "correlation_id": "f0a65278-7400-4a6b-877e-b106c5a9d5ab",
+      "query": "https://screenrant.com/star-wars-anakin-skywalker-best-friendships-rivalries/",
+      "relevant_sentences": [
+        "Of course, on top of these rivalries, Anakin has some of the greatest friendships in all of Star Wars .",
+        "RELATED: Star Wars: 10 Times Anakin Was Actually A Pretty Nice Guy Most of Anakin Skywalker's greatest rivalries, such as Luke and Obi-Wan, come during his time as Darth Vader, but before then, as Anakin, he also has a handful of great rivals.",
+        "RELATED: Star Wars: The Clone Wars - The 10 Best Characters Introduced After Season 1 Other than Ahsoka , though, none had quite as powerful of a connection with their troops as Anakin.",
+        "RELATED: 10 Of The Most Overpowered Force Users In Canon, Ranked It is the best sibling-esque relationship in Star Wars , with the two growing as individuals and as a duo over seven seasons of The Clone Wars together.",
+        "Anakin has fewer long-term rivalries than he does with Obi-Wan."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-anakin-skywalker-best-quotes/:tfidf": {
+      "correlation_id": "e1244a81-c94b-4fc4-a281-03f8afe2bdb2",
+      "query": "https://screenrant.com/star-wars-anakin-skywalker-best-quotes/",
+      "relevant_sentences": [
+        "Here are some of Anakin Skywalker’s best quotes from Star Wars .",
+        "What's the best way to watch Star Wars?",
+        "While these are just a few of Anakin Skywalker ’s quotes, they all highlight different aspects of his character throughout Star Wars .",
+        "Anakin was one of the main characters of the Star Wars prequel trilogy, as well as the animated television show, Star Wars: The Clone Wars .",
+        "One of the best action sequences in all of Star Wars comes when Anakin faces off against his former master, Obi-Wan Kenobi."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-anakin-skywalker-dark-side-fall-defining-moments/:tfidf": {
+      "correlation_id": "3166f4d8-f9ae-4d65-8e0a-9db7312b82a3",
+      "query": "https://screenrant.com/star-wars-anakin-skywalker-dark-side-fall-defining-moments/",
+      "relevant_sentences": [
+        "One of Star Wars' most crucial storylines is Anakin Skywalker's fall to the dark side of the Force and transformation into Darth Vader , but that transition didn't occur all at once; 15 moments in particular defined Anakin's turn.",
+        "Anakin Skywalker is at first one of the most powerful Jedi in Star Wars , but he is also one of Star Wars' most tragic characters .",
+        "These 15 moments specifically defined Anakin Skywalker's path to the dark side and sadly cemented his future as Darth Vader.",
+        "Star Wars: The Clone Wars fleshed out Anakin's path to the dark side of the Force even more, filling in the major gaps between Attack of the Clones and Star Wars: Episode III - Revenge of the Sith.",
+        "What's the best way to watch Star Wars?"
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-anakin-skywalker-darth-vader-timeline-explained/:tfidf": {
+      "correlation_id": "1debdbe8-fdcb-40ad-943d-6a1d11eea933",
+      "query": "https://screenrant.com/star-wars-anakin-skywalker-darth-vader-timeline-explained/",
+      "relevant_sentences": [
+        "Here is every major moment in Anakin Skywalker / Darth Vader's Star Wars timeline in chronological order , from his role as the Chosen One to his redemption in the original trilogy and beyond.",
+        "Anakin Skywalker / Darth Vader is perhaps the single most influential character in Star Wars , and his complete timeline includes a series of pivotal events not only for his character but also for the entire galaxy.",
+        "Nevertheless, this is one of the first true 'Darth Vader moments' Anakin has in Star Wars .",
+        "Anakin is both one of Star Wars' most powerful Jedi and one of Star Wars' most powerful Sith , and he had a massive impact on the Star Wars timeline in both those roles (for better or worse).",
+        "He also continues to be a key character, even following the conclusion of the Skywalker Saga with Star Wars: The Rise of Skywalker ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-anakin-skywalker-fall-dark-side-moments/:tfidf": {
+      "correlation_id": "3544c472-b6d6-4bd7-a760-ff7f97299323",
+      "query": "https://screenrant.com/star-wars-anakin-skywalker-fall-dark-side-moments/",
+      "relevant_sentences": [
+        "The Star Wars prequel trilogy tells the story of Anakin Skywalker's fall to the dark side, and this has been expanded on throughout the franchise.",
+        "He later expanded on this in Star Wars: The Clone Wars , which added yet more steps in Anakin's fall.",
+        "Related: Ahsoka's Age & Full Star Wars Timeline - From The Clone Wars To The Disney Plus TV Show Anakin's execution of Count Dooku in Star Wars: Episode III - Revenge of the Sith is another key moment in Anakin's fall.",
+        "Anakin’s journey to the dark side began from the moment Qui-Gon Jinn and Obi-Wan Kenobi took him from his mother on Tatooine in Star Wars: Episode I - The Phantom Menace .",
+        "George Lucas' Star Wars prequel trilogy presents Anakin's fall as a journey, and viewers - who knew Anakin's destiny to become Darth Vader - can see all the signs."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-anakin-skywalker-force-feats/:tfidf": {
+      "correlation_id": "5f03a924-4d3f-4a03-b394-2a6a9239f554",
+      "query": "https://screenrant.com/star-wars-anakin-skywalker-force-feats/",
+      "relevant_sentences": [
+        "As the Chosen One , Anakin Skywalker was able to perform some truly epic feats using the Force, and these 10 are some of the greatest demonstrations of his power in Star Wars canon.",
+        "While the Jedi Order had a more strict view of how the Force should be used by the time of Star Wars: Episode I - The Phantom Menace , Anakin Skywalker used the same power as Ram Jomaran when creating C-3PO.",
+        "What's the best way to watch Star Wars?",
+        "In the Star Wars: The Clone Wars movie, Anakin and Obi-Wan Kenobi are fighting the Separatist droid army when they are confronted by giant spider droids.",
+        "In the Star Wars: The Clone Wars episode \"Prisoners,\" Padmé, Anakin, Jar Jar Binks, and Jedi Master Kit Fisto are held prisoner on the ocean world of Mon Cala."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-anakin-skywalker-vader-facts-trivia-history/:tfidf": {
+      "correlation_id": "55f748d8-c28f-4e06-bf58-799978a56b85",
+      "query": "https://screenrant.com/star-wars-anakin-skywalker-vader-facts-trivia-history/",
+      "relevant_sentences": [
+        "What other fun facts do you know about Anakin Skywalker?",
+        "So, would that make Luke Skywalker the \"David\" of Star Wars ?",
+        "And then , he was Vader.",
+        "Before he was Darth Vader, Anakin Skywalker was a pod racer with a bowl cut.",
+        "For Jake Lloyd, the boy who became Young Anakin, Star Wars was a nightmare."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-chosen-one-prophecy-anakin-skywalker-explained/:tfidf": {
+      "correlation_id": "8831b55b-ee78-45d0-9cec-30ac05429f9a",
+      "query": "https://screenrant.com/star-wars-chosen-one-prophecy-anakin-skywalker-explained/",
+      "relevant_sentences": [
+        "Star Wars is the story of Anakin Skywalker, the Chosen One - and here's everything to know about how he fulfilled his destiny.",
+        "Related: Star Wars Finally Reveals What The Chosen One Prophecy Said The term \"balance\" has never really been defined in Star Wars , but an important clue can be found in comparing the Jedi with the Sith.",
+        "Thus the Star Wars saga is best understood as the battle between those two wills, with the Force bringing the Chosen One into play and Palpatine trying to use Anakin Skywalker as his pawn.",
+        "In order to cement this idea, he revealed Anakin Skywalker was the Chosen One, a mysterious being with a unique destiny.",
+        "But even that now seems ambiguous, given Palpatine survived for Star Wars: The Rise of Skywalker ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-essential-anakin-skywalker-stories/:tfidf": {
+      "correlation_id": "a15c4120-a806-42c2-8ef6-be7eb05bd4a0",
+      "query": "https://screenrant.com/star-wars-essential-anakin-skywalker-stories/",
+      "relevant_sentences": [
+        "Related: 10 Essential Luke Skywalker Stories Outside Of Star Wars Movies The Star Wars: Jedi Quest young-reader series by Jude Watson tracks Anakin's progress as a Jedi between Star Wars: Episode I - The Phantom Menace and Star Wars: Episode II - Attack of the Clones .",
+        "With a perfect ending to a story about Anakin's entire life, The Rise and Fall of Darth Vader is one of the most essential Anakin Skywalker stories in Star Wars .",
+        "As the central character of the Star Wars saga, Anakin Skywalker has several stories outside the movies that are just as essential to his overarching narrative.",
+        "The number of tales that expand on each stage of Anakin's life improves his film arc and adds greater tragedy to Darth Vader's actions, and for this reason, 10 Anakin Skywalker stories have become essential to Star Wars .",
+        "These stories also make the Star Wars movies more enjoyable by enhancing Anakin's development."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://screenrant.com/star-wars-movies-anakin-vader-age-how-old/:tfidf": {
+      "correlation_id": "5078cc1b-7773-4caf-8b2b-ddba7176b8d6",
+      "query": "https://screenrant.com/star-wars-movies-anakin-vader-age-how-old/",
+      "relevant_sentences": [
+        "Anakin Skywalker's age has been a contentious topic when discussing the Star Wars prequels, particularly how old he was in the first two films.",
+        "Here's how old Anakin Skywalker is in each Star Wars movie and TV show .",
+        "The Star Wars movies fast-forward again to the end of the Dark Times of the Empire's reign.",
+        "Star Wars: Episode III - Revenge of the Sith picks the movies back up at the end of the Clone Wars, when every battle he's fought is beginning to culminate.",
+        "This means he is 9 years old when he joins the Jedi in Star Wars: Episode I - The Phantom Menace , unusually old to be recruited to the Jedi."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://star-wars-animated.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "faa4ef35-2279-4d93-b568-2c0ad9fb80aa",
+      "query": "https://star-wars-animated.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "After falling to the dark side of the Force, Anakin assumed the Sith title Darth Vader , who served as the true main antagonist of the second season in Star Wars Rebels .",
+        "In The Clone Wars film and television series Anakin was voiced by Matt Lanter.",
+        "James Earl Jones reprised the role of Anakin Skywalker's identity as Darth Vader in Star Wars Rebels, with Lanter reprising his role for \"Shroud of Darkness\" and \"Twilight of the Apprentice\" Anakin Skywalker lived on the desert planet of Tatooine when he was three years old, where he was born into slavery to Shmi Skywalker .",
+        "During the battle, he sensed the presence of Ahsoka among the rebels, leaving Vader to realize she did not perish on her Star Destroyer during Order 66.",
+        "Before he can capture the Ghost , the ship, thanks to Hera Syndulla's better flight skill, made it into hyperspace and the tractor beam of his Star Destroyer, catches Vader's ship instead."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://star-wars-canon-extended.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "a1dbc19e-8fde-4f10-886f-8904cfed7309",
+      "query": "https://star-wars-canon-extended.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Shortly thereafter, the Battle of Geonosis occurred, effectively starting the Clone Wars.",
+        "Unable to leave him behind, Skywalker took his father's body aboard the shuttle and escaped just before the Death Star's destruction.",
+        "A hero of the Clone Wars, Anakin was a compassionate and caring Jedi, but also had a fear of loss for those he cared for.",
+        "After his ascension to the rank of Jedi Knight, Skywalker became a General in the Grand Army of the Republic during the galaxy-spanning Clone Wars.",
+        "Years into the Clone Wars, Anakin became a hero and grew vastly in power, but due to his responsibilities with as a Jedi Knight Anakin saw very little of Amidala, prizing the moments the two were able to share with one another."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://star-wars-canon.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "111e1907-5817-4ccf-b7a3-4efb46e0e328",
+      "query": "https://star-wars-canon.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "To be added Anakin Skywalker’s first lightsaber From a Certain Point of View: The Empire Strikes Back Star Wars: Target Vader Star Wars: Rogue One Adaption Star Wars: Obi-Wan & Anakin Star Wars: Age of the Republic Star Wars: The Screaming Citadel",
+        "Anakin, during the Clone Wars After his ascension to the rank of Jedi Knight , Skywalker became a General in the Grand Army of the Republic during the galaxy-spanning Clone Wars .",
+        "Somehow the Free Ryloth Movement was informed that all three would be aboard and launched an attack on the Star Destroyer with old Vulture Droid starfighters from the Clone Wars.",
+        "Anakin and Padmé got secretly married on Naboo as the Clone Wars began.",
+        "Darth Vader arrives on the Tantive IV with his stormtroopers in search of the stolen Death Star plans Entrusting that his Sandtroopers could retrive the Death Star plans from the rebel droids R2-D2 and C-3PO, Darth Vader took Princess Leia and her rebel allies to the Death Star for questioning."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://star-wars-characters.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "e5169ac8-1482-4275-b509-9725af1b6143",
+      "error": "Empty text",
+      "query": "https://star-wars-characters.fandom.com/wiki/Anakin_Skywalker",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://star-wars-extended-universe.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "eb378a02-db43-4a78-b3da-f5dea9b040c4",
+      "query": "https://star-wars-extended-universe.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Anakin was heavily involved, like Kenobi, in the Clone Wars, where both he and Kenobi received the rank of Jedi Knight.",
+        "Throughout the Clone Wars, Skywalker's anger and sense of loss pushed him ever closer to the dark side of the Force, with him believing the Jedi were evil and corrupt.",
+        "In a final duel on the second Death Star as the Battle of Endor raged around them, Skywalker and Vader fought each other, and Vader refused his son's attempts to redeem him, learning that Skywalker had a twin sister named Leia in the process.",
+        "In 0 BBY, the Death Star—the Empire's greatest superweapon—was destroyed by a young Rebel pilot despite Vader's efforts, and Vader became obsessed with discovering the pilot's identity, only to learn that it was Luke Skywalker: his own son, born before Amidala's death.",
+        "Skywalker defeated his father but refused to kill him, and when Sidious attempted to kill the young man, Vader—moved by his son's love—abandoned the dark side and sacrificed himself to destroy the Emperor, fulfilling the prophecy of the Chosen One."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://star-wars-heroes-and-villains.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "683623e2-5109-45a6-ad47-81622db5e9d0",
+      "query": "https://star-wars-heroes-and-villains.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "In the Clone Wars movie and series, he was voiced by Matt Lanter, James Earl Jones reprised the role of Anakin's Darth Vader voice in Star Wars Rebels and Rogue One: A Star Wars Story .",
+        "In the prequel trilogy, He was portrayed by Jake Lloyd as a child in its first film The Phantom Menace and by Hayden Christensen as an adult in second and third films Attack of The Clones and Revenge of the Sith with James Earl Jones reprising the role of Anakin's Darth Vader voice at the end of Revenge of the Sith .",
+        "Christensen also played Anakin's force ghost in the 2004 DVD version of Return of the Jedi ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/es/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "ad8e441f-0395-40fa-8cea-8cf3db065c6e",
+      "query": "https://starwars.fandom.com/es/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Vader revela a Skywalker que él es su padre.",
+        "Aphra descubre que Vader es justo lo que había estado buscando en su vida.",
+        "Vader inmediatamente declaró que Obi-Wan Kenobi podía ser uno de ellos, con lo que el Emperador coincidió, si es que Kenobi todavía seguía vivo.",
+        "Tras conocer que los separatistas habían robado la luna Millius Prime , hogar de los ángeles , cuando atacaron, Skywalker concluyó que el emisor de los láseres es encontraba allí.",
+        "Escaparon antes de que el templo se derrumbara, sepultando a la reina."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/pt/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "beeec838-8584-4875-8d9d-e2042b03971b",
+      "query": "https://starwars.fandom.com/pt/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "-Duas novas políticas foram criadas: O que a Star Wars Wiki não é e Páginas de discussão .",
+        "Apesar de ser naturalmente talentoso, Anakin Skywalker foi inicialmente relaxado com seu treinamento com sabre de luz, apesar de acreditar que poderia rivalizar com os Mestres Jedi.",
+        "[ 122 ] Acompanhados por Yoda, eles se encontraram com Palpatine e outros membros do Conselho Jedi, e com o Senador Bail Organa, durante o qual a animosidade de Anakin com Clovis foi percebida por Yoda.",
+        "Anakin contou a sua esposa que estava preocupado com seu Capitão, com o fato de Rex estar deixando seus sentimentos pessoais levá-lo demais na missão, embora Padmé acreditasse que Rex havia aprendido essa característica com ele.",
+        "[ 25 ] Apesar de ter uma conexão excepcionalmente forte com a Força, Skywalker tendia a não usá-la com muita frequência durante duelos com sabres de luz e se concentrava nos aspectos físicos do combate."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/tr/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "8c1d3973-f35a-4e48-93b1-6d06d747f9ba",
+      "query": "https://starwars.fandom.com/tr/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Anakin Skywalker , Galaktik Cumhuriyet 'in bir Jedi Şövalyesi ve Jedi Düzeni 'nin Güç 'e denge getireceği kehanet edilen Seçilmiş Kişi 'si olan efsanevi bir Güç'e hassas erkek bir insandı .",
+        "Genç Skywalker'ın podyarışçısı kaskı",
+        "Jedi'ların kendisini yüzüstü bıraktığına inandırılan ve Amidala'yı doğumda kaybetme korkusuyla iyice köşeye sıkışan Skywalker, Sidious'un ölümü aldatacak bilgiye sahip olduğuna inanarak Jedi Düzeni'ne ihanet etti.",
+        "Darth Vader kişiliğine bürünen düşmüş Jedi Şövalyesi, lejyonunu Coruscant 'taki Jedi Tapınağı 'nın içine sürdü ve burada 66.",
+        "Emir ve Büyük Jedi Tasfiyesi 'nin bir parçası olarak Jedi gençleri de dâhil olmak üzere tapınak sakinlerini idam etti."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Anakin_(disambiguation):tfidf": {
+      "correlation_id": "1fbdc0bb-0397-4e5b-921e-c27998935f06",
+      "query": "https://starwars.fandom.com/wiki/Anakin_(disambiguation)",
+      "relevant_sentences": [
+        "Anakin is a name that might refer to: This is a disambiguation page —a navigational aid that lists other pages that might otherwise share the same title.",
+        "If an article link referred you here, you might want to go back and fix it to point directly to the intended page.",
+        "Join Wookieepedia today!",
+        "To remove ads, create an account ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Anakin_Skywalker%27s_Knighting_Ceremony:tfidf": {
+      "correlation_id": "b5ec3ebe-cc0d-4ada-842d-316b0c592a19",
+      "query": "https://starwars.fandom.com/wiki/Anakin_Skywalker%27s_Knighting_Ceremony",
+      "relevant_sentences": [
+        "[ 1 ]",
+        "[ 1 ] The Knighting Ceremony of Anakin Skywalker to Jedi Knight first appeared in the 2022 novel Brotherhood , written by Mike Chen .",
+        "Supreme Chancellor Sheev Palpatine was supposed to come in person, but he was unable to attend as more than a hologram due to word of a recent bombing on the neutral planet Cato Neimoidia .",
+        "Senators and Republic Military officers also attended.",
+        "[ 2 ] The ceremony was overseen by Grand Master Yoda and Jedi Master Mace Windu , and attended by the new Knights' former Masters, Padawans, younglings , and members of the Jedi High Council ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Anakin_Skywalker%27s_first_lightsaber:tfidf": {
+      "correlation_id": "08869162-e549-474e-af34-1f6eaa6dc2f4",
+      "query": "https://starwars.fandom.com/wiki/Anakin_Skywalker%27s_first_lightsaber",
+      "relevant_sentences": [
+        "[ 15 ] [ 16 ]",
+        "[ 14 ] However, both Star Wars: Absolutely Everything You Need to Know and its updated edition state that he built the lightsaber on Ilum at age fourteen.",
+        "He used his first lightsaber throughout the Marvel comic mini-series Star Wars: Obi-Wan and Anakin , when he was twelve years old.",
+        "[ 1 ] Sources are inconsistent regarding when Skywalker first built his lightsaber.",
+        "[ 13 ] Anakin Skywalker's first lightsaber first appeared in the 2002 canon Star Wars film Star Wars : Episode II Attack of the Clones ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Anakin_Skywalker%27s_personal_starfighter_(disambiguation):tfidf": {
+      "correlation_id": "33e0c942-412c-4e76-b2ec-fb209f04a671",
+      "query": "https://starwars.fandom.com/wiki/Anakin_Skywalker%27s_personal_starfighter_(disambiguation)",
+      "relevant_sentences": [
+        "This is a disambiguation page —a navigational aid that lists other pages that might otherwise share the same title.",
+        "If an article link referred you here, you might want to go back and fix it to point directly to the intended page.",
+        "Anakin Skywalker's personal starfighter can refer to any of several personal starfighters commandeered by Anakin Skywalker .",
+        "Join Wookieepedia today!",
+        "To remove ads, create an account ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Anakin_Skywalker/Legends:tfidf": {
+      "correlation_id": "c8cfd8c1-563a-4829-bc69-f101b4a91066",
+      "query": "https://starwars.fandom.com/wiki/Anakin_Skywalker/Legends",
+      "relevant_sentences": [
+        "Bane used his wrist-com to close the blast door, separating Tano from her master.",
+        "A definitive Legends Clone Wars timeline was never established by Lucasfilm.",
+        "Though Dooku's applied Dun Möch/Legends through Skywalker's tormented feelings to his homeworld, however, Skywalker remained level-headed.",
+        "Bane had deactivated the ship's lights using his wrist-com, and so the clones were forced to use night vision.Bane was spotted, and the Jedi pursued.",
+        "This Star Wars Legends article contains information that is affected by the Star Wars: The Clone Wars project ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Anakin_Skywalker:_The_Story_of_Darth_Vader:tfidf": {
+      "correlation_id": "15e0e476-d752-404f-b064-645904ffa75e",
+      "query": "https://starwars.fandom.com/wiki/Anakin_Skywalker:_The_Story_of_Darth_Vader",
+      "relevant_sentences": [
+        "Limited issue available only in this Masterpiece Edition Collector quality, 13-1/2 inches tall, fully poseable Complete with classic Jedi tunic, belt, and long, hooded cape.",
+        "The story of Darth Vader--from Princess Leia's capture to the ultimate sacrifice Over 100 full-color photographs and illustrations, some never before seen reflections from George Lucas, Ralph McQuarrie, and the other creative forces behind Star Wars, and a comprehensive review of all Darth Vader collectibles The Collector Figure: An exclusive, large collector figure of Anakin Skywalker, portrayed as he appears at the end of Return of the Jedi, at one with the Force and clad in the flowing robes of a Jedi.",
+        "The Book: A stunning, fully illustrated history of Darth Vader, Star Wars' most dreaded and feared villain, compiled by Stephen Sansweet, author of the Star Wars Scrapbook and a foremost Star Wars authority.",
+        "Join Wookieepedia today!",
+        "To remove ads, create an account ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "2c4aec0a-56b2-4a69-bd0c-a6b4d8b8ea3a",
+      "query": "https://starwars.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "During the early days of the Clone Wars, Skywalker served as a Jedi General in the Grand Army of the Republic , commanding the clone troopers of the elite 501st Legion against the Confederacy of Independent Systems .",
+        "After receiving his knighthood, Skywalker oversaw the Jedi training of his own apprentice, Ahsoka Tano .",
+        "By 19 BBY , when Tano walked away from the Jedi Order, Skywalker began to struggle with feelings of failure towards his apprentice and the Order itself.",
+        "Following the death of Count Dooku during the Battle of Coruscant , Anakin Skywalker's faith in the Jedi was further shaken when he was put on the Jedi Council without the rank of master.",
+        "He also learned that Supreme Chancellor Sheev Palpatine was Darth Sidious, the elusive Dark Lord of the Sith who orchestrated the war in order to take over the galaxy ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Anakin_Skywalker_(clone):tfidf": {
+      "correlation_id": "4b1823db-fb71-4c49-9518-cc33258da524",
+      "query": "https://starwars.fandom.com/wiki/Anakin_Skywalker_(clone)",
+      "relevant_sentences": [
+        "[ 1 ] The clone of Anakin Skywalker first appeared in the novella SkyeWalkers: A Clone Wars Story by Abel G.",
+        "A clone of Anakin Skywalker was created by the mad genetic terrorist Zeta Magnus during the early months of the Clone Wars .",
+        "In the decades preceding the Clone Wars, the mutant Zeta Magnus escaped his Arkanian creators and wandered the galaxy .",
+        "Once their scans were complete, the droids would flash-pump all of the Jedi's memories to their clone's minds.",
+        "[ 1 ] In the laboratory of his opulent fortress atop the Canaitith Mountain on Skye, Zeta Magnus began to grow a clone of Anakin and Obi-Wan ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Anakin_Solo:tfidf": {
+      "correlation_id": "01bca1fd-a80c-48dc-b119-da947084c560",
+      "query": "https://starwars.fandom.com/wiki/Anakin_Solo",
+      "relevant_sentences": [
+        "To remove ads, create an account .",
+        "[ 59 ]",
+        "While Veitch had nothing against their decisions, he felt a certain amount of regret that many stories focusing on Anakin's inner conflict were never told.",
+        "[ 7 ] Tom Veitch stated that his original plan for Anakin's story arc was to follow him on his inner struggles to control the light and dark sides until the former eventually won, yet subsequent Legends writers opted to constantly focus on Anakin's light side and kill him off heroically.",
+        "[ 12 ] Likewise, in The New Jedi Order: Edge of Victory I: Conquest , Ikrit told Anakin that there would be something great born in him and Tahiri."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Annikin_Starkiller:tfidf": {
+      "correlation_id": "029ce836-89fd-4cf4-8054-9dd9bbcafbfc",
+      "query": "https://starwars.fandom.com/wiki/Annikin_Starkiller",
+      "relevant_sentences": [
+        "[ 3 ]",
+        "[ 3 ] It is unknown who Annikin's mother was or what happened to her, as she is implied to be dead.",
+        "[ 4 ] In the first draft , Annikin was renamed \" Justin Valor .\" During the filming of A New Hope , Luke's surname was changed from Starkiller to Skywalker, his Jedi byname in the second draft.",
+        "While there was nobody named Annikin in the second draft , Annikin became the name of Luke's father in the third draft [ 3 ] and Luke's father was identified as Anakin in Return of the Jedi .",
+        "He played a similar role to that of Luke Skywalker in A New Hope , although his cockiness and brashness resembled Han Solo from A New Hope and Anakin Skywalker from Attack of the Clones ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Corvax_descendant:tfidf": {
+      "correlation_id": "5890f35e-2bbe-4205-b6fd-bb60c9e7bd41",
+      "query": "https://starwars.fandom.com/wiki/Corvax_descendant",
+      "relevant_sentences": [
+        "[ 1 ]",
+        "The smuggler's name is not given, referred to only as \"Captain\" by ZO-E3.",
+        "[ 1 ] As Vader Immortal is played in the first person, and the character has no voice lines, the smuggler's gender is undetermined.",
+        "[ 3 ] The smuggler's depiction in concept art for Vader Immortal – Episode III The smuggler serves as the player character of Vader Immortal: A Star Wars VR Series , a three-part virtual reality series created by ILMxLAB , first appearing in Vader Immortal – Episode I .",
+        "Escaping the planet on the Windfall , the smuggler and ZO-E3, after they placed a totem into Lord Corvax's Lightsaber , realized they now had what seemed to be a treasure map."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Funeral_of_Anakin_Skywalker:tfidf": {
+      "correlation_id": "6acd5d4d-2c92-4bf6-9ac3-0b61eb49ad2f",
+      "query": "https://starwars.fandom.com/wiki/Funeral_of_Anakin_Skywalker",
+      "relevant_sentences": [
+        "[ 15 ] Previous: Early rebellion against the Galactic Empire Concurrent: Campaigns of Saw Gerrera's Partisans · Great Jedi Purge · Jedha insurgency · Mandalorian Civil War · Ryloth Insurgency · Virgillian civil war · Border skirmishes with the New Separatist Union Next: Quest to find Ezra Bridger · Search for the Phylanx Redux Transmitter",
+        "The teaser included a brief shot of the scorched and twisted mask of Darth Vader, [ 22 ] a shot that was present in the final cut of the film.",
+        "[ 21 ] On April 16 , 2015 , Lucasfilm released the second teaser trailer for Star Wars: The Force Awakens , the seventh live-action installment of the franchise.",
+        "[ 20 ] The comic's depiction is similar to that of the 1996 Return of the Jedi radio drama , in which C-3PO finds Luke at Darth Vader's funeral pyre.",
+        "[ 19 ] The LINE Webtoon and its storyline are approved by Lucasfilm , though cultural interpretation affords the storyline some leeway in terms of strictly following canon ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Luke_Skywalker:tfidf": {
+      "correlation_id": "14fe42f0-6ea5-45a5-9f34-b15503ce358b",
+      "query": "https://starwars.fandom.com/wiki/Luke_Skywalker",
+      "relevant_sentences": [
+        "To remove ads, create an account .",
+        "[ 310 ]",
+        "During the Battle of Yavin in 0 BBY , Skywalker saved the Alliance from annihilation by destroying the Empire's planet -killing superweapon , the Death Star .",
+        "He continued his training in the years that followed, determined to become a Jedi Knight like his father before him, and found a new mentor in Grand Master Yoda .",
+        "After his master's death, Skywalker participated in the Battle of Endor in 4 ABY , during which he confronted the Sith Lord Darth Vader, whom he learned was in fact his father, Anakin Skywalker."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Naberrie_family:tfidf": {
+      "correlation_id": "ea51829b-fa1d-44f6-9092-3449b45ef7d3",
+      "query": "https://starwars.fandom.com/wiki/Naberrie_family",
+      "relevant_sentences": [
+        "[ 5 ]",
+        "The twins were separated and sent into hiding in order to protect them from their Sith father.",
+        "Vader, who betrayed and almost completely destroyed the Jedi , was unaware that his late wife had given birth to two children just prior to her death.",
+        "The Naberrie family was among those who paid their respects to the former queen.",
+        "A funeral ceremony was held in Theed , [ 5 ] the capital city of Naboo, [ 12 ] where the people mourned the loss of their former sovereign."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Owen_Lars:tfidf": {
+      "correlation_id": "96749fca-7587-4b2a-b597-a36b1e180084",
+      "query": "https://starwars.fandom.com/wiki/Owen_Lars",
+      "relevant_sentences": [
+        "[ 49 ]",
+        "Star Wars: The Complete Visual Dictionary, New Edition later retconned part of the comic to occur in 7 BBY instead of 6 BBY.",
+        "[ 30 ] Due to cultural leeway, the comic is canonically in a \"grey area,\" [ 48 ] but it is recounted in this article.",
+        "The third, fourth chapters adapt early scenes from A New Hope .",
+        "The comic features Lars in its first four chapters: \"An Old Friend,\" \"Meeting the Droids,\" \"Beginning of an Adventure,\" and \"Only Hope.\" Chapters one and two involve an original story set during Skywalker's childhood, beginning in 12 BBY and jumping forward to 6 BBY ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Padm%C3%A9_Amidala:tfidf": {
+      "correlation_id": "ff540417-f6a4-45d2-a7fa-411cf611be30",
+      "query": "https://starwars.fandom.com/wiki/Padm%C3%A9_Amidala",
+      "relevant_sentences": [
+        "Luke, who had been traveling with Kenobi to bring R2-D2 and C3-PO to Alderaan, helped rescue her with the help of Han Solo and Chewbacca .",
+        "However, she then acknowledged that she was aware of how the Star Wars fandom would read the relationship—mentioning the number of fanfictions of the tagged with the characters posted on the Archive of Our Own (AO3) website—but indicated agreement with an interviewer's assumption that their friendship was no less important than any of their romantic connections.",
+        "Amidala was discovered and captured by Ziro's droids and was promised to Dooku as his prisoner.",
+        "Amidala sneaked back into his palace, where she overheard Ziro speaking with Count Dooku, promising that Rotta, Skywalker, and his apprentice would be eliminated, that the Jedi would bring Jabba to justice and Ziro would become head of the Hutt Clan .",
+        "Amidala went there to speak to him, but he refused to listen to her."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Shmi_Skywalker_Lars:tfidf": {
+      "correlation_id": "b0d40a4a-4ad5-425f-a086-594ac7aa9c32",
+      "query": "https://starwars.fandom.com/wiki/Shmi_Skywalker_Lars",
+      "relevant_sentences": [
+        "[ 35 ]",
+        "[ 34 ] Shmi's death in Skywalker's arms was theorized by Vanity Fair to be based on Director George Lucas 's own experiences with his mother Dorothy Lucas, who, throughout his childhood, was often bedridden with a sickness that may have been pancreatitis.",
+        "In one of the first drafts of The Phantom Menace , her name was Shmi Warka.",
+        "The limited-edition game contained a sequestered pack of questions that served as a preview of the first new trilogy installment, two of which divulged those bits of information.",
+        "When the original trilogy was rereleased in theaters and VHS to commemorate the twentieth anniversary of Star Wars : Episode IV A New Hope the year before , Star Wars Trivial Pursuit was released to coincide with this."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Skywalker_family:tfidf": {
+      "correlation_id": "1904f350-e79d-4b03-97e7-25235ffc3d4a",
+      "query": "https://starwars.fandom.com/wiki/Skywalker_family",
+      "relevant_sentences": [
+        "To remove ads, create an account .",
+        "[ 136 ] The Skywalker family first appeared in the 1977 film Star Wars : Episode IV A New Hope and has gone on to appear in every episode of the Star Wars saga .",
+        "[ 31 ] After the Battle of Exegol, biographer Kitrin Braves worked on an exhaustive biography about the Skywalkers and shared her work with fellow author Beaumont Kin —who regarded her as the best author to tackle the task of covering the Skywalkers' history—for use in his own text The Rise and Fall of the Galactic Empire .",
+        "They became legendary across the galaxy, leaving behind a legacy of strength, sacrifice and valor as well as hope, tragedy and renewal.",
+        "In the end, though, the Skywalkers were credited with restoring the galaxy to a state of peace."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwars.fandom.com/wiki/Skywalker_lightsaber:tfidf": {
+      "correlation_id": "a65e1884-a6e2-4eea-8e71-de653e0f6580",
+      "query": "https://starwars.fandom.com/wiki/Skywalker_lightsaber",
+      "relevant_sentences": [
+        "To remove ads, create an account .",
+        "[ 86 ]",
+        "[ 85 ] On the bottom of the lightsaber the words \"Made by the Former Graflex Corp\" \"Rochester, New York, USA\" can be seen.",
+        "Abrams discarded the idea, teasing that it was a story which could be told later on.",
+        "In the original script for The Force Awakens , it was originally intended to begin the film with the lightsaber falling through space, tracing the history of where the lightsaber had been and explained how Maz Kanata acquired it, but director J.J."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwarscinematicuniverse.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "4cb40f42-6d07-4534-a986-a618f9ade96f",
+      "query": "https://starwarscinematicuniverse.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "A hero of the Clone Wars, Anakin was caring and compassionate, but also had a fear of loss that would prove to be his downfall.",
+        "Discovered as a slave on Tatooine by Qui-Gon Jinn and Obi-Wan Kenobi , Anakin Skywalker had the potential to become one of the most powerful Jedi ever, and was believed by some to be the prophesied Chosen One who would bring balance to the Force."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwarsencyclopedia.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "ec13911a-54fa-498a-8fe9-c22a82e7f3aa",
+      "query": "https://starwarsencyclopedia.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Palpatine orders the Anakin to execute Dooku, despite hesitation knowing it was against the Jedi way Skywalker beheaded Dooku.",
+        "Angered by this Anakin fought immensely with Dooku and was able to use the force to obtain Dooku's lightsaber from his causing Dooku to kneel before him in defeat.",
+        "Dooku was able to fend off the attacks and force threw Obi-Wan into a walkway scafold and forced the cafold down ontop of him.",
+        "They were confronted by sith Count Dooku and after a exchange of words a duel ensued.",
+        "They arrived to the location where Palpatine was being held."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwarsmovie.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "e14ba713-57b5-4197-8716-e9289143ea56",
+      "query": "https://starwarsmovie.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Anakin, now left with no choice, becomes the Sith Lord Darth Vader and from there, becomes one of the most feared sith lords in the universe.",
+        "Sidious then unleashes a barrage of force lightning upon Windu, who deflects it back at his face, which scars it and makes Sidious appear weak, He weakly pleads to Anakin to help him, as Windu moves to strike the killing blow, and Anakin, suddenly cuts off Windu's lightsaber hand, allowing Sidious to kill Windu.",
+        "Now, Windu and Sidious duel, and as Windu disarms Sidious and gains the upper hand, Anakin rushes in.",
+        "Mace Windu , Kit Fisto, Tinn and Kolar rush to the chancellors office, where they confront Sidious, who easily disposes of Tinn and Kolar, with Fisto soon to follow.",
+        "Anakin however, regrets this move, as Sidious would be the only way to save Padme."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://starwarsuniverse.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "b98cea1f-6cc9-4174-8f2b-2fdffb1a5cd4",
+      "query": "https://starwarsuniverse.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Skywalker was believed to be the Chosen One of Jedi prophecy , one who would bring balance to the Force by destroying the Sith , which was why the Jedi Council chose to bend the Jedi Code and permit his training.",
+        "Soon after, he joined the Jedi Order , becoming a Padawan to Obi-Wan Kenobi .",
+        "Skywalker took part in the Battle of Naboo , destroying the Droid Control Station despite his young age.",
+        "After obtaining his freedom by having been bet on by Jinn and winning the Boonta Eve Classic , Skywalker went with Jinn and departed from Tatooine, though troubled by leaving behind his mother.",
+        "In 32 BBY , Skywalker met Jedi Master Qui-Gon Jinn ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://superstarwars.fandom.com/wiki/Anakin_skywalker:tfidf": {
+      "correlation_id": "a72e2a22-cb3b-4065-b59d-1e9ab1a1ddb6",
+      "query": "https://superstarwars.fandom.com/wiki/Anakin_skywalker",
+      "relevant_sentences": [
+        "A child born of prophecy, possibly conceived by the will of the Force itself, Anakin Skywalker has left an indelible mark on the history of the galaxy, leading it through periods of lightness and dark.",
+        "The gravity of Anakin's departure from his mother is made all the more powerful by his young age.",
+        "Initial concept sketches of young Anakin had him be a bit older -- around 12 years old -- until Lucas revised the storyline to be set during Anakin's ninth year.",
+        "His father had died in the Battle of Condawn at the hands of treacherous Sith Lords of Alderaan.",
+        "By the third draft of Star Wars , Luke becomes the central character and he is established to be an orphan."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://swgames.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "e7153c04-2cc6-4b08-b69b-b19b31e459d1",
+      "query": "https://swgames.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "In the fall of 2018, Anakin Skywalker is to be featured in Star Wars: Battlefront II .",
+        "Vader is featured in this game, because he seeks the power from the Soul Swords.",
+        "In Soul Calibur IV , Vader is featured as an unlock-able character in the PlayStation 3 version of the game.",
+        "In addition, he can't dash, do double jump, upgrade abilities, and change models.",
+        "Vader use Force Choke and different lightsaber attack style instead of Force Lightning and the apprentice's in the PS3 and Xbox 360 versions."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://swse.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "abc5b8de-4a73-45a8-8a5c-e7bd2307e5c2",
+      "query": "https://swse.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Medium Human Jedi 7/ Jedi Knight 5/ Ace Pilot 2 Destiny Points : 2; Force Points : 6, Strong in the Force ; Dark Side Score : 7 Initiative : +15; Senses: Perception +9 Languages: Basic, Binary , Huttese Reflex Defense : 31 ( Flat-Footed : 28), Fortitude Defense : 31, Will Defense : 28; Block , Deflect , Vehicular Combat , Vehicle Dodge (+1) Hit Points: 141, Damage Threshold : 31 Melee: Unarmed +16 (1d4+10) Melee: Lightsaber +18 (2d8+15) Melee: Lightsaber +16 (3d8+15) with Rapid Strike Ranged: By Weapon +16 Base Attack Bonus : +13, Grapple : +16 Attack Options: Rapid Strike Special Actions: Djem So , Redirect Shot Force Power Suite ( Use the Force +19): Dark Rage , Farseeing , Force Disarm , Force Grip , Force Slam (2), Move Object , Rebuke , Surge Force Techniques : Force Point Recovery , Improved Move Light Object Abilities: Strength 16, Dexterity 16, Constitution 17, Intelligence 14, Wisdom 14, Charisma 14 Talents : Armored Defense , Block , Deflect , Djem So , Force Pilot , Redirect Shot , Renowned Pilot , Weapon Specialization (Lightsabers) Feats : Armor Proficiency (Light) , Force Sensitivity , Force Training (3), Rapid Strike , Skill Focus (Use the Force) , Strong in the Force , Vehicular Combat , Weapon Focus (Lightsabers) , Weapon Proficiency (Lightsabers) , Weapon Proficiency (Simple Weapons) Skills : Acrobatics +15, Initiative +15, Mechanics +14, Use the Force +19 (may substitute for Pilot checks) Possessions: Lightsaber ( Self-Built ), Comlink (Short-Range, Encrypted), Cybernetic Prosthesis (1, Right Hand), Utility Belt with Medpac , Jedi Robes",
+        "Only then does he begin to appreciate all that Obi-Wan has tried to teach him.",
+        "Anakin begins to feel the true burden of leadership when he is paired with a strong-minded Padawan named Ahsoka Tano .",
+        "His leadership and piloting skills help the clone pilots emerge victorious time and again, even though his recklessness and overconfidence frustrates Obi-Wan Kenobi.",
+        "When Obi-Wan Kenobi is tasked with leading Republic troops into battle during the Clone Wars, Anakin serves as his assistant, leading clone starfighter pilots against Separatist forces."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://tales-of-the-galaxy.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "78f1a293-c869-4cf3-a00c-e431c2858b31",
+      "query": "https://tales-of-the-galaxy.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "After the Father's death, the three Jedi were transplanted back to the galaxy to finally rendezvous with Rex.",
+        "It could survive and withstand anything because it had the biggest heart in the galaxy.",
+        "He also learned that Supreme Chancellor Sheev Palpatine was Darth Sidious, the elusive Dark Lord of the Sith who orchestrated the war in order to take over the galaxy.",
+        "Vader apologized and told the Emperor he only sought to study the ways in which the Empire would extend its rule over the galaxy.",
+        "As was noted by the Father, Skywalker had brought balance to the Force on Mortis through the deaths of the Force wielders, and he still had a chance to do so for the full galaxy."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://the-star-wars-wiki.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "4551822f-f765-418b-ab97-f679febc0ce3",
+      "query": "https://the-star-wars-wiki.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "After the battle, the Clone Wars began and Anakin married Amidala.",
+        "Leia had his the Death Star plans in R2D2 .",
+        "Vader was onboard the Second Death Star when Sidious arrived.",
+        "During the Clone Wars, Anakin was a hero who constantly defeated Separatist forces.",
+        "Sidious made Vader a suit to keep him alive and he oversaw the construction of the Death Star ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://tvtropes.org/pmwiki/pmwiki.php/Characters/StarWarsAnakinSkywalker:tfidf": {
+      "correlation_id": "ef7ae18d-4e70-4d03-af71-10447cf92c97",
+      "query": "https://tvtropes.org/pmwiki/pmwiki.php/Characters/StarWarsAnakinSkywalker",
+      "relevant_sentences": [
+        "http://tvtropes.org/pmwiki/pmwiki.php/Characters/StarWarsAnakinSkywalker To return to the Character page for Star Wars , go here .",
+        "For information about his life as Darth Vader, see his personal page .",
+        "Later, he would go on to become a Force Spirit, allowing him to guide his son and others in life, although his legacy on the Dark Side would be followed by his grandson Ben Solo , who became known as Kylo Ren.",
+        "Fulfilling the Jedi prophecy, Anakin died peacefully.",
+        "While Vader sought to recruit Luke to the Empire — first in a bid to overthrow the Emperor, and later to serve as allies to both — his son's continued love ultimately remedied Vader's corruption from the Dark Side."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://villains.fandom.com/wiki/Darth_Vader_(Star_Wars):tfidf": {
+      "correlation_id": "cf3fb6a9-73db-42cc-aa95-a76938f5c221",
+      "query": "https://villains.fandom.com/wiki/Darth_Vader_(Star_Wars)",
+      "relevant_sentences": [
+        "Other than that, enjoy Villains Wiki!!!",
+        "Crumb | Sy Snootles | Thok | Vedain | Velken Tezeri | Vizam | Wooof Clone Troopers Captain Wilco | Clone X Troopers | Clone X | CX-1 | CX-2 | Commander Appo | Commander Crosshair | Commander Faie | Commander Fox | Commander Scorch | Sergeant Slick Grysk Hegemony Jixtus Species Duloks | Gamorreans | Geonosians | Hutts | Neimoidians | Pyke | Rakata | Summa-verminoth | Trandoshans | Tusken Raiders | Umbarans | Ewoks (Star Wars: Battlefront II) Others 0-0-0 | Arvel Skeen | Ashiga Clan | Azmorigan | Bala-Tik | Bedlam Raiders | Blackguards | Cad Bane's Crew | Cassie Cryar | Chi Cho | Chelli Lona Aphra | Ciddarin Scaleback | Closed | Cornelius Evazan | Daultay Dofine | Deren | DJ | Drengir | Fanry | Garindan Ezz Zavor | Gha Nachkt | Gardulla the Elder | Gorak | Graxol Kelvyyn | Grecker | Guavian Death Gang | Haxion Brood | Head of the Pyke Syndicate | Helgait | Jaylen Vrax | Kanjiklub | Kintan Striders | Krayt's Claw | Lady Proxima | Lolo Purs | Lord Nyax | Mandalore the Great | Max Rebo Band | Meritt Col | M-OC | Morley | Mokko | Mok Shaiz | Mok Shaiz's Majordomo | Mos Espa Crime Families | Mos Espa Street Gang | Mother Pran | OOM-9 | Open | Order of the Night Wind | Ponda Baba | Prince Xizor | Qi'ra | Rayvis | Razoo Qin-Fee | Roland Durand | Saw Gerrera | Sebulba | Silvo's pirates | Sylar Saris | Thurible | Tobias Beckett | Unkar Plutt | Vanguard Axis | Warbird gang See Also Star Wars Legends Villains | Angry Birds Star Wars Villains | LEGO Star Wars Villains Schwarzstrom Nightmare ( Night Terror ) | Astaroth | Ivy Valentine | Aeon Calcos | Tira | Zasalamel ( Abyss ) | Inferno Cervantes' Crew Cervantes de León | Valmiro | Antonio | Soul Edge Fygul Cestemus Kunpeatku | Astaroth | Aeon Calcos Qualifiers Azwel | Valtro | Daniel Others Voldo | Elysium | Strife Astlar Grandall | Iska Farkas | Algol | Raphael Sorel | Charade | Amy Sorel | Patroklos Alexander | Vercci | Chester | Luna | Aurelia | Demuth Beel Zebus Halteese | Barbaros | Iiona Farkas | Dark Sophitia | Azola | Solnhofen | Marienbard, Auguste and Jacqueline | Phantasm | Shadow | Shura | Arcturus | Odor | Murk | Woes | Mechastaroth | Drakes | Ludo | Gisil | Dario | Giuseppe | Urias | Toki Guest Characters Heihachi Mishima | Darth Vader | The Apprentice | Kratos | Devil Jin 1.0 Playable Hector Barbossa | Davy Jones | Randall Boggs | Syndrome Non-Playable Butch Cavendish | Cave of Wonders | Chernabog | Chick Hicks | Crew of the Flying Dutchman | Emperor Zurg | Heinz Doofenshmirtz | Mirage | Pintel and Ragetti | Zurg Bots 2.0 Playable Black Widow | Green Goblin | Loki | Maleficent | Ronan the Accuser | Venom | Yondu Udonta Non-Playable AIM | Black Cat | Collection Units | Doctor Octopus | Frost Giants | Iron Patriot | J.",
+        "Freeze | Killer Croc | Man-Bat | Clayface | Kite-Man | Killer Moth | Bizzaro | Parasite | Cheetah | Giganta | Captain Cold | Professor Zoom | Trickster | Rainbow Raider | Chemo | Blackfire | Monsieur Mallah | the Brain | Deadline Skins/Cosmetics Catwoman | Harley Quinn | Black Manta | the Joker | Poison Ivy | Green Arrow | Deathstroke | Bloodsport | Starro | Peacemaker | King Shark | Polka Dot Man | The Batman Who Laughs | Black Adam Miscellaneous Trigon Star Wars Events the First Order / Sith Eternal ( Emperor Palpatine | Kylo Ren | First Order Stormtroopers ) | the Galactic Empire ( Emperor Palpatine | Darth Vader | Stormtroopers / the 501st Legion ) | the Sith ( Emperor Palpatine | Darth Vader | Darth Maul ) Skins/Cosmetics the First Order / Sith Eternal ( Sith Troopers | Kylo Ren ) | the Galactic Empire ( Stormtroopers / the 501st Legion | Anakin Skywalker/Darth Vader ) | Boba Fett | Fennec Shand | Black Krrsantan | the Sith ( Darth Vader | Darth Maul ) Miscellaneous the Knights of Ren | Jango Fett | the Separatists Disney Skins/Cosmetics Hector Barbossa | Davy Jones | Maleficent | Diablo the Raven | Captain Hook | Cruella De Vil Miscellaneous Lock, Shock and Barrel Assorted Movie/TV reps Skins/Cosmetics the Demogorgon | the Predator | the Terminator/T-800 | Skynet | Xenomorphs | Rick Sanchez | Toxic Rick | Dude | Morty Smith | Frankenstein's Monster | Paul Atreides | Imhotep | Sentinels ( The Matrix ) | Cobra Kai | Henrietta Knowby | Omni-Man | Bender Bending Rodríguez | the Hypnotoad | the Decepticons ( Megatron ) | Michael Myers | Peter Griffin | Ernie the Giant Chicken | the Foot Clan ( Shredder ) | Krang | Billy | Leatherface | the Skibidi Toilet Miscellaneous High Table | Sandworms | Dark Ones | T-1000 | Hawkins National Laboratory ( Martin Brenner ) Video game reps/\"Gaming Legends\" Skins/Cosmetics Psychos | Kratos | Glinthawks | the Umbrella Corporation | Jinx | Ghosts | Pilgor | Demons | Vault Boy Miscellaneous Necromorphs | Cult of the Tree Anime reps Skins/Cosmetics Kurama | Sasuke Uchiha | Gaara | the Akatsuki ( Itachi Uchiha ) | Orochimaru | Manda | Vegeta | Beerus | Piccolo Jr.",
+        "Bison | Storm Shadow | Zuko | The Arbiter | Devil Jin | Nina Williams | Darth Vader | Darth Maul",
+        "Jonah Jameson | MODOK | Mysterio | The Collector | Winter Soldier 3.0 Playable Boba Fett | Darth Maul | Darth Vader | Kylo Ren | Mickey Mouse | Ultron Non-Playable Cad Bane | Emperor Palpatine | General Grievous | Jabba the Hutt | Sebulba Marvel Comics Official comics Doctor Doom | Mystique | Galactus | Namor | Quicksilver | the Winter Soldier | Stegron | the High Evolutionary Events Thanos | Chitauri | Galactus | Doctor Doom Skins/Cosmetics Black Widow | Deadpool | Doctor Doom | Mystique | Sentinels ( Marvel ) | Eddie Brock / Venom ( SSU ) | Taskmaster | Thanos | Loki | Carnage ( SSU ) | Dark Phoenix | Norman Osborn / Green Goblin | Rogue | the Prowler | Scarlet Witch | Hela | Magneto | Emma Frost | Mysterio | Mephisto Miscellaneous the Tinkerer | Doom-Bots DC Comics Batman/Fortnite Catwoman | Harley Quinn | Deathstroke | The Batman Who Laughs | Lex Luthor | the Joker | the Penguin | the Riddler | Mr."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://waltdisneyanimationstudios.fandom.com/wiki/Anakin_Skywalker:tfidf": {
+      "correlation_id": "941e7539-8990-4724-b7da-785ba2a6c66d",
+      "query": "https://waltdisneyanimationstudios.fandom.com/wiki/Anakin_Skywalker",
+      "relevant_sentences": [
+        "In the prequel trilogy, he was portrayed by Jake Lloyd as a child in The Phantom Menace , and as an adult by Hayden Christensen in Attack of the Clones and Revenge of the Sith , as well as voice cameo in The Rise of Skywalker .",
+        "He is a legendary Jedi Knight and hero of the Clone Wars, in addition to being the prophesied Chosen One of the Jedi Order, conceived by the midi-chlorians in his mother’s womb, to destroy the Sith and bring balance to the Force.",
+        "Anakin Skywalker , also known as Darth Vader , is one of the main protagonists of the Star Wars franchise."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.behindthevoiceactors.com/characters/Star-Wars/Anakin-Skywalker/:tfidf": {
+      "correlation_id": "f40f353e-8bcd-47a6-a49e-c93238cda493",
+      "error": "Empty text",
+      "query": "https://www.behindthevoiceactors.com/characters/Star-Wars/Anakin-Skywalker/",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://www.cbr.com/anakin-skywalker-character-arc-explained/:tfidf": {
+      "correlation_id": "6608393e-7917-4b5b-94e2-cd108138c774",
+      "query": "https://www.cbr.com/anakin-skywalker-character-arc-explained/",
+      "relevant_sentences": [
+        "However, some sliver of Anakin Skywalker still remained in him.",
+        "Anakin Skywalker was finally at peace, and had made good on the promise of his birth.",
+        "Born to an eslvaed woman named Shmi Skywalker on the planet of Tatooine, Anakin was conceived without a father.",
+        "Love him or hate him, Anakin Skywalker was the focal point of the Prequel and Original trilogies of Star Wars .",
+        "He became a sort of father-figure for Anakin, all the while the young Skywalker was unaware how he was being led astray."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.charactour.com/hub/characters/view/Anakin-Skywalker.Star-Wars-Series:tfidf": {
+      "correlation_id": "c3ef6078-285c-43b8-8311-318cd1c9af69",
+      "query": "https://www.charactour.com/hub/characters/view/Anakin-Skywalker.Star-Wars-Series",
+      "relevant_sentences": [
+        "Star Wars Episode II: Attack of the Clones is a side-scrolling action game based on the second movie in the Star Wars prequel trilogy.",
+        "Third-person action/adventure game, Star Wars: Episode III, delivers the ultimate Jedi action experience as Anakin Skywalker and Obi-Wan Kenobi join forces in fierce battles and heroic lightsaber duels until one's lust for power and the other's devotion to duty leads to a final confrontation between good and evil.In Star Wars: Episode III, players control all the Jedi abilities of both Anakin Skywalker and Obi-Wan Kenobi, including devastating Force powers and advanced lightsaber techniques involving robust combo attacks and defensive maneuvers.",
+        "Features a bonus section following the novel that includes a primer on the Star Wars expanded universe, and over half a dozen excerpts from some of the most popular Star Wars books of the last thirty years, plus a brand-new Darth Maul short story by New York Times bestselling author James Luceno!",
+        "Star Wars Episode I: The Phantom Menace is an adventure video game released by LucasArts in 1999.",
+        "Salvatore sheds new light on the legend of Star Wars—and skillfully illuminates one of our most beloved sagas."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.comicbasics.com/anakin-skywalkers-timeline-explained-from-birth-to-defeat/:tfidf": {
+      "correlation_id": "512db7a8-d947-4ee1-b138-2f49ec1b8aad",
+      "query": "https://www.comicbasics.com/anakin-skywalkers-timeline-explained-from-birth-to-defeat/",
+      "relevant_sentences": [
+        "Here is the entire timeline of Anakin Skywalker explained!",
+        "When Mace refuses, Anakin chops his arm off to prevent him from striking Palpatine, which leads to Palpatine killing Windu.",
+        "Qui-Gon realizes that Anakin is the Chosen One and deals with Watto to free Anakin from slavery if he wins the Pod Race.",
+        "During this time, Anakin is haunted by dreams of his mother’s death and attempts to free her from the Sand People.",
+        "Near the war’s end, Anakin and Obi-Wan go on a mission to rescue Chancellor Palpatine from Count Dooku and General Grievous."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.comicbasics.com/how-old-was-anakin-skywalker-all-movies-series/:tfidf": {
+      "correlation_id": "c3d4eae0-5a6b-472a-813b-840b85066302",
+      "query": "https://www.comicbasics.com/how-old-was-anakin-skywalker-all-movies-series/",
+      "relevant_sentences": [
+        "So, with that said, let’s look at how old Anakin Skywalker was in all of the Star Wars movies and series that feature him.",
+        "Anakin Skywalker is the most iconic character in the storyline of Star Wars because he was the man that started the entire Skywalker Saga, as all of the main characters in the main Star Wars movies can trace their heritage back to him.",
+        "However, since three years went by during the events of the Clone Wars, Anakin was around 19 to 22 years old during the seven seasons of ‘The Clone Wars.’ But we can’t be precise in terms of how old he was in each of the seven seasons of this series.",
+        "And that means that he has appeared both as Anakin and as Darth Vader in a lot of different movies and series in the entire Star Wars narrative.",
+        "Since three years went by, Anakin Skywalker was already 44 years old and had lived half of his life as Darth Vader."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.comicbasics.com/when-where-was-anakin-skywalker-born/:tfidf": {
+      "correlation_id": "8f3901eb-051b-4ad5-acdc-6f8bd5a3617a",
+      "query": "https://www.comicbasics.com/when-where-was-anakin-skywalker-born/",
+      "relevant_sentences": [
+        "So, when and where was Anakin Skywalker born?",
+        "We know that Anakin Skywalker was found by Qui-Gon Jinn on Tatooine when he was just nine years old.",
+        "Anakin Skywalker was born on 41 BBY, nine years before Qui-Gon Jinn found him on Tatooine.",
+        "That is why Anakin was never born on Tatooine.",
+        "So, logically, Anakin was born on 41 BBY."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.cultureslate.com/lists/the-21-men-who-played-anakin-skywalker:tfidf": {
+      "correlation_id": "3842b10e-2474-46d7-8ae9-54e98ff89be8",
+      "query": "https://www.cultureslate.com/lists/the-21-men-who-played-anakin-skywalker",
+      "relevant_sentences": [
+        "Image Source: CultureSlate How many actors have played Anakin Skywalker ?",
+        "Image Source: StarWars.com Sadly passing away in 2020, David Prowse was a British bodybuilder who had played small parts in his own country (including Doctor Who ) before being cast as Vader.",
+        "Let’s have a look at all the men who helped create the legend.",
+        "Image Source: Digital Spy The face of Anakin Skywalker in Return of the Jedi was Sebastian Shaw.",
+        "He played Darth Vader’s body in the original trilogy."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.cultureslate.com/news/10-things-you-didnt-know-about-anakin-skywalker:tfidf": {
+      "correlation_id": "62873b6f-c96c-43f5-ac5d-32be4f838d1d",
+      "query": "https://www.cultureslate.com/news/10-things-you-didnt-know-about-anakin-skywalker",
+      "relevant_sentences": [
+        "10.",
+        "However, in the already expansive and constantly growing Expanded Universe, there is still much to learn about young Skywalker.",
+        "As word of young Skywalker's deeds spread throughout the Republic, so too do the legend of the \"Hero With No Fear.\" Coined by the HoloNet news network, encouraged by the office of the Chancellor, and circulated throughout the Republic, this nickname not only serves to exalt Skywalker in the eyes of the people, but also alienates him further from the Jedi.",
+        "The fight ends quickly when a disappointed Qui-Gon arrives to see what the fuss is about.",
+        "Anakin Skywalker, the Chosen One, and arguably the most powerful Jedi of all time."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.cultureslate.com/news/2gri5vcn2xibpm9l595hi3ngaqf7nm:tfidf": {
+      "correlation_id": "2c7258a8-b54c-4967-817f-295880063a19",
+      "query": "https://www.cultureslate.com/news/2gri5vcn2xibpm9l595hi3ngaqf7nm",
+      "relevant_sentences": [
+        "Source(s): Wookieepedia",
+        "He looks to them all for help and he ultimately ends up exactly where he feared he always would: alone, and the very thing he hates.",
+        "Neither the Jedi nor Palpatine could be what Anakin desired most of all: people who believe in him and guide him to find a way to save the ones he loved from the harshness of the galaxy.",
+        "He saw the tortured soul, but not as one to help and nurture, but as one instead to twist to his evil desires for power and fear.",
+        "To Palpatine, he is the means to bring down the Jedi Order once and for all and secure the galaxy for himself."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.hollywoodreporter.com/tv/tv-features/obi-wan-kenobi-deepens-star-wars-tragedy-anakin-skywalker-1235170359/:tfidf": {
+      "correlation_id": "344cfcc6-f120-43a9-bf65-7cad9249286d",
+      "query": "https://www.hollywoodreporter.com/tv/tv-features/obi-wan-kenobi-deepens-star-wars-tragedy-anakin-skywalker-1235170359/",
+      "relevant_sentences": [
+        "In just six episodes, Obi-Wan Kenobi adds more fuel to the never-ending fire of Star Wars storytelling, as it deepens the tragic ends of Anakin’s arc.",
+        "“You didn’t kill Anakin Skywalker.",
+        "Throughout the Disney+ Star Wars miniseries, it isn’t the threat of life or death that set viewers’ hearts racing, but the journey to better understand the deeply broken relationship between the master, Obi-Wan ( Ewan McGregor ), and his padawan, Anakin Skywalker turned Darth Vader ( Hayden Christensen ).",
+        "And Obi-Wan Kenobi gives far more insight into Anakin’s tragic existence.",
+        "Assistant to the Editorial Director [This story contains spoilers for the series finale of Obi-Wan Kenobi .] The emotional stakes of Obi-Wan Kenobi were enormous — even if much of the outcome was already known."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.ign.com/articles/ahsoka-anakin-skywalker-return-legacy-siege-mandalore:tfidf": {
+      "correlation_id": "3835d1d6-370a-48fc-b30e-3f873b35f587",
+      "query": "https://www.ign.com/articles/ahsoka-anakin-skywalker-return-legacy-siege-mandalore",
+      "relevant_sentences": [
+        "Here’s how the series celebrates the legacy of Anakin Skywalker.",
+        "As Anakin himself points out, he wasn’t actually with Ahsoka for the Siege of Mandalore.",
+        "He appears as an Episode III-era Anakin Skywalker because Return of the Jedi (the more recent versions, anyway) established that this is the form Anakin’s Force Ghost takes.",
+        "There’s something chilling about seeing the now-iconic Siege of Mandalore rendered in live-action this time.",
+        "In the second, which revisits the climactic Siege of Mandalore from The Clone Wars: Season 7, we see an older — but still very young — and more battle-hardened Ahsoka leading troops into battle."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.ign.com/wikis/star-wars/Anakin%20Skywalker:tfidf": {
+      "correlation_id": "02ff799d-ad76-431b-8809-4bc61058712e",
+      "query": "https://www.ign.com/wikis/star-wars/Anakin%20Skywalker",
+      "relevant_sentences": [
+        "Anakin followed them to the point where Darth Maul intervined, at which point Qui Gon commanded Anakin to stay put.",
+        "Anakin was told to run to the ship for his safety.",
+        "Anakin received his first trainning from Qui Gon moments before the race.",
+        "Anakin left his mother and went with Qui Gon to his now repaired ship.",
+        "Sebulba's sabatoge proved sucessful at the beginning of the race for Anakin."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.ign.com/wikis/star-wars/Anakin_Skywalker:tfidf": {
+      "correlation_id": "d4c676c6-44d3-432a-bef3-52b9e46d4ccc",
+      "query": "https://www.ign.com/wikis/star-wars/Anakin_Skywalker",
+      "relevant_sentences": [
+        "Click EDIT to update.",
+        "Any information drawn from non-canonical sources (Legends) should be displayed in this section.",
+        "While his abilities made him an incredibly powerful Jedi, able to stand beside Jedi Masters much older and more experienced than he, his inability to let go of his emotions and those he loved would inevitably lead to his fall before taking the mantle of the Sith Lord Darth Vader.",
+        "His quick mastery of Force abilities also made him arrogant.",
+        "Skywalker would eventually travel to Tattooine to find her, slaughtering Tusken Raiders without mercy after watching her die as a prisoner of the infamous sandpeople."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.imdb.com/name/nm0005157/:tfidf": {
+      "correlation_id": "84c08106-74fd-4d7e-b044-54f195361b8d",
+      "error": "Empty text",
+      "query": "https://www.imdb.com/name/nm0005157/",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://www.imdb.com/name/nm0159789/:tfidf": {
+      "correlation_id": "0476f454-2711-42c2-a0cd-f9e72bea2be9",
+      "error": "Empty text",
+      "query": "https://www.imdb.com/name/nm0159789/",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://www.lego.com/en-us/themes/star-wars/characters/anakin-skywalker:tfidf": {
+      "correlation_id": "6f771a59-f392-4585-abc4-3f5d35cbc781",
+      "query": "https://www.lego.com/en-us/themes/star-wars/characters/anakin-skywalker",
+      "relevant_sentences": [
+        "Discover the ultimate LEGO® Star Wars ™ stormtroopers collection this Star Wars Day.",
+        "Join us as we take a look back at the LEGO® Star Wars ™ Ultimate Collector Series through the years and learn the stories behind these epic sets.",
+        "Jump into hyperspace with this list of the best LEGO® Star Wars ™ spaceships from our extensive collection.",
+        "Explore our collection of small LEGO® Star Wars ™ sets to find the perfect miniature backdrop for your galactic adventures.",
+        "From detailed droid models to action-packed starship sets, explore our special selection of the best LEGO® Star Wars ™ gift ideas for adults."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.liveabout.com/anakin-skywalker-darth-vader-2957988:tfidf": {
+      "correlation_id": "66dc28ef-dd83-42c0-b7f1-64871aeafd0a",
+      "query": "https://www.liveabout.com/anakin-skywalker-darth-vader-2957988",
+      "relevant_sentences": [
+        "Anakin Skywalker was one of the most powerful Jedi who ever lived.",
+        "His mother was Shmi Skywalker, but he had no father.",
+        "Anakin Skywalker/Darth Vader was portrayed by the most actors of any character in the Star Wars films: Jake Lloyd in Episode I , Hayden Christensen in Episode II and Episode III (as well as an retconned scene in the Special Edition of Episode VI ), David Prowse (body) and James Earl Jones (voice) in the Original Trilogy, and Sebastian Shaw as the unmasked Anakin Skywalker in Episode VI .",
+        "When he saw Windu about to kill Palpatine , however, Anakin had a change of heart, killing Windu and becoming Palpatine's apprentice, Darth Vader.",
+        "Attacking the Rebels in a TIE fighter, Vader sensed that the Force was strong with Luke Skywalker , who fired the shot that destroyed the Death Star."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.livescience.com/10679-psychology-darth-vader-revealed.html:tfidf": {
+      "correlation_id": "2196a5fc-895c-443c-a15c-b8d602405ef0",
+      "query": "https://www.livescience.com/10679-psychology-darth-vader-revealed.html",
+      "relevant_sentences": [
+        "For instance, the future Darth Vader showed both impulsivity and anger management issues as an overexcited, lovelorn Jedi.",
+        "Anakin Skywalker's eventual transformation into Darth Vader might have more to do with psychological issues than the Force, researchers hint.",
+        "His fateful turn to the dark side and change of name to Darth Vader could represent the ultimate sign of such identity disturbance, the researchers said.",
+        "The future Darth Vader would also still qualify as a \"borderline type\" under the revised guidelines of the DSM-V, which will serve as the new bible for psychiatry .",
+        "\"From what we know of the future DSM-V, Anakin is a \"good\" to \"very good\" match to the future BPD,\" Bui told LiveScience."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.looper.com/1541100/jake-lloyd-what-happened-star-wars-young-anakin-skywalker/:tfidf": {
+      "correlation_id": "5893e012-834b-4e05-9cd5-d17a57b223fe",
+      "query": "https://www.looper.com/1541100/jake-lloyd-what-happened-star-wars-young-anakin-skywalker/",
+      "relevant_sentences": [
+        "Unfortunately, for reasons that some fans will already know, Jake Lloyd — the actor behind young Anakin Skywalker — hasn't been a part of the festivities.",
+        "As \"Star Wars\" fans prepare for \"The Phantom Menace\" to return to theaters in celebration of its 25th anniversary, the cast of \"Star Wars: Episode I\" have been speaking out positively about their experiences with the prequel trilogy.",
+        "Lloyd's \"Phantom Menace\" co-star Ahmed Best even made a small but triumphant return to \"Star Wars\" in \"The Mandalorian\" Season 3 after hosting the game show \"Jedi Temple Challenge.\" A similar cameo could be in the cards for Lloyd one day, but that of course depends on his health.",
+        "After Lloyd experienced what Riley described as a full psychotic break in March 2023, he's been recuperating in an in-patient facility and receiving consistent treatment.",
+        "\"It's kind of like having more of the old Jake back.\" It's no secret that \"The Phantom Menace\" was eviscerated by both critics and a vocal contingent of \"Star Wars\" fans when it came out in 1999."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.marvel.com/articles/comics/obi-wan-kenobi-anakin-skywalker-history:tfidf": {
+      "correlation_id": "b81834da-207f-48bd-b487-e84d5d8689f2",
+      "query": "https://www.marvel.com/articles/comics/obi-wan-kenobi-anakin-skywalker-history",
+      "relevant_sentences": [
+        "In the Star Wars saga, Jedi Obi-Wan Kenobi and Anakin Skywalker represent two sides of the same coin—only their paths have differed.",
+        "Revisit the comics history, and defining beats, from this Jedi Master and a fallen apprentice.",
+        "Follow Marvel Unlimited on Twitter and Facebook to stay tuned in to weekly announcements, articles, and more, all at @MarvelUnlimited .",
+        "But as Obi-Wan reminds Anakin: the Jedi Council isn’t always right.",
+        "Marvel Studios’ ‘Avengers: Doomsday’ Begins Production 'Spider-Man: Brand New Day' and 'Spider-Man: Beyond the Spider-Verse' Unveiled at CinemaCon 2025 'MARVEL Cosmic Invasion' Coming 2025 April 2's New Marvel Comics: The Full List 'Astonishing Avengers' Writer Steve Orlando Shakes Up the Team Roster In celebration of April Pool’s Day, Marvel Unlimited is offering a free month and a free digital copy of 'Deadpool Kills the Marvel Universe' for a limited time."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.quoteambition.com/anakin-skywalker-quotes/:tfidf": {
+      "correlation_id": "a45d2d3f-7547-46c8-b60a-4f3785a3a35e",
+      "query": "https://www.quoteambition.com/anakin-skywalker-quotes/",
+      "relevant_sentences": [
+        "So, check the list of Anakin Skywalker quotes below.",
+        "Anakin Skywalker is also the father of Luke Skywalker and Leia Organa and Padmé Amidala’s husband.",
+        "We’ve created a list of Anakin Skywalker quotes that’ll no doubt touch the hearts of all Star Wars fans!",
+        "Anakin Skywalker is the very reason we have Star Wars.",
+        "With that, we hope this list of Anakin Skywalker quotes was able to give you a better picture of his backstory and reason for turning over to the dark side."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.quotes.net/mquote/91265:tfidf": {
+      "correlation_id": "dd0ef949-5fc3-45c3-b5d3-0c93cb78f125",
+      "query": "https://www.quotes.net/mquote/91265",
+      "relevant_sentences": [
+        "< https://www.quotes.net/mquote/91265 >.",
+        "Retrieve it Select another language: Please enter your email address: Style: MLA Chicago APA \"Star Wars: Episode III - Revenge of the Sith Quotes.\" Quotes.net.",
+        "2025.",
+        "Web.",
+        "6 Apr."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.slashfilm.com/1371836/ahsoka-tano-anakin-skywalker-relationship-timeline-explained/:tfidf": {
+      "correlation_id": "eb995186-82a5-42d2-8e3e-a883b148b0e3",
+      "query": "https://www.slashfilm.com/1371836/ahsoka-tano-anakin-skywalker-relationship-timeline-explained/",
+      "relevant_sentences": [
+        "That's only one of the many reasons why the dynamic and relationship between Anakin Skywalker and Ahsoka Tano, as depicted in \"The Clone Wars\" series and revisited in \"Star Wars Rebels,\" proved to be so fascinating.",
+        "As satisfying as her final confrontation with Vader in \"Rebels\" was, Anakin's redemption remains the one missing piece in his relationship with Ahsoka.",
+        "\"Ahsoka\" might very well be Lucasfilm's best and last chance to add one more crucial layer to their relationship.",
+        "Voiced by Ashley Eckstein, Jedi Padawan Ahsoka Tano made her first appearance amid the decidedly mixed reception of 2008's \"Star Wars: The Clone Wars\" animated film.",
+        "In many ways, her own journey parallels the rehabilitation of Anakin Skywalker himself — both in-universe, as Darth Vader ultimately restored balance to the Force with his sacrifice, and among fans who've done a complete 180-degree turn on Hayden Christensen's portrayal of the fallen Jedi Knight (helped in large part by voice actor Matt Lanter's performance as Anakin)."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.sparknotes.com/film/starwars/character/darth-vader-anakin-skywalker/:tfidf": {
+      "correlation_id": "7f7395a7-76fb-419c-831c-1786cdca08be",
+      "query": "https://www.sparknotes.com/film/starwars/character/darth-vader-anakin-skywalker/",
+      "relevant_sentences": [
+        "Finally, Anakin Skywalker reemerges from within Darth Vader,and he destroys the Emperor and saves his son.",
+        "In the end, Anakin Skywalker stands, purged of Darth Vader,with Yoda and Obi-Wan, the masters he once rejected.",
+        "Purchasing SparkNotes PLUS for a group?",
+        "For all of A New Hope and most of TheEmpire Strikes Back, Vader is a static character: the relentlessfoe of our heroes.",
+        "Thanks for creating a SparkNotes account!"
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.starwars.com/databank/anakin-luke-and-reys-lightsaber:tfidf": {
+      "correlation_id": "bceae8fd-f2a9-4591-8b6b-09f299e96878",
+      "query": "https://www.starwars.com/databank/anakin-luke-and-reys-lightsaber",
+      "relevant_sentences": [
+        "Obi-Wan gave the lightsaber to Anakin’s son Luke , who used it in taking his first steps along the Jedi path.",
+        "After dueling his former apprentice on Mustafar, Obi-Wan Kenobi took Anakin’s lightsaber and kept it on Tatooine for nearly two decades.",
+        "After losing his first lightsaber on Geonosis , Anakin Skywalker constructed a new one, which he carried through the Clone Wars.",
+        "After defeating Vader in a duel on Mustafar , Obi-Wan Kenobi took Anakin’s lightsaber with him into exile on Tatooine .",
+        "The Skywalker lightsaber came into the possession of Maz Kanata , and called to the scavenger Rey ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.starwars.com/databank/anakin-skywalker-biography-gallery:tfidf": {
+      "correlation_id": "a793c681-823b-4950-9f99-e96df2655616",
+      "query": "https://www.starwars.com/databank/anakin-skywalker-biography-gallery",
+      "relevant_sentences": [
+        "All Rights Reserved",
+        "TM & © Lucasfilm Ltd."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.starwars.com/databank/anakin-skywalker/:tfidf": {
+      "correlation_id": "38c7ae2c-58b5-4b0b-ac2d-7780227f0bd2",
+      "query": "https://www.starwars.com/databank/anakin-skywalker/",
+      "relevant_sentences": [
+        "But Anakin Skywalker, the courageous hero, was not truly dead.",
+        "Along with his mother Shmi , Anakin Skywalker was a slave on Tatooine , owned by junk dealer Watto .",
+        "Vader saved Luke from the Emperor and killed his evil Master, once again becoming Anakin Skywalker.",
+        "Yoda hoped that Skywalker would learn how to let go of his student as she grew, which was key for Anakin.",
+        "Discovered as a slave on Tatooine by Qui-Gon Jinn and Obi-Wan Kenobi, Anakin Skywalker had the potential to become one of the most powerful Jedi ever."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.starwars.com/databank/darth-vader:tfidf": {
+      "correlation_id": "6d151991-b490-4a66-8018-e485acfd168a",
+      "query": "https://www.starwars.com/databank/darth-vader",
+      "relevant_sentences": [
+        "Rechristened as Darth Vader, he became an agent of evil.",
+        "After the destruction of the Death Star, Darth Vader became obsessed with finding Luke Skywalker.",
+        "Nineteen years after his battle with Obi-Wan Kenobi, Darth Vader remained the Empire’s tyrannical hand.",
+        "Once the heroic Jedi Knight named Anakin Skywalker, Darth Vader was seduced by the dark side of the Force.",
+        "Darth Vader and the Emperor were personally overseeing its completion, though Vader’s Master had another plan: to lure Luke Skywalker to the dark side of the Force."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.starwars.com/news/how-star-wars-the-clone-wars-further-explored-the-journey-of-anakin-skywalker:tfidf": {
+      "correlation_id": "1976a5db-e2a5-4305-97c8-d8681a5791b2",
+      "query": "https://www.starwars.com/news/how-star-wars-the-clone-wars-further-explored-the-journey-of-anakin-skywalker",
+      "relevant_sentences": [
+        "Watch the final season of Star Wars: The Clone Wars on Disney+ .",
+        "And while Star Wars: The Clone Wars brought so much richness to the Star Wars story, it also gave us an expanded picture of Anakin’s legacy.",
+        "His relationship with Ahsoka makes the second season of Star Wars Rebels even more lamentable, particularly “Twilight of the Apprentice.” For examples of Anakin and Ahsoka’s bond, be sure to watch these Clone Wars episodes: Brothers in the Force The stories of Anakin Skywalker and Obi-Wan Kenobi are legendary, with the duo continually rising to the challenge at hand with style, flair, and unconventional methods.",
+        "The loss of Anakin Skywalker to the dark side is a classic example of the Shakespearean archetype of the tragic hero.",
+        "The Clone Wars provides many examples of Anakin’s loyalty and compassion, as well as the danger brewing beneath the surface."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.starwars.com/video/the-rise-fall-and-redemption-of-anakin-skywalker:tfidf": {
+      "correlation_id": "fe14b5c1-35a9-4978-8534-b9d020bfb365",
+      "query": "https://www.starwars.com/video/the-rise-fall-and-redemption-of-anakin-skywalker",
+      "relevant_sentences": [
+        "Revisit the stunning journey of Anakin Skywalker -- the central figure of the Star Wars saga -- in this special video presentation.",
+        "Join the cast and series creator Tony Gilroy in a LIVE Q&A revisiting the first season on the Disney+, Star Wars, and Hulu YouTube channels on Thursday, March 13 at 12PM PT.",
+        "This week, we get hyped for the return of Asajj Ventress and Cad Bane.",
+        "Watch all episodes of Andor Season 1, streaming now on Disney+ and streaming on Hulu until April 22.",
+        "Watch Star Wars: Tales of the Underworld when it arrives to Disney+ on May 4."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.thedigitalfix.com/star-wars/anakin-skywalker-explained:tfidf": {
+      "correlation_id": "d737fa30-db7d-4196-abec-7dff95c59a6e",
+      "query": "https://www.thedigitalfix.com/star-wars/anakin-skywalker-explained",
+      "relevant_sentences": [
+        "Star Wars is defined by Anakin Skywalker.",
+        "Given his instrumental role in the franchise, here’s Anakin Skywalker explained — from beginning to end.",
+        "In the Star Wars timeline, the Prequel Trilogy tells the story of Anakin Skywalker before he became Darth Vader.",
+        "Still, it is Star Wars cast member Hayden Christensen who has become synonymous with the character — especially after reprising his role in the Star Wars series Obi-Wan Kenobi and Ahsoka.",
+        "For more on Star Wars more broadly, check out our guide to the new Star Wars movies or learn about the best Star Wars movie you’ve never seen , and keep up to date with the Andor season 2 release date and The Mandalorian season 4 release date ."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.thesmujournal.ca/arts-culture/anakin-skywalker:tfidf": {
+      "correlation_id": "e30b31b9-940f-4565-afc9-7208615d28ad",
+      "query": "https://www.thesmujournal.ca/arts-culture/anakin-skywalker",
+      "relevant_sentences": [
+        "To understand Anakin Skywalker's nature, one must delve into the intricate layers of his personality.",
+        "In the end, Anakin Skywalker's journey serves as a poignant reminder of the complexity of human nature.",
+        "The question of whether Anakin Skywalker is misunderstood or just evil does not yield a simple answer.",
+        "Whether this makes Skywalker selfless or incredibly selfish is up to you… Furthermore, Anakin's arrogance and the burden of being the \"chosen one\" weighed heavily on his shoulders.",
+        "Written by Amani Rizwan Thumbnail & Banner Photo by Daniel Estorari Anakin Skywalker; a name that resonates through the galaxy, elicits a complex blend of emotions and opinions."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.whattowatch.com/features/darth-vader-timeline:tfidf": {
+      "correlation_id": "7a45b087-3eff-4eff-b0e1-48e6cbfdd12f",
+      "query": "https://www.whattowatch.com/features/darth-vader-timeline",
+      "relevant_sentences": [
+        "Need a Darth Vader timeline to put all the Star Wars events in order?",
+        "Martin was a Staff Writer with WhatToWatch.com, where he produced a variety of articles focused on the latest and greatest films and TV shows.",
+        "Darth Vader is Luke's father.",
+        "Before Darth Vader, there was Anakin Skywalker.",
+        "Obi-Wan had lied to him: that Darth Vader didn't kill Luke's father."
+      ],
+      "status": "success",
+      "summary_type": "tfidf"
+    },
+    "https://www.youtube.com/watch?v=1thgUW4ByCg:tfidf": {
+      "correlation_id": "32039f47-88df-4012-8abb-143801cf6d49",
+      "error": "Empty text",
+      "query": "https://www.youtube.com/watch?v=1thgUW4ByCg",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://www.youtube.com/watch?v=63EAJJakvEU:tfidf": {
+      "correlation_id": "20991667-36d5-4ee7-bc55-62c4abf7c430",
+      "error": "Empty text",
+      "query": "https://www.youtube.com/watch?v=63EAJJakvEU",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://www.youtube.com/watch?v=8631ukAVr6g:tfidf": {
+      "correlation_id": "8c432de1-58e9-4103-8c96-c479af9e2896",
+      "error": "Empty text",
+      "query": "https://www.youtube.com/watch?v=8631ukAVr6g",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://www.youtube.com/watch?v=q_YxdgtK0lo:tfidf": {
+      "correlation_id": "047f8486-85bb-41c6-8559-d15f43bfc60f",
+      "error": "Empty text",
+      "query": "https://www.youtube.com/watch?v=q_YxdgtK0lo",
+      "status": "failed",
+      "summary_type": "tfidf"
+    },
+    "https://www.youtube.com/watch?v=qyDO3N86ymU:tfidf": {
+      "correlation_id": "33f1d465-ad07-4eba-ae61-f6efe1bed8f8",
+      "error": "Empty text",
+      "query": "https://www.youtube.com/watch?v=qyDO3N86ymU",
+      "status": "failed",
+      "summary_type": "tfidf"
+    }
+  }
+}

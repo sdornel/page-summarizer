@@ -6,7 +6,7 @@ use std::collections::{HashMap, HashSet};
 use std::error::Error;
 use std::fs;
 use std::sync::Arc;
-use tokio::sync::Mutex;
+use tokio::sync::{Mutex, mpsc};
 use tokio::time::{timeout, Duration};
 use ua_generator::ua::spoof_ua;
 use uuid::Uuid;
@@ -15,6 +15,9 @@ mod generate_random_headers;
 use generate_random_headers::generate_random_headers;
 mod page_cleaner;
 use page_cleaner::extract_main_content;
+
+const NATS_TIMEOUT_SECS: u64 = 15;
+const SUMMARY_TYPES_EXPECTED: usize = 2;
 
 async fn fetch_url(url: &str, client: &Client) -> Result<String, Box<dyn Error>> {
     let headers = generate_random_headers(url)?;
@@ -46,49 +49,6 @@ async fn publish_summarization_job(
     Ok(())
 }
 
-// async fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn Error>> {
-//     println!("Fallback: using Puppeteer for URL: {}", url);
-//     let output = tokio::process::Command::new("node")
-//         .arg("/app/src/scrapers-js/backup-page-opener.js")
-//         .arg(url)
-//         .output()
-//         .await?;
-//     if !output.status.success() {
-//         eprintln!("❌ Puppeteer script stderr: {}", String::from_utf8_lossy(&output.stderr));
-//         return Err(format!("Puppeteer failed: {:?}", output).into());
-//     }
-//     String::from_utf8(output.stdout).map_err(Into::into)
-// }
-
-async fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn std::error::Error>> {
-    println!("Fallback: using Puppeteer for URL: {}", url);
-
-    let result = timeout(
-        Duration::from_secs(15), // 👈 timeout after 15 seconds
-        tokio::process::Command::new("node")
-            .arg("/app/src/scrapers-js/backup-page-opener.js")
-            .arg(url)
-            .output(),
-    )
-    .await;
-
-    match result {
-        Ok(output_result) => {
-            let output = output_result?;
-            if !output.status.success() {
-                eprintln!("❌ Puppeteer stderr: {}", String::from_utf8_lossy(&output.stderr));
-                return Err(format!("Puppeteer failed: {:?}", output).into());
-            } else {
-                println!("✅ Puppeteer stdout: {}", String::from_utf8_lossy(&output.stdout));
-            }
-            Ok(String::from_utf8(output.stdout)?)
-        }
-        Err(_) => {
-            Err("❌ Puppeteer timed out".into())
-        }
-    }
-}
-
 fn truncate_utf8(input: &str, max_bytes: usize) -> &str {
     let mut end = max_bytes.min(input.len());
     while !input.is_char_boundary(end) {
@@ -97,13 +57,31 @@ fn truncate_utf8(input: &str, max_bytes: usize) -> &str {
     &input[..end]
 }
 
+async fn fallback_to_puppeteer(url: &str) -> Result<String, Box<dyn std::error::Error>> {
+    eprintln!("🧪 Triggering Puppeteer fallback for: {}", url);
+
+    let output = tokio::process::Command::new("node")
+        .arg("/app/src/scrapers-js/backup-page-opener.js")
+        .arg(url)
+        .output()
+        .await?;
+
+    let stdout = String::from_utf8_lossy(&output.stdout);
+    let stderr = String::from_utf8_lossy(&output.stderr);
+
+    if !output.status.success() {
+        eprintln!("❌ Puppeteer failed for {}:\nSTATUS: {:?}\nSTDERR:\n{}\nSTDOUT:\n{}", url, output.status, stderr, stdout);
+        return Err("Puppeteer fallback failed".into());
+    }
+
+    println!("✅ Puppeteer succeeded for {}:\n{}", url, stdout);
+    Ok(stdout.trim().to_string())
+}
+
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
     env_logger::init();
     log::info!("🔧 Starting scrape...");
-    log::debug!("This is debug info");
-    log::warn!("Something sketchy happened");
-    log::error!("Something failed");
 
     let json_data = fs::read_to_string("output/urls.json")?;
     let urls: Vec<String> = serde_json::from_str(&json_data)?;
@@ -114,10 +92,25 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
     let nats = async_nats::connect("nats:4222").await?;
     let reply_subject = format!("summarizer_response_{}", Uuid::new_v4());
-    let sub = Arc::new(Mutex::new(nats.subscribe(reply_subject.clone()).await?));
+    let mut subscriber = nats.subscribe(reply_subject.clone()).await?;
 
+    let tx_map: Arc<Mutex<HashMap<String, mpsc::Sender<Value>>>> = Arc::new(Mutex::new(HashMap::new()));
     let summaries: Arc<Mutex<HashMap<String, Value>>> = Arc::new(Mutex::new(HashMap::new()));
     let rust_failed_count = Arc::new(Mutex::new(0));
+
+    // Spawn listener
+    let tx_map_listener = tx_map.clone();
+    tokio::spawn(async move {
+        while let Some(msg) = subscriber.next().await {
+            if let Ok(resp_json) = serde_json::from_slice::<Value>(&msg.payload) {
+                if let Some(corr_id) = resp_json.get("correlation_id").and_then(|v| v.as_str()) {
+                    if let Some(sender) = tx_map_listener.lock().await.get(corr_id) {
+                        let _ = sender.send(resp_json.clone()).await;
+                    }
+                }
+            }
+        }
+    });
 
     let concurrency_limit = 30;
     futures::stream::iter(urls_for_loop.into_iter().enumerate())
@@ -127,52 +120,64 @@ async fn main() -> Result<(), Box<dyn Error>> {
             let reply_subject = reply_subject.clone();
             let summaries = summaries.clone();
             let fail_counter = rust_failed_count.clone();
-            let sub = sub.clone();
+            let tx_map = tx_map.clone();
 
             async move {
-                println!("Processing URL {}: {}", i, url);
+                println!("🌐 [{}] Processing: {}", i, url);
                 let body_result = match fetch_url(&url, &client).await {
                     Ok(body) => Ok(body),
-                    Err(_) => fallback_to_puppeteer(&url).await,
-                };
+                    Err(e) => {
+                        eprintln!("❌ URL {}: Fetch failed: {}", i, e);
+                        // fallback
+                        fallback_to_puppeteer(&url).await
+                    }
+                };                
 
                 match body_result {
                     Ok(body) => {
                         let clean_text = extract_main_content(&body);
                         let trimmed_text = truncate_utf8(&clean_text, 1_000_000);
                         let corr_id = Uuid::new_v4().to_string();
+                        let (tx, mut rx) = mpsc::channel::<Value>(SUMMARY_TYPES_EXPECTED);
+                        tx_map.lock().await.insert(corr_id.clone(), tx);
 
-                        // if let Err(e) = publish_summarization_job(&nats, &url, &clean_text, &reply_subject, &corr_id).await {
                         if let Err(e) = publish_summarization_job(&nats, &url, &trimmed_text, &reply_subject, &corr_id).await {
                             eprintln!("❌ Failed to publish job for {}: {}", url, e);
-                            let mut count = fail_counter.lock().await;
-                            *count += 1;
-                        } else {
-                            let mut seen_types = HashSet::new();
-                            while seen_types.len() < 2 {
-                                let mut sub_lock = sub.lock().await;
-                                if let Some(msg) = sub_lock.next().await {
-                                    if let Ok(resp_json) = serde_json::from_slice::<Value>(&msg.payload) {
-                                        if let Some(resp_corr_id) = resp_json.get("correlation_id").and_then(|v| v.as_str()) {
-                                            if resp_corr_id == corr_id {
-                                                if let Some(summary_type) = resp_json.get("summary_type").and_then(|v| v.as_str()) {
-                                                    let key = format!("{}:{}", url, summary_type);
-                                                    let clone = resp_json.clone();
-                                                    summaries.lock().await.insert(key, clone);
+                            *fail_counter.lock().await += 1;
+                            tx_map.lock().await.remove(&corr_id);
+                            return;
+                        }
 
-                                                    seen_types.insert(summary_type.to_string());
-                                                }
-                                            }
-                                        }
+                        let mut seen = HashSet::new();
+                        while seen.len() < SUMMARY_TYPES_EXPECTED {
+                            match timeout(Duration::from_secs(NATS_TIMEOUT_SECS), rx.recv()).await {
+                                Ok(Some(resp_json)) => {
+                                    if let Some(summary_type) = resp_json.get("summary_type").and_then(|v| v.as_str()) {
+                                        let key = format!("{}:{}", url, summary_type);
+                                        summaries.lock().await.insert(key, resp_json.clone());
+                                        seen.insert(summary_type.to_string());
                                     }
+                                }
+                                Ok(None) => {
+                                    eprintln!("🚫 Channel closed early for {}", url);
+                                    break;
+                                }
+                                Err(_) => {
+                                    eprintln!("⏰ Timeout waiting for response for {} (corr_id {})", url, corr_id);
+                                    break;
                                 }
                             }
                         }
+
+                        tx_map.lock().await.remove(&corr_id);
+
+                        if seen.len() < SUMMARY_TYPES_EXPECTED {
+                            log::warn!("⚠️ Incomplete summary types for {}", url);
+                            *fail_counter.lock().await += 1;
+                        }
                     }
-                    Err(e) => {
-                        eprintln!("❌ URL {}: Failed: {}", i, e);
-                        let mut count = fail_counter.lock().await;
-                        *count += 1;
+                    Err(_) => {
+                        *fail_counter.lock().await += 1;
                     }
                 }
             }
@@ -189,6 +194,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
         },
         "summaries": *sum_map
     });
+
     println!("SUMMARIES: {}", summary_result);
     fs::create_dir_all("output")?;
     fs::write("output/summaries.json", serde_json::to_string_pretty(&summary_result)?)?;
