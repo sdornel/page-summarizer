@@ -171,8 +171,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
                                     eprintln!("🚫 Channel closed early for {}", url);
                                     break;
                                 }
-                                Err(_) => {
-                                    eprintln!("⏰ Timeout waiting for response for {} (corr_id {})", url, corr_id);
+                                Err(e) => {
+                                    eprintln!("Error waiting for response for {} (corr_id {}). Error: {}", url, corr_id, e);
                                     break;
                                 }
                             }
