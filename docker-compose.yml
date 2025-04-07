@@ -3,8 +3,7 @@ services:
     image: docker.io/nats:latest
     container_name: nats
     ports:
-      - "127.0.0.1:4222:4222"   # NATS client connection
-      # - "127.0.0.1:8222:8222" # Optional: NATS web monitoring
+      - "127.0.0.1:4222:4222"
     networks:
       - deep-net
     restart: unless-stopped
@@ -15,11 +14,6 @@ services:
       - /tmp
     cap_drop:
       - ALL
-    healthcheck:
-      test: ["CMD", "nats", "ping", "-s", "nats://127.0.0.1:4222"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
 
   deep-research:
     build:
@@ -34,10 +28,12 @@ services:
     networks:
       - deep-net
     dns:
-    - 8.8.8.8
-    - 1.1.1.1
-    security_opt:
-      - no-new-privileges
+      - 8.8.8.8
+      - 1.1.1.1
+    environment:
+      RUST_LOG: ${RUST_LOG}
+      RUST_BACKTRACE: ${RUST_BACKTRACE}
+      QUERY: ${QUERY}
     read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=64m
@@ -45,11 +41,32 @@ services:
     shm_size: 256m
     cap_drop:
       - ALL
-    environment:
-      RUST_LOG: ${RUST_LOG}
-      RUST_BACKTRACE: ${RUST_BACKTRACE}
-      QUERY: ${QUERY}
+    security_opt:
+      - no-new-privileges
     entrypoint: ["/app/deep-research"]
+
+  summarizer-agent:
+    build:
+      context: .
+    image: deep-research
+    container_name: summarizer-agent
+    depends_on:
+      nats:
+        condition: service_started
+    entrypoint: ["python3", "src/agents/summarizer.py"]
+    networks:
+      - deep-net
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+      - /run
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges
 
 networks:
   deep-net:
