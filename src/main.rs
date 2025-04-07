@@ -17,7 +17,8 @@ mod page_cleaner;
 use page_cleaner::extract_main_content;
 
 const NATS_TIMEOUT_SECS: u64 = 15;
-const SUMMARY_TYPES_EXPECTED: usize = 2;
+// const SUMMARY_TYPES_EXPECTED: usize = 2;
+const SUMMARY_TYPES_EXPECTED: usize = 1;
 
 async fn fetch_url(url: &str, client: &Client) -> Result<String, Box<dyn Error>> {
     let headers = generate_random_headers(url)?;
@@ -57,15 +58,24 @@ fn truncate_utf8(input: &str, max_bytes: usize) -> &str {
     &input[..end]
 }
 
-async fn fallback_to_puppeteer(url: &str, correlation_id: &str) -> Result<(), Box<dyn std::error::Error>> {
+async fn fallback_to_puppeteer(
+    url: &str,
+    correlation_id: &str,
+    reply_subject: &str,
+) -> Result<(), Box<dyn std::error::Error>> {
     eprintln!("🧪 Triggering Puppeteer fallback for: {}", url);
 
-    let _ = tokio::process::Command::new("node")
+    let status = tokio::process::Command::new("node")
         .arg("/app/src/scrapers-js/backup-page-opener.js")
         .arg(url)
         .arg(correlation_id)
-        .spawn();
+        .arg(reply_subject)
+        .status()
+        .await?;
 
+    if !status.success() {
+        eprintln!("❌ Puppeteer script failed for {}", url);
+    }
     Ok(())
 }
 
@@ -121,7 +131,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
                     Err(e) => {
                         eprintln!("❌ URL {}: Fetch failed: {}", i, e);
                         // fallback
-                        if let Err(e) = fallback_to_puppeteer(&url, &corr_id).await {
+                        if let Err(e) = fallback_to_puppeteer(&url, &corr_id, &reply_subject).await {
                             eprintln!("⚠️ Puppeteer fallback failed: {}", e);
                         }
                         Err(e)
