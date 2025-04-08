@@ -22,6 +22,14 @@ pub fn extract_main_content(html: &str) -> String {
         Selector::parse("aside").unwrap(),
         Selector::parse("script").unwrap(),
         Selector::parse("style").unwrap(),
+        Selector::parse("iframe").unwrap(),
+        Selector::parse("noscript").unwrap(),
+        Selector::parse("form").unwrap(),
+        Selector::parse("input").unwrap(),
+        Selector::parse("button").unwrap(),
+        Selector::parse("select").unwrap(),
+        Selector::parse("option").unwrap(),
+        Selector::parse("label").unwrap(),
     ];
 
     let mut content_blocks = Vec::new();
