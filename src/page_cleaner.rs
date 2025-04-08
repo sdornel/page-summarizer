@@ -12,13 +12,16 @@ pub fn extract_main_content(html: &str) -> String {
         Selector::parse("p").unwrap(),
         Selector::parse("pre").unwrap(),
         Selector::parse("code").unwrap(),
+        Selector::parse("article").unwrap(),
+        Selector::parse("section").unwrap(),
+        Selector::parse("div").unwrap(),
+        Selector::parse("blockquote").unwrap(),
     ];
 
     // Selectors for elements to exclude.
     let exclude_selectors = vec![
         Selector::parse("nav").unwrap(),
         Selector::parse("footer").unwrap(),
-        Selector::parse("header").unwrap(),
         Selector::parse("aside").unwrap(),
         Selector::parse("script").unwrap(),
         Selector::parse("style").unwrap(),
