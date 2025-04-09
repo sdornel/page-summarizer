@@ -33,26 +33,26 @@ async fn fetch_url(url: &str, client: &Client) -> Result<String, Box<dyn Error>>
     Ok(body)
 }
 
-async fn publish_summarization_job(
-    nats: &NatsConnection,
-    url: &str,
-    text: &str,
-    reply_subject: &str,
-    corr_id: &str,
-) -> Result<(), Box<dyn Error>> {
-    let payload = json!({
-        "query": url,
-        "url": url,
-        "text": text,
-        "correlation_id": corr_id,
-        "reply_to": reply_subject
-    })
-    .to_string();
+// async fn publish_summarization_job(
+//     nats: &NatsConnection,
+//     url: &str,
+//     text: &str,
+//     reply_subject: &str,
+//     corr_id: &str,
+// ) -> Result<(), Box<dyn Error>> {
+//     let payload = json!({
+//         "query": url,
+//         "url": url,
+//         "text": text,
+//         "correlation_id": corr_id,
+//         "reply_to": reply_subject
+//     })
+//     .to_string();
 
-    nats.publish("summarization_job", payload.into()).await?;
-    nats.flush().await?;
-    Ok(())
-}
+//     nats.publish("summarization_job", payload.into()).await?;
+//     nats.flush().await?;
+//     Ok(())
+// }
 
 fn truncate_utf8(input: &str, max_bytes: usize) -> &str {
     let mut end = max_bytes.min(input.len());
