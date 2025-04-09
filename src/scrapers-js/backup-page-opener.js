@@ -46,7 +46,7 @@ const languages = faker.helpers.arrayElement(languageOptions);
     await page.setUserAgent(faker.internet.userAgent());
     await page.evaluateOnNewDocument((langs) => {
         Object.defineProperty(navigator, "languages", { get: () => langs });
-    }, lang);
+    }, languages);
   
 await page.setRequestInterception(true);
 
@@ -82,6 +82,10 @@ nc.publish("summarization_job", sc.encode(JSON.stringify({
   summary_type: "fallback",
   status: "success"
 })));
+
+// not needed?
+console.log(`📤 JS: Sent fallback job for ${url}`);
+await nc.flush();
 
 await nc.drain();
 await browser.close();
