@@ -83,9 +83,9 @@ nc.publish("summarization_job", sc.encode(JSON.stringify({
   status: "success"
 })));
 
-// not needed?
-console.log(`📤 JS: Sent fallback job for ${url}`);
-await nc.flush();
+// // not needed?
+// console.log(`📤 JS: Sent fallback job for ${url}`);
+// await nc.flush();
 
 await nc.drain();
 await browser.close();
