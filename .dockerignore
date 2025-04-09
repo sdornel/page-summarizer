@@ -2,9 +2,8 @@
 **/[._]*
 **/*~
 
-# Development artifacts
 /target
-<!-- **/node_modules -->
+**/node_modules
 **/__pycache__
 **/*.py[cod]
 **/*.egg-info
@@ -12,7 +11,8 @@
 **/*.dll
 **/*.exe
 
-# Environment/config
+.puppeteer-cache
+
 .env
 .env.*
 *.secret
@@ -20,36 +20,30 @@
 *.key
 docker-compose*.yml
 
-# Build/test outputs
 /dist
 /build
 /coverage
 *.log
 *.tmp
 
-# IDE/editor
 .vscode
 .idea
 .project
 *.swp
 *.swo
 
-# Documentation
 /docs
 /examples
 /tests
 /benchmarks
 
-# Version control
 .git
 .gitignore
 .gitmodules
 
-# Platform-specific
 .DS_Store
 Thumbs.db
 
-# Unnecessary files
 *.md
 LICENSE
 NOTICE

@@ -1,30 +1,37 @@
 services:
   nats:
-    image: nats
+    image: docker.io/nats:latest
+    container_name: nats
     ports:
       - "127.0.0.1:4222:4222"
     networks:
       - deep-net
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges
     read_only: true
     tmpfs:
       - /tmp
     cap_drop:
       - ALL
-    security_opt:
-      - no-new-privileges
 
   summarizer-agent:
     build:
       context: .
-      dockerfile: Dockerfile.python
-    networks:
-      - deep-net
+    image: deep-research
+    container_name: summarizer-agent
     depends_on:
       nats:
         condition: service_started
+    entrypoint: ["python3", "src/agents/summarizer.py"]
+    networks:
+      - deep-net
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     read_only: true
     tmpfs:
-      - /tmp
+      - /tmp:rw,noexec,nosuid,size=64m
       - /run
     cap_drop:
       - ALL
@@ -34,26 +41,32 @@ services:
   deep-research:
     build:
       context: .
-      dockerfile: Dockerfile.rust
-    networks:
-      - deep-net
+    image: deep-research
+    container_name: deep-research
     depends_on:
       nats:
         condition: service_started
     volumes:
       - ./output:/app/output:Z
+    networks:
+      - deep-net
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     environment:
+      RUST_LOG: ${RUST_LOG}
+      RUST_BACKTRACE: ${RUST_BACKTRACE}
       QUERY: ${QUERY}
-      RUST_LOG: ${RUST_LOG:-info}
-      RUST_BACKTRACE: ${RUST_BACKTRACE:-full}
     read_only: true
     tmpfs:
-      - /tmp
+      - /tmp:rw,noexec,nosuid,size=64m
       - /run
+    shm_size: 256m
     cap_drop:
       - ALL
     security_opt:
       - no-new-privileges
+    entrypoint: ["/app/deep-research"]
 
 networks:
   deep-net:
