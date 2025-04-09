@@ -21,3 +21,15 @@ Present both a list of key excerpts (verbatim quotes or critical pieces) and a s
 – This offloads the heavy computation to remote hardware while your Rust scraper continues working quickly on your local machine.
 
 – Optimize your asynchronous code so that the scraping and summarization are fully parallelized.
+
+    Read only filesystem
+    Non-root container user
+    Root remapping
+    AppArmor/SELinux policies
+    Egress gateway tech
+
+
+node_modules can be read only because it's only written during container creation
+^ two step process (one to build and one to execute)
+
+for stuff that absolutely does need to stay read/write, we can do things like force non-execute. doesn't work too well for scripting languages, but works great for compiled languages

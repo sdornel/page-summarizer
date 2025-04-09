@@ -15,6 +15,29 @@ services:
     cap_drop:
       - ALL
 
+  summarizer-agent:
+    build:
+      context: .
+    image: deep-research
+    container_name: summarizer-agent
+    depends_on:
+      nats:
+        condition: service_started
+    entrypoint: ["python3", "src/agents/summarizer.py"]
+    networks:
+      - deep-net
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+      - /run
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges
+
   deep-research:
     build:
       context: .
@@ -44,29 +67,6 @@ services:
     security_opt:
       - no-new-privileges
     entrypoint: ["/app/deep-research"]
-
-  summarizer-agent:
-    build:
-      context: .
-    image: deep-research
-    container_name: summarizer-agent
-    depends_on:
-      nats:
-        condition: service_started
-    entrypoint: ["python3", "src/agents/summarizer.py"]
-    networks:
-      - deep-net
-    dns:
-      - 8.8.8.8
-      - 1.1.1.1
-    read_only: true
-    tmpfs:
-      - /tmp:rw,noexec,nosuid,size=64m
-      - /run
-    cap_drop:
-      - ALL
-    security_opt:
-      - no-new-privileges
 
 networks:
   deep-net:

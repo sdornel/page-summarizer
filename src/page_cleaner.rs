@@ -12,16 +12,24 @@ pub fn extract_main_content(html: &str) -> String {
         Selector::parse("p").unwrap(),
         Selector::parse("pre").unwrap(),
         Selector::parse("code").unwrap(),
+        Selector::parse("blockquote").unwrap(),
     ];
 
     // Selectors for elements to exclude.
     let exclude_selectors = vec![
         Selector::parse("nav").unwrap(),
         Selector::parse("footer").unwrap(),
-        Selector::parse("header").unwrap(),
         Selector::parse("aside").unwrap(),
         Selector::parse("script").unwrap(),
         Selector::parse("style").unwrap(),
+        Selector::parse("iframe").unwrap(),
+        Selector::parse("noscript").unwrap(),
+        Selector::parse("form").unwrap(),
+        Selector::parse("input").unwrap(),
+        Selector::parse("button").unwrap(),
+        Selector::parse("select").unwrap(),
+        Selector::parse("option").unwrap(),
+        Selector::parse("label").unwrap(),
     ];
 
     let mut content_blocks = Vec::new();
