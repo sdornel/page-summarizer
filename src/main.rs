@@ -2,7 +2,7 @@ use futures::stream::StreamExt;
 use async_nats::Client as NatsConnection;
 use reqwest::Client;
 use serde_json::{json, Value};
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 use std::error::Error;
 use std::fs;
 use std::sync::Arc;
@@ -15,10 +15,13 @@ mod generate_random_headers;
 use generate_random_headers::generate_random_headers;
 mod page_cleaner;
 use page_cleaner::extract_main_content;
+mod tfidf_summarizer;
+use tfidf_summarizer::summarize_tfidf;
 
-const NATS_TIMEOUT_SECS: u64 = 15;
-// const SUMMARY_TYPES_EXPECTED: usize = 2;
-const SUMMARY_TYPES_EXPECTED: usize = 1;
+// const NATS_TIMEOUT_SECS: u64 = 15;
+// // const SUMMARY_TYPES_EXPECTED: usize = 2;
+// const SUMMARY_TYPES_EXPECTED: usize = 1;
+const SUMMARY_SENTENCE_COUNT: usize = 5;
 
 async fn fetch_url(url: &str, client: &Client) -> Result<String, Box<dyn Error>> {
     let headers = generate_random_headers(url)?;
@@ -47,6 +50,7 @@ async fn publish_summarization_job(
     .to_string();
 
     nats.publish("summarization_job", payload.into()).await?;
+    nats.flush().await?;
     Ok(())
 }
 
@@ -79,6 +83,22 @@ async fn fallback_to_puppeteer(
     Ok(())
 }
 
+// just a placeholder for now
+async fn wait_for_summarizer_ready(nats: &NatsConnection) -> Result<(), Box<dyn Error>> {
+    println!("⏳ Waiting for summarizer-agent to be ready...");
+
+    let mut health_sub = nats.subscribe("health.summarizer").await?;
+    let agent_ready = timeout(Duration::from_secs(5), health_sub.next()).await;
+
+    match agent_ready {
+        Ok(Some(_msg)) => {
+            println!("✅ Summarizer agent is ready");
+            Ok(())
+        }
+        _ => Err("Summarizer agent did not become ready in time".into()),
+    }
+}
+
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
     env_logger::init();
@@ -92,7 +112,10 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let client = Client::builder().user_agent(spoof_ua()).build()?;
 
     let nats = async_nats::connect("nats:4222").await?;
+    wait_for_summarizer_ready(&nats).await?;
+
     let reply_subject = format!("summarizer_response_{}", Uuid::new_v4());
+    println!("🔗 NATS reply subject: {}", reply_subject);
     let mut subscriber = nats.subscribe(reply_subject.clone()).await?;
 
     let tx_map: Arc<Mutex<HashMap<String, mpsc::Sender<Value>>>> = Arc::new(Mutex::new(HashMap::new()));
@@ -114,14 +137,13 @@ async fn main() -> Result<(), Box<dyn Error>> {
     });
 
     let concurrency_limit = 30;
+    let reply_subject_cloned = reply_subject.clone();
     futures::stream::iter(urls_for_loop.into_iter().enumerate())
         .for_each_concurrent(concurrency_limit, |(i, url)| {
             let client = client.clone();
-            let nats = nats.clone();
-            let reply_subject = reply_subject.clone();
             let summaries = summaries.clone();
             let fail_counter = rust_failed_count.clone();
-            let tx_map = tx_map.clone();
+            let reply_subject = reply_subject_cloned.clone();
 
             async move {
                 println!("🌐 [{}] Processing: {}", i, url);
@@ -142,50 +164,22 @@ async fn main() -> Result<(), Box<dyn Error>> {
                     Ok(body) => {
                         let clean_text = extract_main_content(&body);
                         let trimmed_text = truncate_utf8(&clean_text, 1_000_000);
+                        let corr_id = Uuid::new_v4().to_string();
 
-                        let (tx, mut rx) = mpsc::channel::<Value>(SUMMARY_TYPES_EXPECTED);
-                        tx_map.lock().await.insert(corr_id.clone(), tx);
+                        let tfidf_sentences = summarize_tfidf(trimmed_text, SUMMARY_SENTENCE_COUNT);
+                        let tfidf_summary = tfidf_sentences.join(". ") + ".";
 
-                        if let Err(e) = publish_summarization_job(&nats, &url, &trimmed_text, &reply_subject, &corr_id).await {
-                            eprintln!("❌ Failed to publish job for {}: {}", url, e);
-                            *fail_counter.lock().await += 1;
-                            tx_map.lock().await.remove(&corr_id);
-                            return;
-                        }
+                        let summary_json = json!({
+                            "correlation_id": corr_id,
+                            "summary_type": "tfidf",
+                            "summary": tfidf_summary
+                        });
 
-                        let mut seen = HashSet::new();
-                        while seen.len() < SUMMARY_TYPES_EXPECTED {
-                            match timeout(Duration::from_secs(NATS_TIMEOUT_SECS), rx.recv()).await {
-                                Ok(Some(resp_json)) => {
-                                    let status = resp_json.get("status").and_then(|v| v.as_str()).unwrap_or("failed");
-
-                                    if let Some(summary_type) = resp_json.get("summary_type").and_then(|v| v.as_str()) {
-                                        let key = format!("{}:{}", url, summary_type);
-                                        summaries.lock().await.insert(key, resp_json.clone());
-                                        seen.insert(summary_type.to_string());
-                                    } else {
-                                        eprintln!("⚠️ Summary response for {} missing summary_type", url);
-                                    }
-                                }
-                                Ok(None) => {
-                                    eprintln!("🚫 Channel closed early for {}", url);
-                                    break;
-                                }
-                                Err(e) => {
-                                    eprintln!("Error waiting for response for {} (corr_id {}). Error: {}", url, corr_id, e);
-                                    break;
-                                }
-                            }
-                        }
-
-                        tx_map.lock().await.remove(&corr_id);
-
-                        if seen.len() < SUMMARY_TYPES_EXPECTED {
-                            log::warn!("⚠️ Incomplete summary types for {}", url);
-                            *fail_counter.lock().await += 1;
-                        }
+                        let key = format!("{}:tfidf", url);
+                        summaries.lock().await.insert(key, summary_json);
                     }
-                    Err(_) => {
+                    Err(e) => {
+                        eprintln!("❌ Failed to process URL {}: {}", url, e);
                         *fail_counter.lock().await += 1;
                     }
                 }
