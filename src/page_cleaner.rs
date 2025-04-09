@@ -12,9 +12,6 @@ pub fn extract_main_content(html: &str) -> String {
         Selector::parse("p").unwrap(),
         Selector::parse("pre").unwrap(),
         Selector::parse("code").unwrap(),
-        Selector::parse("article").unwrap(),
-        Selector::parse("section").unwrap(),
-        Selector::parse("div").unwrap(),
         Selector::parse("blockquote").unwrap(),
     ];
 
