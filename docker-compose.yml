@@ -1,59 +1,77 @@
 services:
   nats:
-    image: nats
+    image: docker.io/nats:latest
+    container_name: nats
     ports:
       - "127.0.0.1:4222:4222"
     networks:
       - deep-net
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges
     read_only: true
     tmpfs:
       - /tmp
     cap_drop:
       - ALL
-    security_opt:
-      - no-new-privileges
 
   summarizer-agent:
     build:
       context: .
       dockerfile: Dockerfile.python
-    networks:
-      - deep-net
+    container_name: summarizer-agent
     depends_on:
       nats:
         condition: service_started
+    entrypoint: ["python3", "src/agents/summarizer.py"]
+    networks:
+      - deep-net
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     read_only: true
     tmpfs:
-      - /tmp
+      - /tmp:rw,noexec,nosuid,size=64m
       - /run
     cap_drop:
       - ALL
     security_opt:
       - no-new-privileges
+    # Robust healthcheck using CMD-SHELL to match the full process command.
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep -f 'python3 src/agents/summarizer.py' || exit 1"]
+      interval: 10s      # Check every 10 seconds.
+      timeout: 5s        # Allow 5 seconds for the check.
+      retries: 6         # Up to ~60s total waiting time.
 
   deep-research:
     build:
       context: .
       dockerfile: Dockerfile.rust
-    networks:
-      - deep-net
+    container_name: deep-research
     depends_on:
       nats:
         condition: service_started
+      summarizer-agent:
+        condition: service_healthy
     volumes:
-      - ./output:/app/output:Z
+      - ./:/app            # Mount your project for live reloading.
+      - ./output:/app/output:Z   # Persist output if needed.
     environment:
       QUERY: ${QUERY}
       RUST_LOG: ${RUST_LOG:-info}
       RUST_BACKTRACE: ${RUST_BACKTRACE:-full}
-    read_only: true
+    networks:
+      - deep-net
     tmpfs:
-      - /tmp
+      - /tmp:rw,noexec,nosuid,size=64m
       - /run
     cap_drop:
       - ALL
     security_opt:
       - no-new-privileges
+    # Launch deep-research with cargo-watch.
+    command: ["sh", "-c", "cargo watch -x run"]
 
 networks:
   deep-net:

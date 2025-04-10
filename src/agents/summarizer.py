@@ -100,9 +100,52 @@
 
 
 # placeholder
+# import asyncio
+# import json
+# import nats
+
+# async def main():
+#     nc = await nats.connect("nats://nats:4222")
+#     js = nc.jetstream()
+
+#     async def handler(msg):
+#         data = json.loads(msg.data.decode())
+#         print(f"🤖 Got summarization job: {data.get('query', 'unknown')}")
+
+#         reply_subject = data.get("reply_to")
+#         if reply_subject:
+#             response = {
+#                 "correlation_id": data.get("correlation_id"),
+#                 "summary_type": "placeholder",
+#                 "summary": f"(Placeholder summary for: {data.get('query')})"
+#             }
+#             await nc.publish(reply_subject, json.dumps(response).encode())
+#             print(f"✅ Replied to: {reply_subject}")
+
+#     await nc.subscribe("summarization_job", cb=handler)
+
+#     # Send ready message
+#     await nc.publish("health.summarizer", b"ready")
+#     print("🟢 summarizer.py placeholder ready")
+
+#     # Keep running
+#     while True:
+#         await asyncio.sleep(1)
+
+# if __name__ == "__main__":
+#     asyncio.run(main())
+
+
+
+
 import asyncio
 import json
 import nats
+
+async def health_request_handler(msg):
+    # Immediately reply with "ready" (or any token you choose).
+    await msg.respond(b"ready")
+    print("🟢 Health request received and responded.")
 
 async def main():
     nc = await nats.connect("nats://nats:4222")
@@ -111,7 +154,6 @@ async def main():
     async def handler(msg):
         data = json.loads(msg.data.decode())
         print(f"🤖 Got summarization job: {data.get('query', 'unknown')}")
-
         reply_subject = data.get("reply_to")
         if reply_subject:
             response = {
@@ -122,13 +164,16 @@ async def main():
             await nc.publish(reply_subject, json.dumps(response).encode())
             print(f"✅ Replied to: {reply_subject}")
 
+    # Subscribe to the job subject.
     await nc.subscribe("summarization_job", cb=handler)
+    # Subscribe to the health request subject.
+    await nc.subscribe("health.summarizer.request", cb=health_request_handler)
 
-    # Send ready message
+    # Optionally still publish a one-time health message.
     await nc.publish("health.summarizer", b"ready")
     print("🟢 summarizer.py placeholder ready")
 
-    # Keep running
+    # Keep the agent running.
     while True:
         await asyncio.sleep(1)
 

@@ -36,5 +36,7 @@ export RUST_BACKTRACE="${RUST_BACKTRACE:-full}"
 
 mkdir -p ./output && touch ./output/urls.json ./output/summaries.json
 
+# node src/scrapers-js/search-engine-scraper.js "$QUERY" # required unless you already have url array inside urls.json
+
 # 👇 No need to inline QUERY=... docker compose, just rely on export above
 docker compose up --build
