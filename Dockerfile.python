@@ -1,0 +1,17 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install procps to get pgrep, then clean up.
+RUN apt-get update && apt-get install -y procps && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy requirements and install Python dependencies.
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy your code; ensure src/agents/summarizer.py is in the right location.
+COPY . .
+
+# Default command to run your summarizer agent.
+CMD ["python3", "src/agents/summarizer.py"]

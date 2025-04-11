@@ -33,3 +33,6 @@ node_modules can be read only because it's only written during container creatio
 ^ two step process (one to build and one to execute)
 
 for stuff that absolutely does need to stay read/write, we can do things like force non-execute. doesn't work too well for scripting languages, but works great for compiled languages
+
+add a "deep think feature" that uses another AI agent to see if urls in a
+page are worth opening as well. check that they aren't already in your list though

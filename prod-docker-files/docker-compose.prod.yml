@@ -18,7 +18,7 @@ services:
   summarizer-agent:
     build:
       context: .
-      dockerfile: Dockerfile.python
+    image: deep-research
     container_name: summarizer-agent
     depends_on:
       nats:
@@ -37,41 +37,36 @@ services:
       - ALL
     security_opt:
       - no-new-privileges
-    # Robust healthcheck using CMD-SHELL to match the full process command.
-    healthcheck:
-      test: ["CMD-SHELL", "pgrep -f 'python3 src/agents/summarizer.py' || exit 1"]
-      interval: 10s      # Check every 10 seconds.
-      timeout: 5s        # Allow 5 seconds for the check.
-      retries: 6         # Up to ~60s total waiting time.
 
   deep-research:
     build:
       context: .
-      dockerfile: Dockerfile.rust
+    image: deep-research
     container_name: deep-research
     depends_on:
       nats:
         condition: service_started
-      summarizer-agent:
-        condition: service_healthy
     volumes:
-      - ./:/app            # Mount your project for live reloading.
-      - ./output:/app/output:Z   # Persist output if needed.
-    environment:
-      QUERY: ${QUERY}
-      RUST_LOG: ${RUST_LOG:-info}
-      RUST_BACKTRACE: ${RUST_BACKTRACE:-full}
+      - ./output:/app/output:Z
     networks:
       - deep-net
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    environment:
+      RUST_LOG: ${RUST_LOG}
+      RUST_BACKTRACE: ${RUST_BACKTRACE}
+      QUERY: ${QUERY}
+    read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=64m
       - /run
+    shm_size: 256m
     cap_drop:
       - ALL
     security_opt:
       - no-new-privileges
-    # Launch deep-research with cargo-watch.
-    command: ["sh", "-c", "cargo watch -x run"]
+    entrypoint: ["/app/deep-research"]
 
 networks:
   deep-net:

@@ -1,0 +1,23 @@
+FROM docker.io/rust:1.85-bookworm
+
+# Install essential tools, Node.js, and Chromium.
+RUN apt-get update && apt-get install -y \
+    curl \
+    gnupg \
+    chromium \
+    && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY package.json package-lock.json* ./
+# Install Chrome for Puppeteer fallback.
+# This command uses npx to install the browser into the image.
+RUN npm install && npx puppeteer browsers install chrome
+
+# Install cargo-watch for live reloading during development.
+RUN cargo install cargo-watch
+
+# Use cargo-watch to rebuild/run your Rust application on changes.
+CMD ["cargo", "watch", "-x", "run"]

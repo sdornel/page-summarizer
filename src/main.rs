@@ -23,6 +23,9 @@ use tfidf_summarizer::summarize_tfidf;
 // const SUMMARY_TYPES_EXPECTED: usize = 1;
 const SUMMARY_SENTENCE_COUNT: usize = 5;
 
+use async_nats::Message;
+use bytes::Bytes;
+
 async fn fetch_url(url: &str, client: &Client) -> Result<String, Box<dyn Error>> {
     let headers = generate_random_headers(url)?;
     let response = client.get(url).headers(headers).send().await?;
@@ -33,26 +36,26 @@ async fn fetch_url(url: &str, client: &Client) -> Result<String, Box<dyn Error>>
     Ok(body)
 }
 
-async fn publish_summarization_job(
-    nats: &NatsConnection,
-    url: &str,
-    text: &str,
-    reply_subject: &str,
-    corr_id: &str,
-) -> Result<(), Box<dyn Error>> {
-    let payload = json!({
-        "query": url,
-        "url": url,
-        "text": text,
-        "correlation_id": corr_id,
-        "reply_to": reply_subject
-    })
-    .to_string();
+// async fn publish_summarization_job(
+//     nats: &NatsConnection,
+//     url: &str,
+//     text: &str,
+//     reply_subject: &str,
+//     corr_id: &str,
+// ) -> Result<(), Box<dyn Error>> {
+//     let payload = json!({
+//         "query": url,
+//         "url": url,
+//         "text": text,
+//         "correlation_id": corr_id,
+//         "reply_to": reply_subject
+//     })
+//     .to_string();
 
-    nats.publish("summarization_job", payload.into()).await?;
-    nats.flush().await?;
-    Ok(())
-}
+//     nats.publish("summarization_job", payload.into()).await?;
+//     nats.flush().await?;
+//     Ok(())
+// }
 
 fn truncate_utf8(input: &str, max_bytes: usize) -> &str {
     let mut end = max_bytes.min(input.len());
@@ -84,18 +87,36 @@ async fn fallback_to_puppeteer(
 }
 
 // just a placeholder for now
-async fn wait_for_summarizer_ready(nats: &NatsConnection) -> Result<(), Box<dyn Error>> {
-    println!("⏳ Waiting for summarizer-agent to be ready...");
+// async fn wait_for_summarizer_ready(nats: &NatsConnection) -> Result<(), Box<dyn Error>> {
+//     println!("⏳ Waiting for summarizer-agent to be ready...");
 
-    let mut health_sub = nats.subscribe("health.summarizer").await?;
-    let agent_ready = timeout(Duration::from_secs(5), health_sub.next()).await;
+//     let mut health_sub = nats.subscribe("health.summarizer").await?;
+//     // let agent_ready = timeout(Duration::from_secs(5), health_sub.next()).await;
+//     let agent_ready = timeout(Duration::from_secs(100), health_sub.next()).await;
 
-    match agent_ready {
-        Ok(Some(_msg)) => {
-            println!("✅ Summarizer agent is ready");
-            Ok(())
-        }
-        _ => Err("Summarizer agent did not become ready in time".into()),
+//     match agent_ready {
+//         Ok(Some(_msg)) => {
+//             println!("✅ Summarizer agent is ready");
+//             Ok(())
+//         }
+//         _ => Err("Summarizer agent did not become ready in time".into()),
+//     }
+// }
+async fn wait_for_summarizer_ready(nats: &async_nats::Client) -> Result<(), Box<dyn std::error::Error>> {
+    println!("⏳ Waiting for summarizer-agent to be ready (via request reply)...");
+
+    // Send a request with a Bytes payload.
+    let response = timeout(
+        Duration::from_secs(5),
+        nats.request("health.summarizer.request", Bytes::from_static(b"health?"))
+    ).await??;
+
+    // Check the reply using the 'payload' field.
+    if response.payload == Bytes::from_static(b"ready") {
+        println!("✅ Summarizer agent is ready (reply received)");
+        Ok(())
+    } else {
+        Err("Summarizer agent did not respond with 'ready'".into())
     }
 }
 
