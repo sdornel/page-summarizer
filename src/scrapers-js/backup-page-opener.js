@@ -67,7 +67,7 @@ await page.evaluateOnNewDocument((langs) => {
     Object.defineProperty(navigator, "plugins", { get: () => [1, 2, 3, 4, 5] });
 }, languages);
 
-await page.goto(url, { waitUntil: "domcontentloaded", timeout: 10000 });
+await page.goto(url, { waitUntil: "domcontentloaded", timeout: 5000 });
 const text = await page.evaluate(() => document.body.innerText);
 
 const nc = await connect({ servers: "nats://nats:4222" });
