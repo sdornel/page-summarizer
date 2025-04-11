@@ -219,10 +219,9 @@ async fn main() -> Result<(), Box<dyn Error>> {
         "summaries": *sum_map
     });
 
-    // println!("SUMMARIES: {}", summary_result);
     fs::create_dir_all("output")?;
     fs::write("output/summaries.json", serde_json::to_string_pretty(&summary_result)?)?;
-    // println!("Saved summaries to output/summaries.json");
+    println!("Saved summaries to output/summaries.json");
 
     Ok(())
 }

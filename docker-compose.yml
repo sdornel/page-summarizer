@@ -70,8 +70,8 @@ services:
       - ALL
     security_opt:
       - no-new-privileges
-    # Launch deep-research with cargo-watch.
-    command: ["sh", "-c", "cargo watch -x run"]
+    # command: ["sh", "-c", "cargo watch -x run"]
+    command: ["sh", "-c", "cargo-watch -i 'output/*' -x run"]
 
 networks:
   deep-net:
