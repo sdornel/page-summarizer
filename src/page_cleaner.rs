@@ -30,6 +30,7 @@ pub fn extract_main_content(html: &str) -> String {
         Selector::parse("select").unwrap(),
         Selector::parse("option").unwrap(),
         Selector::parse("label").unwrap(),
+        Selector::parse("img").unwrap(),
     ];
 
     let mut content_blocks = Vec::new();

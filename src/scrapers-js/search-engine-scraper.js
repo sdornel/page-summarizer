@@ -61,7 +61,7 @@ const outputFile = "output/urls.json";
       const pageLinks = await page.evaluate(() => {
         return Array.from(
           document.querySelectorAll('a[data-handled-by-react="true"]')
-        ).map(a => a.href);
+        ).map(a => a.href); // .filter(a => !a.href.includes("https://youtube"));
       });
       console.log(`   Found ${pageLinks.length} links in total`);
       allResults.push(...pageLinks);

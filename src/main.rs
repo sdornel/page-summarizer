@@ -17,6 +17,8 @@ mod page_cleaner;
 use page_cleaner::extract_main_content;
 mod tfidf_summarizer;
 use tfidf_summarizer::summarize_tfidf;
+mod agents;
+use agents::proxy_summarizer::{summarize_with_proxy, SummarizeRequest};
 
 // const NATS_TIMEOUT_SECS: u64 = 15;
 // // const SUMMARY_TYPES_EXPECTED: usize = 2;
@@ -143,7 +145,6 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let summaries: Arc<Mutex<HashMap<String, Value>>> = Arc::new(Mutex::new(HashMap::new()));
     let rust_failed_count = Arc::new(Mutex::new(0));
 
-    // Spawn listener
     let tx_map_listener = tx_map.clone();
     tokio::spawn(async move {
         while let Some(msg) = subscriber.next().await {
@@ -173,30 +174,40 @@ async fn main() -> Result<(), Box<dyn Error>> {
                     Ok(body) => Ok(body),
                     Err(e) => {
                         eprintln!("❌ URL {}: Fetch failed: {}", i, e);
-                        // fallback
                         if let Err(e) = fallback_to_puppeteer(&url, &corr_id, &reply_subject).await {
                             eprintln!("⚠️ Puppeteer fallback failed: {}", e);
                         }
                         Err(e)
                     }
-                };              
+                };
 
                 match body_result {
                     Ok(body) => {
                         let clean_text = extract_main_content(&body);
                         let trimmed_text = truncate_utf8(&clean_text, 1_000_000);
-                        let corr_id = Uuid::new_v4().to_string();
 
                         let tfidf_sentences = summarize_tfidf(trimmed_text, SUMMARY_SENTENCE_COUNT);
                         let tfidf_summary = tfidf_sentences.join(". ") + ".";
 
+                        let proxy_summary = match summarize_with_proxy(SummarizeRequest {
+                            text: trimmed_text.to_string(),
+                            model: Some("deepseek-chat".to_string())
+                        }).await {
+                            Ok(s) => s,
+                            Err(e) => {
+                                eprintln!("⚠️ Proxy summarization failed: {}", e);
+                                "(Proxy failed)".to_string()
+                            }
+                        };
+
                         let summary_json = json!({
                             "correlation_id": corr_id,
-                            "summary_type": "tfidf",
-                            "summary": tfidf_summary
+                            "summary_type": "combined",
+                            "tfidf_summary": tfidf_summary,
+                            "proxy_summary": proxy_summary
                         });
 
-                        let key = format!("{}:tfidf", url);
+                        let key = format!("{}:combined", url);
                         summaries.lock().await.insert(key, summary_json);
                     }
                     Err(e) => {
